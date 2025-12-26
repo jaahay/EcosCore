@@ -3,20 +3,21 @@
 #include <string>
 #include <vector>
 
-#include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/event/EventHierarchyHelpers.h"
+#include "EcosCore/event/core/EventDispatcher.h"
+#include "EcosCore/event/helpers/EventHierarchyHelpers.h"
 #include "EcosCore/event/util/LoggingCallback.h"
 #include "EcosCore/event/util/MetricsCallback.h"
 #include "EcosCore/event/util/TimingCallback.h"
 #include "EcosCore/event/util/DebugLogger.h"
-#include "EcosCore/event/CallbackGuard.h"
-#include "EcosCore/event/EventContext.h"
-#include "EcosCore/event/DefaultFallbackCallbacks.h"
+#include "EcosCore/event/core/CallbackGuard.h"
+#include "EcosCore/event/core/EventContext.h"
+#include "EcosCore/event/util/DefaultFallbackCallbacks.h"
 #include "EcosCore/state/BaseState.h"
 #include "EcosCore/state/PriorityState.h"
 
 using namespace ecoscore::event;
 using namespace ecoscore::state;
+using namespace ecoscore::event::core;
 using namespace ecoscore::event::util;
 
 // Define event hierarchy

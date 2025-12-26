@@ -3,13 +3,13 @@
 #define ECOSCORE_EVENT_EVENT_DISPATCHER_H
 
 #include "EcosCore/event/core/CallbackPhaseState.h"
-#include "EcosCore/event/core/CallbackPriorityState.h"
-#include "EcosCore/event/core/Event.h"
-#include "EcosCore/event/core/EventHierarchy.h"
+#include "EcosCore/state/PriorityState.h"
+#include "EcosCore/event/Event.h"
+#include "EcosCore/event/EventHierarchy.h"
 #include "EcosCore/event/core/EventContext.h"
 #include "EcosCore/state/BaseState.h"
-#include "CallbackManager.h"
-#include "PhaseInvoker.h"
+#include "EcosCore/event/core/CallbackManager.h"
+#include "EcosCore/event/core/PhaseInvoker.h"
 
 #include <functional>
 #include <mutex>
@@ -28,7 +28,7 @@ namespace ecoscore::event::core {
         template <typename EventT, typename F>
         CallbackHandle AddCallback(F&& cb,
             const CallbackPhaseState& phase,
-            const CallbackPriorityState& priority) {
+            const PriorityState& priority) {
             return callbackManager_.AddCallback<EventT>(std::forward<F>(cb), phase, priority);
         }
 

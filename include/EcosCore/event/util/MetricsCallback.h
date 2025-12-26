@@ -2,14 +2,18 @@
 #ifndef ECOSCORE_EVENT_UTIL_METRICS_CALLBACK_H
 #define ECOSCORE_EVENT_UTIL_METRICS_CALLBACK_H
 
-#include "EcosCore/event/EventCallback.h"
-#include "EcosCore/event/CallbackResultState.h"
-#include "EcosCore/event/EventContext.h"
+#include "EcosCore/event/core/EventCallback.h"
+#include "EcosCore/event/core/CallbackResultState.h"
+#include "EcosCore/event/core/EventContext.h"
 #include "EcosCore/state/TemplateState.h"
+#include "EcosCore/state/DefaultPriorityState.h"
 
 #include <atomic>
 #include <iostream>
 #include <typeinfo>
+
+using namespace ecoscore::event::core;
+using namespace ecoscore::state;
 
 namespace ecoscore::event::util {
 

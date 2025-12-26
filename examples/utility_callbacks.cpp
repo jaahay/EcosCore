@@ -1,11 +1,14 @@
 #include <iostream>
-#include "EcosCore/event/EventDispatcher.h"
+#include "EcosCore/event/Event.h"
+#include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/util/MetricsCallback.h"
 #include "EcosCore/event/util/DebugLogger.h"
 #include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/state/BaseState.h"
+#include "EcosCore/state/DefaultPriorityState.h"
 
 using namespace ecoscore::event;
+using namespace ecoscore::event::core;
+using namespace ecoscore::event::util;
 using namespace ecoscore::state;
 
 struct UtilityEvent : Event {};
@@ -14,13 +17,13 @@ int main() {
     EventDispatcher dispatcher;
 
     dispatcher.AddCallback<UtilityEvent>(
-        util::LoggingCallback<UtilityEvent>(util::DebugLogger::instance()),
+        LoggingCallback<UtilityEvent>(DebugLogger::instance()),
         BeforePhase::instance(),
         DefaultPriority::instance()
     );
 
     dispatcher.AddCallback<UtilityEvent>(
-        util::MetricsCallback<UtilityEvent>::instance(),
+        MetricsCallback<UtilityEvent>::instance(),
         AfterPhase::instance(),
         DefaultPriority::instance()
     );

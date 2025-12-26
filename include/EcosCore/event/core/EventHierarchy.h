@@ -16,7 +16,6 @@ namespace ecoscore::event::core {
             return hierarchy;
         }
     };
-};
 
 } // namespace ecoscore::event::core
 

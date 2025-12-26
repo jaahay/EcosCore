@@ -42,7 +42,7 @@ namespace ecoscore::event::core {
 
     // Helper to convert bool to CallbackResultState reference
     inline const CallbackResultState& ToCallbackResultState(bool handled) {
-        return handled ? Stop::instance() : Continue::instance();
+        return handled ? ( CallbackResultState&) Stop::instance() : (CallbackResultState&) Continue::instance();
     }
 
 } // namespace ecoscore::event::core

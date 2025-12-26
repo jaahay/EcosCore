@@ -2,7 +2,7 @@
 #ifndef ECOSCORE_EVENT_UTIL_DEBUG_LOGGER_H
 #define ECOSCORE_EVENT_UTIL_DEBUG_LOGGER_H
 
-#include "ILogger.h"
+#include "ecoscore/event/util/ILogger.h"
 #include <iostream>
 #include <mutex>
 #include <chrono>

@@ -5,11 +5,13 @@
 #include "EcosCore/event/core/CallbackManager.h"
 #include "EcosCore/event/core/EventContext.h"
 #include "EcosCore/event/core/CallbackPhaseState.h"
-#include "EcosCore/event/core/CallbackPriorityState.h"
+#include "EcosCore/state/PriorityState.h"
 
 #include <vector>
 #include <typeindex>
 #include <iostream>
+
+using namespace ecoscore::state;
 
 namespace ecoscore::event::core {
 

@@ -133,13 +133,6 @@ namespace ecoscore::event {
         }
     };
 
-    // Helper macro to register base event list for an event type
-#define ECOSCORE_REGISTER_BASE_EVENTS(Derived, ...) \
-    template <> \
-    struct BaseEventList<Derived> { \
-        using type = std::tuple<__VA_ARGS__>; \
-    };
-
 } // namespace ecoscore::event
 
 #endif // ECOSCORE_EVENT_EVENT_HIERARCHY_H

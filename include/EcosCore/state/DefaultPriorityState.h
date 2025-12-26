@@ -7,7 +7,7 @@
 
 namespace ecoscore::state {
 
-    struct DefaultPriority : ecoscore::state::TemplateState<DefaultPriority, PriorityState> {
+    struct DefaultPriority : ecoscore::state::TemplateState<DefaultPriority, ecoscore::state::PriorityState> {
     private:
         DefaultPriority() = default;
     public:
@@ -19,7 +19,7 @@ namespace ecoscore::state {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-    struct HighPriority : ecoscore::state::TemplateState<HighPriority, PriorityState> {
+    struct HighPriority : ecoscore::state::TemplateState<HighPriority, ecoscore::state::PriorityState> {
     private:
         HighPriority() = default;
     public:

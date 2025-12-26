@@ -4,7 +4,7 @@
 
 #include <atomic>
 #include <utility>
-#include "EcosCore/event/EventDispatcher.h"
+#include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/NullEventDispatcher.h"
 
 namespace ecoscore::event {

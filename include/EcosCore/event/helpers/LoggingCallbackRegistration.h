@@ -2,10 +2,10 @@
 #ifndef ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H
 #define ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H
 
-#include "EcosCore/event/EventDispatcher.h"
+#include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/event/CallbackPhaseState.h"
-#include "EcosCore/event/CallbackPriorityState.h"
+#include "EcosCore/event/core/CallbackPhaseState.h"
+#include "EcosCore/state/DefaultPriorityState.h"
 
 namespace ecoscore::event::helpers {
 

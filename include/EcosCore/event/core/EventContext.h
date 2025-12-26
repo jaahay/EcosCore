@@ -2,10 +2,10 @@
 #ifndef ECOSCORE_EVENT_EVENT_CONTEXT_H
 #define ECOSCORE_EVENT_EVENT_CONTEXT_H
 
-#include "EcosCore/event/CallbackResultState.h"
+#include "EcosCore/event/core/CallbackResultState.h"
 #include <any>
 
-namespace ecoscore::event {
+namespace ecoscore::event::core {
 
     class EventContext {
     public:

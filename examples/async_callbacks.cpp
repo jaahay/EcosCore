@@ -1,10 +1,12 @@
 #include <iostream>
 #include <future>
-#include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/event/EventCallback.h"
-#include "EcosCore/state/BaseState.h"
+#include "EcosCore/event/Event.h"
+#include "EcosCore/event/core/EventDispatcher.h"
+#include "EcosCore/event/core/EventCallback.h"
+#include "EcosCore/state/DefaultPriorityState.h"
 
 using namespace ecoscore::event;
+using namespace ecoscore::event::core;
 using namespace ecoscore::state;
 
 struct AsyncEvent : Event {};

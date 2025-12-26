@@ -2,7 +2,7 @@
 #ifndef ECOSCORE_EVENT_EVENT_CALLBACK_H
 #define ECOSCORE_EVENT_EVENT_CALLBACK_H
 
-#include "EcosCore/event/core/Event.h"
+#include "EcosCore/event/Event.h"
 #include "EcosCore/state/BaseState.h"
 #include "EcosCore/event/core/CallbackResultState.h"
 #include "EcosCore/event/core/EventContext.h"

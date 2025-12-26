@@ -3,7 +3,8 @@
 #define ECOSCORE_EVENT_CALLBACK_MANAGER_H
 
 #include "EcosCore/event/core/EventCallback.h"
-#include "EcosCore/event/core/CallbackPriorityState.h"
+#include "EcosCore/event/Types.h"
+#include "EcosCore/state/PriorityState.h"
 
 #include <unordered_map>
 #include <vector>
@@ -11,6 +12,8 @@
 #include <mutex>
 #include <memory>
 #include <algorithm>
+
+using namespace ecoscore::state;
 
 namespace ecoscore::event::core {
 
@@ -21,7 +24,7 @@ namespace ecoscore::event::core {
         template <typename EventT, typename F>
         CallbackHandle AddCallback(F&& cb,
             const CallbackPhaseState& phase,
-            const CallbackPriorityState& priority) {
+            const PriorityState& priority) {
             auto handle = nextHandle_++;
             auto callback = std::make_unique<EventCallback<EventT>>(std::forward<F>(cb), phase, priority);
 
@@ -57,8 +60,8 @@ namespace ecoscore::event::core {
         void SortCallbacksByPriority(std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>& vec) {
             std::stable_sort(vec.begin(), vec.end(),
                 [](const auto& a, const auto& b) {
-                    auto p1 = dynamic_cast<const CallbackPriorityState*>(a.second->Priority());
-                    auto p2 = dynamic_cast<const CallbackPriorityState*>(b.second->Priority());
+                    auto p1 = dynamic_cast<const PriorityState*>(a.second->Priority());
+                    auto p2 = dynamic_cast<const PriorityState*>(b.second->Priority());
                     if (!p1 || !p2) return false;
                     return (*p1) < (*p2);
                 });
