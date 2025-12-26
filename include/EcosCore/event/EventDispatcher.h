@@ -2,7 +2,7 @@
 #ifndef ECOSCORE_EVENT_EVENT_DISPATCHER_H
 #define ECOSCORE_EVENT_EVENT_DISPATCHER_H
 
-
+#include "EcosCore/concepts/Concepts.h"
 #include "EcosCore/event/CallbackPhaseState.h"
 #include "EcosCore/event/Event.h"
 #include "Ecoscore/event/EventCallback.h"
@@ -25,12 +25,13 @@ namespace ecoscore::event {
     public:
         EventDispatcher() : nextHandle_(1) {}
 
-        template <typename EventT>
-        CallbackHandle AddCallback(std::function<void(const EventT&)> cb,
+        template <ecoscore::concepts::EventType EventT, typename F>
+            requires ecoscore::concepts::CallableWithEvent<F, EventT>
+        CallbackHandle AddCallback(F&& cb,
             const ecoscore::state::BaseState& phase,
             const ecoscore::state::BaseState& priority) {
             auto handle = nextHandle_++;
-            auto callback = std::make_unique<EventCallback<EventT>>(std::move(cb), phase, priority);
+            auto callback = std::make_unique<EventCallback<EventT>>(std::forward<F>(cb), phase, priority);
 
             std::lock_guard lock(mutex_);
             auto& vec = callbacks_[std::type_index(typeid(EventT))];

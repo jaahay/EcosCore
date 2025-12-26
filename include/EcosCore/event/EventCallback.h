@@ -18,7 +18,7 @@ namespace ecoscore::event {
     template <typename EventT>
     class EventCallback : public IEventCallback {
     public:
-        using CallbackFunc = std::function<void(const EventT&)>;
+        using CallbackFunc = std::function<bool(const EventT&)>;
 
         EventCallback(CallbackFunc cb,
             const ecoscore::state::BaseState& phase,
@@ -28,14 +28,12 @@ namespace ecoscore::event {
 
         bool Invoke(const Event& baseEvent) const override {
             if (auto derived = dynamic_cast<const EventT*>(&baseEvent)) {
-                callback_(*derived);
-                return true;
+                return callback_(*derived);
             }
             return false;
         }
 
         const ecoscore::state::BaseState* Phase() const override { return phase_; }
-
         const ecoscore::state::BaseState* Priority() const override { return priority_; }
 
     private:

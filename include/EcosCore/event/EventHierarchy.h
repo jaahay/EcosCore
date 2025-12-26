@@ -4,6 +4,7 @@
 
 #include <typeindex>
 #include <vector>
+#include <type_traits>
 
 namespace ecoscore::event {
 
@@ -15,6 +16,16 @@ namespace ecoscore::event {
             return hierarchy;
         }
     };
+
+    // Helper macro to define hierarchy for derived events
+#define ECOSCORE_DEFINE_EVENT_HIERARCHY(DerivedEvent, ...) \
+template <> \
+struct EventHierarchy<DerivedEvent> { \
+    static const std::vector<std::type_index>& Get() { \
+        static const std::vector<std::type_index> hierarchy = { __VA_ARGS__, std::type_index(typeid(DerivedEvent)) }; \
+        return hierarchy; \
+    } \
+};
 
 } // namespace ecoscore::event
 
