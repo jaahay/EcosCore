@@ -2,55 +2,67 @@
 #ifndef ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
 #define ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
 
-#include <cstddef>
+#include <atomic>
+#include <utility>
+#include "EcosCore/event/EventDispatcher.h"
+#include "EcosCore/event/NullEventDispatcher.h"
 
 namespace ecoscore::event {
 
-    class EventDispatcher; // forward declaration
-
     class ScopedCallbackHandler {
     public:
-        ScopedCallbackHandler() = default;
+        // Default constructor uses NullEventDispatcher and zero handle
+        ScopedCallbackHandler() noexcept
+            : dispatcher_(null::NullEventDispatcher::instance()), handle_(0) {
+        }
 
-        ScopedCallbackHandler(EventDispatcher& dispatcher, size_t handle)
-            : dispatcher_(&dispatcher), handle_(handle) {
+        // Construct with dispatcher and handle
+        ScopedCallbackHandler(EventDispatcher& dispatcher, CallbackHandle handle) noexcept
+            : dispatcher_(dispatcher), handle_(handle) {
         }
 
         ~ScopedCallbackHandler() {
-            if (dispatcher_ && handle_ != 0) {
-                dispatcher_->RemoveCallback(handle_);
+            auto h = handle_.exchange(0);
+            if (h != 0) {
+                dispatcher_.RemoveCallback(h);
             }
         }
 
+        // Disable copy semantics
         ScopedCallbackHandler(const ScopedCallbackHandler&) = delete;
         ScopedCallbackHandler& operator=(const ScopedCallbackHandler&) = delete;
 
+        // Move constructor
         ScopedCallbackHandler(ScopedCallbackHandler&& other) noexcept
-            : dispatcher_(other.dispatcher_), handle_(other.handle_) {
-            other.dispatcher_ = nullptr;
-            other.handle_ = 0;
+            : dispatcher_(other.dispatcher_), handle_(other.handle_.exchange(0)) {
+            other.dispatcher_ = null::NullEventDispatcher::instance();
         }
 
+        // Move assignment
         ScopedCallbackHandler& operator=(ScopedCallbackHandler&& other) noexcept {
             if (this != &other) {
-                if (dispatcher_ && handle_ != 0) {
-                    dispatcher_->RemoveCallback(handle_);
+                auto h = handle_.exchange(0);
+                if (h != 0) {
+                    dispatcher_.RemoveCallback(h);
                 }
                 dispatcher_ = other.dispatcher_;
-                handle_ = other.handle_;
-                other.dispatcher_ = nullptr;
-                other.handle_ = 0;
+                handle_ = other.handle_.exchange(0);
+                other.dispatcher_ = null::NullEventDispatcher::instance();
             }
             return *this;
         }
 
-        explicit operator bool() const { return handle_ != 0; }
+        explicit operator bool() const noexcept {
+            return handle_.load() != 0;
+        }
 
-        size_t Get() const { return handle_; }
+        CallbackHandle Get() const noexcept {
+            return handle_.load();
+        }
 
     private:
-        EventDispatcher* dispatcher_ = nullptr;
-        size_t handle_ = 0;
+        EventDispatcher& dispatcher_;
+        std::atomic<CallbackHandle> handle_;
     };
 
 } // namespace ecoscore::event

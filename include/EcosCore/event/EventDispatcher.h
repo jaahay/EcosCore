@@ -5,9 +5,9 @@
 #include "EcosCore/concepts/Concepts.h"
 #include "EcosCore/event/CallbackPhaseState.h"
 #include "EcosCore/event/Event.h"
-#include "Ecoscore/event/EventCallback.h"
-#include "Ecoscore/event/EventHierarchy.h"
-#include "Ecoscore/state/BaseState.h"
+#include "EcosCore/event/EventCallback.h"
+#include "EcosCore/event/EventHierarchy.h"
+#include "EcosCore/state/BaseState.h"
 
 #include <unordered_map>
 #include <vector>
@@ -24,9 +24,24 @@ namespace ecoscore::event {
     class EventDispatcher {
     public:
         EventDispatcher() : nextHandle_(1) {}
+        virtual ~EventDispatcher() = default;
 
-        template <ecoscore::concepts::EventType EventT, typename F>
-            requires ecoscore::concepts::CallableWithEvent<F, EventT>
+        // Virtual to allow override in NullEventDispatcher
+        virtual bool RemoveCallback(CallbackHandle handle) {
+            std::lock_guard lock(mutex_);
+            for (auto& [type, vec] : callbacks_) {
+                auto it = std::remove_if(vec.begin(), vec.end(),
+                    [handle](const auto& pair) { return pair.first == handle; });
+                if (it != vec.end()) {
+                    vec.erase(it, vec.end());
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        template <typename EventT, typename F>
+            requires ecoscore::concepts::EventType<EventT>&& ecoscore::concepts::CallableWithEvent<F, EventT>
         CallbackHandle AddCallback(F&& cb,
             const ecoscore::state::BaseState& phase,
             const ecoscore::state::BaseState& priority) {
@@ -40,29 +55,16 @@ namespace ecoscore::event {
             return handle;
         }
 
-        bool RemoveCallback(CallbackHandle handle) {
-            std::lock_guard lock(mutex_);
-            for (auto& [type, vec] : callbacks_) {
-                auto it = std::remove_if(vec.begin(), vec.end(),
-                    [handle](const auto& pair) { return pair.first == handle; });
-                if (it != vec.end()) {
-                    vec.erase(it, vec.end());
-                    return true;
-                }
-            }
-            return false;
-        }
-
         void Dispatch(const Event& event) const {
             auto hierarchy = GetEventHierarchy(typeid(event));
 
-            if (InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::BeforePhase::instance(), true))
+            if (InvokePhaseCallbacks(hierarchy, event, BeforePhase::instance(), true))
                 return;
 
-            if (InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::MainPhase::instance(), false))
+            if (InvokePhaseCallbacks(hierarchy, event, MainPhase::instance(), false))
                 return;
 
-            InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::AfterPhase::instance(), false);
+            InvokePhaseCallbacks(hierarchy, event, AfterPhase::instance(), false);
         }
 
     private:

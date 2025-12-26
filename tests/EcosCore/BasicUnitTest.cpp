@@ -1,4 +1,5 @@
 // tests/EcosCore/BasicUnitTest.cpp
+
 #include <gtest/gtest.h>
 
 #include "EcosCore/state/TemplateState.h"
@@ -12,6 +13,12 @@
 using namespace ecoscore::state;
 using namespace ecoscore::event;
 
+// Bring comparison operators into scope
+using ecoscore::state::operator==;
+using ecoscore::state::operator!=;
+using ecoscore::state::operator<=>;
+
+// Define test priority states
 struct TestPriorityHigh : TemplateState<TestPriorityHigh, PriorityState> {
 private:
     TestPriorityHigh() = default;
@@ -36,27 +43,39 @@ public:
     void print(std::ostream& os) const noexcept override { os << name(); }
 };
 
+// Define a simple test event
 struct TestEvent : Event {};
 
+// Test singleton identity and equality operators
 TEST(CoreSystem, SingletonStateIdentity) {
-    auto& p1a = TestPriorityHigh::instance();
-    auto& p1b = TestPriorityHigh::instance();
-    auto& p2 = TestPriorityLow::instance();
+    const BaseState& p1a = TestPriorityHigh::instance();
+    const BaseState& p1b = TestPriorityHigh::instance();
+    const BaseState& p2 = TestPriorityLow::instance();
 
+    // Same instance pointers for singleton
     EXPECT_EQ(&p1a, &p1b);
     EXPECT_NE(&p1a, &p2);
+
+    // Equality and inequality operators
     EXPECT_FALSE(p1a == p2);
     EXPECT_TRUE(p1a != p2);
 }
 
+// Test ordering operator<=>
 TEST(CoreSystem, PriorityOrdering) {
-    auto& high = TestPriorityHigh::instance();
-    auto& low = TestPriorityLow::instance();
+    const BaseState& high = TestPriorityHigh::instance();
+    const BaseState& low = TestPriorityLow::instance();
 
     auto cmp = high <=> low;
-    EXPECT_TRUE(cmp != std::strong_ordering::equal);
+
+    // Expect that high and low are not equal
+    EXPECT_NE(cmp, std::strong_ordering::equal);
+
+    // Optionally check ordering direction (high should be greater than low or vice versa)
+    EXPECT_TRUE(cmp == std::strong_ordering::less || cmp == std::strong_ordering::greater);
 }
 
+// Test event dispatch order and priority handling
 TEST(CoreSystem, EventDispatchOrder) {
     EventDispatcher dispatcher;
 
