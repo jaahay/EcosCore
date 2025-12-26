@@ -1,10 +1,10 @@
-// core/meta/Tuple.h
-#ifndef CORE_META_TUPLE_H
-#define CORE_META_TUPLE_H
+// EcosCore/meta/Tuple.h
+#ifndef ECOSCORE_META_TUPLE_H
+#define ECOSCORE_META_TUPLE_H
 
 #include <tuple>
 
-namespace core::meta {
+namespace ecoscore::meta {
 
     template <typename Tuple1, typename Tuple2>
     struct tuple_concat;
@@ -41,6 +41,6 @@ namespace core::meta {
     template <typename... Tuples>
     using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
 
-} // namespace core::meta
+} // namespace ecoscore::meta
 
-#endif // CORE_META_TUPLE_H
+#endif // ECOSCORE_META_TUPLE_H

@@ -1,16 +1,14 @@
-// core/meta/TypeList.h
-#ifndef CORE_META_TYPELIST_H
-#define CORE_META_TYPELIST_H
+// EcosCore/meta/TypeList.h
+#ifndef ECOSCORE_META_TYPELIST_H
+#define ECOSCORE_META_TYPELIST_H
 
 #include <type_traits>
 
-namespace core::meta {
+namespace ecoscore::meta {
 
-    // Simple typelist container
     template <typename... Ts>
     struct TypeList {};
 
-    // Check if a type T is contained in TypeList
     template <typename T, typename List>
     struct Contains;
 
@@ -25,7 +23,6 @@ namespace core::meta {
     > {
     };
 
-    // Append a type T to a TypeList
     template <typename List, typename T>
     struct Append;
 
@@ -34,6 +31,6 @@ namespace core::meta {
         using type = TypeList<Ts..., T>;
     };
 
-} // namespace core::meta
+} // namespace ecoscore::meta
 
-#endif // CORE_META_TYPELIST_H
+#endif // ECOSCORE_META_TYPELIST_H

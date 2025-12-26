@@ -1,16 +1,16 @@
-// core/event/CallbackPhaseState.h
-#ifndef CORE_EVENT_CALLBACK_PHASE_STATE_H
-#define CORE_EVENT_CALLBACK_PHASE_STATE_H
+// EcosCore/event/CallbackPhaseState.h
+#ifndef ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H
+#define ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H
 
-#include "core/state/TemplateState.h"
+#include "EcosCore/state/TemplateState.h"
 
-namespace core::event {
+namespace ecoscore::event {
 
-    struct CallbackPhaseState : core::state::BaseState {
+    struct CallbackPhaseState : ecoscore::state::BaseState {
         virtual ~CallbackPhaseState() = default;
     };
 
-    struct BeforePhase : core::state::TemplateState<BeforePhase, CallbackPhaseState> {
+    struct BeforePhase : ecoscore::state::TemplateState<BeforePhase, CallbackPhaseState> {
     private:
         BeforePhase() = default;
     public:
@@ -22,7 +22,7 @@ namespace core::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-    struct MainPhase : core::state::TemplateState<MainPhase, CallbackPhaseState> {
+    struct MainPhase : ecoscore::state::TemplateState<MainPhase, CallbackPhaseState> {
     private:
         MainPhase() = default;
     public:
@@ -34,7 +34,7 @@ namespace core::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-    struct AfterPhase : core::state::TemplateState<AfterPhase, CallbackPhaseState> {
+    struct AfterPhase : ecoscore::state::TemplateState<AfterPhase, CallbackPhaseState> {
     private:
         AfterPhase() = default;
     public:
@@ -46,6 +46,6 @@ namespace core::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-} // namespace core::event
+} // namespace ecoscore::event
 
-#endif // CORE_EVENT_CALLBACK_PHASE_STATE_H
+#endif // ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H

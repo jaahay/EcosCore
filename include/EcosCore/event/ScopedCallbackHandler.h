@@ -1,12 +1,12 @@
-// core/event/ScopedCallbackHandler.h
-#ifndef CORE_EVENT_SCOPED_CALLBACK_HANDLER_H
-#define CORE_EVENT_SCOPED_CALLBACK_HANDLER_H
+// EcosCore/event/ScopedCallbackHandler.h
+#ifndef ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
+#define ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
 
 #include <cstddef>
 
-namespace core::event {
+namespace ecoscore::event {
 
-    class EventDispatcher; // Forward declaration
+    class EventDispatcher; // forward declaration
 
     class ScopedCallbackHandler {
     public:
@@ -53,6 +53,6 @@ namespace core::event {
         size_t handle_ = 0;
     };
 
-} // namespace core::event
+} // namespace ecoscore::event
 
-#endif // CORE_EVENT_SCOPED_CALLBACK_HANDLER_H
+#endif // ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H

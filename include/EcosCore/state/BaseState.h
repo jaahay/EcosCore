@@ -1,11 +1,11 @@
-// core/state/BaseState.h
-#ifndef CORE_STATE_BASE_STATE_H
-#define CORE_STATE_BASE_STATE_H
+// EcosCore/state/BaseState.h
+#ifndef ECOSCORE_STATE_BASE_STATE_H
+#define ECOSCORE_STATE_BASE_STATE_H
 
 #include <iostream>
 #include <compare>
 
-namespace core::state {
+namespace ecoscore::state {
 
     struct BaseState {
         virtual ~BaseState() = default;
@@ -47,6 +47,6 @@ namespace core::state {
         return static_cast<const BaseState&>(lhs) <=> static_cast<const BaseState&>(rhs);
     }
 
-} // namespace core::state
+} // namespace ecoscore::state
 
-#endif // CORE_STATE_BASE_STATE_H
+#endif // ECOSCORE_STATE_BASE_STATE_H

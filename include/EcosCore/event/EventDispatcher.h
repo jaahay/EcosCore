@@ -1,10 +1,13 @@
-// core/event/EventDispatcher.h
-#ifndef CORE_EVENT_EVENT_DISPATCHER_H
-#define CORE_EVENT_EVENT_DISPATCHER_H
+// EcosCore/event/EventDispatcher.h
+#ifndef ECOSCORE_EVENT_EVENT_DISPATCHER_H
+#define ECOSCORE_EVENT_EVENT_DISPATCHER_H
 
-#include "Event.h"
-#include "EventCallback.h"
-#include "EventHierarchy.h"
+
+#include "EcosCore/event/CallbackPhaseState.h"
+#include "EcosCore/event/Event.h"
+#include "Ecoscore/event/EventCallback.h"
+#include "Ecoscore/event/EventHierarchy.h"
+#include "Ecoscore/state/BaseState.h"
 
 #include <unordered_map>
 #include <vector>
@@ -14,7 +17,7 @@
 #include <algorithm>
 #include <iostream>
 
-namespace core::event {
+namespace ecoscore::event {
 
     using CallbackHandle = size_t;
 
@@ -24,23 +27,15 @@ namespace core::event {
 
         template <typename EventT>
         CallbackHandle AddCallback(std::function<void(const EventT&)> cb,
-            CallbackPhase phase = CallbackPhase::Main,
-            const core::state::BaseState& priority = core::state::BaseState()) {
+            const ecoscore::state::BaseState& phase,
+            const ecoscore::state::BaseState& priority) {
             auto handle = nextHandle_++;
             auto callback = std::make_unique<EventCallback<EventT>>(std::move(cb), phase, priority);
 
             std::lock_guard lock(mutex_);
             auto& vec = callbacks_[std::type_index(typeid(EventT))];
             vec.emplace_back(handle, std::move(callback));
-
-            std::sort(vec.begin(), vec.end(),
-                [](const auto& a, const auto& b) {
-                    const auto* p1 = a.second->Priority();
-                    const auto* p2 = b.second->Priority();
-                    if (!p1 || !p2) return false;
-                    return (*p1) < (*p2);
-                });
-
+            SortCallbacksByPriority(vec);
             return handle;
         }
 
@@ -60,13 +55,13 @@ namespace core::event {
         void Dispatch(const Event& event) const {
             auto hierarchy = GetEventHierarchy(typeid(event));
 
-            if (InvokePhaseCallbacks(hierarchy, event, CallbackPhase::Before, true))
+            if (InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::BeforePhase::instance(), true))
                 return;
 
-            if (InvokePhaseCallbacks(hierarchy, event, CallbackPhase::Main, false))
+            if (InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::MainPhase::instance(), false))
                 return;
 
-            InvokePhaseCallbacks(hierarchy, event, CallbackPhase::After, false);
+            InvokePhaseCallbacks(hierarchy, event, *ecoscore::event::AfterPhase::instance(), false);
         }
 
     private:
@@ -74,13 +69,19 @@ namespace core::event {
         mutable std::mutex mutex_;
         CallbackHandle nextHandle_;
 
-        std::vector<std::type_index> GetEventHierarchy(std::type_index eventType) const {
-            return { eventType };
+        static void SortCallbacksByPriority(std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>& vec) {
+            std::stable_sort(vec.begin(), vec.end(),
+                [](const auto& a, const auto& b) {
+                    const auto* p1 = a.second->Priority();
+                    const auto* p2 = b.second->Priority();
+                    if (!p1 || !p2) return false;
+                    return (*p1) < (*p2);
+                });
         }
 
         bool InvokePhaseCallbacks(const std::vector<std::type_index>& hierarchy,
             const Event& event,
-            CallbackPhase phase,
+            const ecoscore::state::BaseState& phase,
             bool generalToSpecific) const {
             std::lock_guard lock(mutex_);
 
@@ -101,12 +102,12 @@ namespace core::event {
 
         bool InvokeCallbacksForType(std::type_index type,
             const Event& event,
-            CallbackPhase phase) const {
+            const ecoscore::state::BaseState& phase) const {
             auto found = callbacks_.find(type);
             if (found == callbacks_.end()) return false;
 
             for (const auto& [handle, cb] : found->second) {
-                if (cb->Phase() == phase) {
+                if (*(cb->Phase()) == phase) {
                     try {
                         if (cb->Invoke(event)) {
                             return true;
@@ -122,8 +123,12 @@ namespace core::event {
             }
             return false;
         }
+
+        std::vector<std::type_index> GetEventHierarchy(std::type_index eventType) const {
+            return { eventType };
+        }
     };
 
-} // namespace core::event
+} // namespace ecoscore::event
 
-#endif // CORE_EVENT_EVENT_DISPATCHER_H
+#endif // ECOSCORE_EVENT_EVENT_DISPATCHER_H

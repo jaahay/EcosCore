@@ -1,15 +1,15 @@
-// core/state/TemplateState.h
-#ifndef CORE_STATE_TEMPLATE_STATE_H
-#define CORE_STATE_TEMPLATE_STATE_H
+// EcosCore/state/TemplateState.h
+#ifndef ECOSCORE_STATE_TEMPLATE_STATE_H
+#define ECOSCORE_STATE_TEMPLATE_STATE_H
 
 #include <string_view>
 #include <compare>
 #include <iostream>
 #include <typeinfo>
 
-#include "core/state/BaseState.h"
+#include "EcosCore/state/BaseState.h"
 
-namespace core::state {
+namespace ecoscore::state {
 
     template <typename Derived, typename DomainBase = BaseState>
     struct TemplateState : virtual DomainBase {
@@ -52,6 +52,6 @@ namespace core::state {
         }
     };
 
-} // namespace core::state
+} // namespace ecoscore::state
 
-#endif // CORE_STATE_TEMPLATE_STATE_H
+#endif // ECOSCORE_STATE_TEMPLATE_STATE_H

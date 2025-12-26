@@ -1,12 +1,12 @@
-// core/meta/Variant.h
-#ifndef CORE_META_VARIANT_H
-#define CORE_META_VARIANT_H
+// EcosCore/meta/Variant.h
+#ifndef ECOSCORE_META_VARIANT_H
+#define ECOSCORE_META_VARIANT_H
 
 #include <variant>
 #include <tuple>
 #include "Tuple.h"
 
-namespace core::meta {
+namespace ecoscore::meta {
 
     template <typename Tuple>
     struct tuple_to_variant;
@@ -30,6 +30,6 @@ namespace core::meta {
     template <typename... Variants>
     using variant_concat_t = typename variant_concat<Variants...>::type;
 
-} // namespace core::meta
+} // namespace ecoscore::meta
 
-#endif // CORE_META_VARIANT_H
+#endif // ECOSCORE_META_VARIANT_H

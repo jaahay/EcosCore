@@ -1,24 +1,20 @@
-// core/meta/CycleCheck.h
-#ifndef CORE_META_CYCLE_CHECK_H
-#define CORE_META_CYCLE_CHECK_H
+// EcosCore/meta/CycleCheck.h
+#ifndef ECOSCORE_META_CYCLE_CHECK_H
+#define ECOSCORE_META_CYCLE_CHECK_H
 
-#include "TypeList.h"  // Your existing TypeList utilities
-#include <type_traits>
+#include "TypeList.h"
 
-namespace core::meta {
+namespace ecoscore::meta {
 
-    // Forward declaration
     template <typename T, typename Visited = TypeList<>>
     struct CheckNoCycle;
 
-    // Helper: Check if T is in Visited list
     template <typename T, typename Visited>
     struct CheckNoCycle {
         static_assert(!Contains<T, Visited>::value, "Cycle detected in priority ordering!");
 
         using NewVisited = typename Append<Visited, T>::type;
 
-        // Check all types T is higher than
         template <typename List>
         struct CheckList;
 
@@ -36,6 +32,6 @@ namespace core::meta {
         static constexpr bool value = CheckList<typename T::HigherThanList>::value;
     };
 
-} // namespace core::meta
+} // namespace ecoscore::meta
 
-#endif // CORE_META_CYCLE_CHECK_H
+#endif // ECOSCORE_META_CYCLE_CHECK_H

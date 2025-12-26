@@ -1,11 +1,11 @@
-// core/event/EventHierarchy.h
-#ifndef CORE_EVENT_EVENT_HIERARCHY_H
-#define CORE_EVENT_EVENT_HIERARCHY_H
+// EcosCore/event/EventHierarchy.h
+#ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_H
+#define ECOSCORE_EVENT_EVENT_HIERARCHY_H
 
 #include <typeindex>
 #include <vector>
 
-namespace core::event {
+namespace ecoscore::event {
 
     // Default: event hierarchy is just the event itself
     template <typename EventT>
@@ -16,6 +16,6 @@ namespace core::event {
         }
     };
 
-} // namespace core::event
+} // namespace ecoscore::event
 
-#endif // CORE_EVENT_EVENT_HIERARCHY_H
+#endif // ECOSCORE_EVENT_EVENT_HIERARCHY_H

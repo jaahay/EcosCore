@@ -1,14 +1,13 @@
-// core/event/DefaultPriorityState.h
-#ifndef CORE_EVENT_DEFAULT_PRIORITY_STATE_H
-#define CORE_EVENT_DEFAULT_PRIORITY_STATE_H
+// EcosCore/event/DefaultPriorityState.h
+#ifndef ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H
+#define ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H
 
-#include "core/state/TemplateState.h"
-#include "PriorityState.h"
+#include "EcosCore/state/TemplateState.h"
+#include "EcosCore/event/PriorityState.h"
 
-namespace core::event {
+namespace ecoscore::event {
 
-    // Default priority base (lowest priority)
-    struct DefaultPriority : core::state::TemplateState<DefaultPriority, PriorityState> {
+    struct DefaultPriority : ecoscore::state::TemplateState<DefaultPriority, PriorityState> {
     private:
         DefaultPriority() = default;
     public:
@@ -20,8 +19,7 @@ namespace core::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-    // Optional higher priority example
-    struct HighPriority : core::state::TemplateState<HighPriority, PriorityState> {
+    struct HighPriority : ecoscore::state::TemplateState<HighPriority, PriorityState> {
     private:
         HighPriority() = default;
     public:
@@ -33,6 +31,6 @@ namespace core::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-} // namespace core::event
+} // namespace ecoscore::event
 
-#endif // CORE_EVENT_DEFAULT_PRIORITY_STATE_H
+#endif // ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H

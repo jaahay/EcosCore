@@ -1,16 +1,16 @@
-// core/concepts/Concepts.h
-#ifndef CORE_CONCEPTS_CONCEPTS_H
-#define CORE_CONCEPTS_CONCEPTS_H
+// EcosCore/concepts/Concepts.h
+#ifndef ECOSCORE_CONCEPTS_CONCEPTS_H
+#define ECOSCORE_CONCEPTS_CONCEPTS_H
 
 #include <type_traits>
 #include <concepts>
-#include "core/state/BaseState.h"
-#include "core/event/Event.h"
+#include "EcosCore/state/BaseState.h"
+#include "EcosCore/event/Event.h"
 
-namespace core::concepts {
+namespace ecoscore::concepts {
 
     template <typename T>
-    concept DerivedFromBaseState = std::is_base_of_v<core::state::BaseState, T>;
+    concept DerivedFromBaseState = std::is_base_of_v<ecoscore::state::BaseState, T>;
 
     template <typename T>
     concept SingletonState = requires {
@@ -21,13 +21,13 @@ namespace core::concepts {
     concept ConcreteState = DerivedFromBaseState<T> && !std::is_abstract_v<T>;
 
     template <typename T>
-    concept EventType = std::is_base_of_v<core::event::Event, T>;
+    concept EventType = std::is_base_of_v<ecoscore::event::Event, T>;
 
     template <typename F, typename EventT>
     concept CallableWithEvent = requires(F f, EventT e) {
         { f(e) } -> std::same_as<void>;
     };
 
-} // namespace core::concepts
+} // namespace ecoscore::concepts
 
-#endif // CORE_CONCEPTS_CONCEPTS_H
+#endif // ECOSCORE_CONCEPTS_CONCEPTS_H
