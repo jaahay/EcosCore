@@ -1,11 +1,11 @@
-// EcosCore/event/DefaultPriorityState.h
-#ifndef ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H
-#define ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H
+// EcosCore/state/DefaultPriorityState.h
+#ifndef ECOSCORE_STATE_DEFAULT_PRIORITY_STATE_H
+#define ECOSCORE_STATE_DEFAULT_PRIORITY_STATE_H
 
 #include "EcosCore/state/TemplateState.h"
-#include "EcosCore/event/PriorityState.h"
+#include "EcosCore/state/PriorityState.h"
 
-namespace ecoscore::event {
+namespace ecoscore::state {
 
     struct DefaultPriority : ecoscore::state::TemplateState<DefaultPriority, PriorityState> {
     private:
@@ -31,6 +31,6 @@ namespace ecoscore::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-} // namespace ecoscore::event
+} // namespace ecoscore::state
 
-#endif // ECOSCORE_EVENT_DEFAULT_PRIORITY_STATE_H
+#endif // ECOSCORE_STATE_DEFAULT_PRIORITY_STATE_H

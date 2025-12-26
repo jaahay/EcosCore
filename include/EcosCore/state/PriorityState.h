@@ -1,6 +1,6 @@
-// EcosCore/event/PriorityState.h
-#ifndef ECOSCORE_EVENT_PRIORITY_STATE_H
-#define ECOSCORE_EVENT_PRIORITY_STATE_H
+// EcosCore/state/PriorityState.h
+#ifndef ECOSCORE_STATE_PRIORITY_STATE_H
+#define ECOSCORE_STATE_PRIORITY_STATE_H
 
 #include "EcosCore/state/BaseState.h"
 
@@ -13,4 +13,4 @@ namespace ecoscore::event {
 
 } // namespace ecoscore::event
 
-#endif // ECOSCORE_EVENT_PRIORITY_STATE_H
+#endif // ECOSCORE_STATE_PRIORITY_STATE_H

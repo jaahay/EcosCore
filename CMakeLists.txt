@@ -1,52 +1,91 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.20)
 project(EcosCore LANGUAGES CXX)
 
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Glob headers relative to source directory for IDE grouping
-file(GLOB_RECURSE EcosCore_HEADERS
-    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/*.h
-)
-
-# Create static library with dummy source file for IDE visibility
-add_library(EcosCore STATIC src/dummy.cpp)
-
-# Add headers to the target for IDE grouping (won't compile)
-target_sources(EcosCore PRIVATE ${EcosCore_HEADERS})
-
-target_include_directories(EcosCore PUBLIC
+# Core header-only interface target
+add_library(EcosCore INTERFACE)
+target_include_directories(EcosCore INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 
-# Organize headers into IDE folders
-source_group(
-    TREE "${CMAKE_CURRENT_SOURCE_DIR}/include"
-    PREFIX "Header Files"
-    FILES ${PROJECT_HEADERS}
+# Event core module (header-only)
+add_library(EcosCore_event_core INTERFACE)
+target_include_directories(EcosCore_event_core INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/event/core
 )
+target_link_libraries(EcosCore_event_core INTERFACE EcosCore)
+add_library(EcosCore::event-core ALIAS EcosCore_event_core)
 
-# --- GoogleTest setup ---
-include(FetchContent)
-
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+# Event util module (header-only)
+add_library(EcosCore_event_util INTERFACE)
+target_include_directories(EcosCore_event_util INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/event/util
 )
+target_link_libraries(EcosCore_event_util INTERFACE EcosCore_event_core)
+add_library(EcosCore::event-util ALIAS EcosCore_event_util)
 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+# State module (header-only)
+add_library(EcosCore_state INTERFACE)
+target_include_directories(EcosCore_state INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/state
+)
+target_link_libraries(EcosCore_state INTERFACE EcosCore)
+add_library(EcosCore::state ALIAS EcosCore_state)
 
-FetchContent_MakeAvailable(googletest)
+# Concepts module (header-only)
+add_library(EcosCore_concepts INTERFACE)
+target_include_directories(EcosCore_concepts INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/concepts
+)
+target_link_libraries(EcosCore_concepts INTERFACE EcosCore)
+add_library(EcosCore::concepts ALIAS EcosCore_concepts)
 
-enable_testing()
+# Meta module (header-only)
+add_library(EcosCore_meta INTERFACE)
+target_include_directories(EcosCore_meta INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/meta
+)
+target_link_libraries(EcosCore_meta INTERFACE EcosCore)
+add_library(EcosCore::meta ALIAS EcosCore_meta)
 
-# --- Unit tests ---
+# Optional modules (metrics, serialization)
+add_library(EcosCore_metrics INTERFACE)
+target_include_directories(EcosCore_metrics INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/metrics
+)
+target_link_libraries(EcosCore_metrics INTERFACE EcosCore)
+add_library(EcosCore::metrics ALIAS EcosCore_metrics)
 
-add_executable(CoreUnitTests tests/EcosCore/BasicUnitTest.cpp)
+add_library(EcosCore_serialization INTERFACE)
+target_include_directories(EcosCore_serialization INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/EcosCore/serialization
+)
+target_link_libraries(EcosCore_serialization INTERFACE EcosCore)
+add_library(EcosCore::serialization ALIAS EcosCore_serialization)
 
-target_link_libraries(CoreUnitTests PRIVATE EcosCore gtest gtest_main)
+option(BUILD_TESTS "Build unit and integration tests" ON)
 
-add_test(NAME CoreUnitTests COMMAND CoreUnitTests)
+if(BUILD_TESTS)
+    include(FetchContent)
+
+    FetchContent_Declare(
+      googletest
+      URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+    )
+
+    # For Windows: Prevent overriding the parent project's compiler/linker settings
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+    FetchContent_MakeAvailable(googletest)
+
+    enable_testing()
+
+    add_subdirectory(tests)
+endif()
+
+add_subdirectory(examples)

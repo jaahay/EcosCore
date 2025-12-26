@@ -9,6 +9,7 @@
 
 namespace ecoscore::concepts {
 
+    // State concepts
     template <typename T>
     concept DerivedFromBaseState = std::is_base_of_v<ecoscore::state::BaseState, T>;
 
@@ -20,6 +21,7 @@ namespace ecoscore::concepts {
     template <typename T>
     concept ConcreteState = DerivedFromBaseState<T> && !std::is_abstract_v<T>;
 
+    // Event concepts
     template <typename T>
     concept EventType = std::is_base_of_v<ecoscore::event::Event, T>;
 

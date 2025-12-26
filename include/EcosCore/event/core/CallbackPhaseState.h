@@ -1,10 +1,10 @@
-// EcosCore/event/CallbackPhaseState.h
+// EcosCore/event/core/CallbackPhaseState.h
 #ifndef ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H
 #define ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H
 
 #include "EcosCore/state/TemplateState.h"
 
-namespace ecoscore::event {
+namespace ecoscore::event::core {
 
     struct CallbackPhaseState : ecoscore::state::BaseState {
         virtual ~CallbackPhaseState() = default;
@@ -46,6 +46,6 @@ namespace ecoscore::event {
         void print(std::ostream& os) const noexcept override { os << name(); }
     };
 
-} // namespace ecoscore::event
+} // namespace ecoscore::event::core
 
 #endif // ECOSCORE_EVENT_CALLBACK_PHASE_STATE_H
