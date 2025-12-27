@@ -1,10 +1,11 @@
-// EcosCore/event/core/CallbackManager.h
+// EcosCore/event/CallbackManager.h
 #ifndef ECOSCORE_EVENT_CALLBACK_MANAGER_H
 #define ECOSCORE_EVENT_CALLBACK_MANAGER_H
 
-#include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/Types.h"
-#include "EcosCore/state/PriorityState.h"
+#include "EcosCore/event/EventCallback.h"
+#include "EcosCore/event/CallbackPhaseState.h"
+#include "Ecoscore/state/PriorityState.h"
 
 #include <unordered_map>
 #include <vector>
@@ -13,9 +14,7 @@
 #include <memory>
 #include <algorithm>
 
-using namespace ecoscore::state;
-
-namespace ecoscore::event::core {
+namespace ecoscore::event {
 
     class CallbackManager {
     public:
@@ -25,7 +24,7 @@ namespace ecoscore::event::core {
         CallbackHandle AddCallback(F&& cb,
             const CallbackPhaseState& phase,
             const PriorityState& priority) {
-            auto handle = nextHandle_++;
+            auto handle = CallbackHandle(nextHandle_++);
             auto callback = std::make_unique<EventCallback<EventT>>(std::forward<F>(cb), phase, priority);
 
             std::lock_guard lock(mutex_);
@@ -56,7 +55,6 @@ namespace ecoscore::event::core {
             return {};
         }
 
-    private:
         void SortCallbacksByPriority(std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>& vec) {
             std::stable_sort(vec.begin(), vec.end(),
                 [](const auto& a, const auto& b) {
@@ -68,10 +66,12 @@ namespace ecoscore::event::core {
         }
 
         mutable std::mutex mutex_;
+
+    private:
         std::unordered_map<std::type_index, std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>> callbacks_;
-        CallbackHandle nextHandle_ = 1;
+        std::size_t nextHandle_ = 1;
     };
 
-} // namespace ecoscore::event::core
+} // namespace ecoscore::event
 
 #endif // ECOSCORE_EVENT_CALLBACK_MANAGER_H

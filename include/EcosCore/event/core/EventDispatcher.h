@@ -1,22 +1,23 @@
-// EcosCore/event/core/EventDispatcher.h
+// EcosCore/event/EventDispatcher.h
 #ifndef ECOSCORE_EVENT_EVENT_DISPATCHER_H
 #define ECOSCORE_EVENT_EVENT_DISPATCHER_H
 
-#include "EcosCore/event/core/CallbackPhaseState.h"
-#include "EcosCore/state/PriorityState.h"
+#include "EcosCore/event/Types.h"
+#include "EcosCore/event/CallbackPhaseState.h"
+#include "EcosCore/event/PriorityState.h"
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/EventHierarchy.h"
-#include "EcosCore/event/core/EventContext.h"
-#include "EcosCore/state/BaseState.h"
-#include "EcosCore/event/core/CallbackManager.h"
-#include "EcosCore/event/core/PhaseInvoker.h"
+#include "EcosCore/event/EventContext.h"
+#include "CallbackManager.h"
+#include "PhaseInvoker.h"
 
 #include <functional>
 #include <mutex>
 #include <typeindex>
 #include <vector>
+#include <memory>
 
-namespace ecoscore::event::core {
+namespace ecoscore::event {
 
     using FallbackCallback = std::function<void(const Event&, const EventContext&)>;
 
@@ -25,11 +26,29 @@ namespace ecoscore::event::core {
         EventDispatcher() = default;
         virtual ~EventDispatcher() = default;
 
+        // Overload 1: AddCallback with callable
         template <typename EventT, typename F>
         CallbackHandle AddCallback(F&& cb,
             const CallbackPhaseState& phase,
             const PriorityState& priority) {
             return callbackManager_.AddCallback<EventT>(std::forward<F>(cb), phase, priority);
+        }
+
+        // Overload 2: AddCallback with IEventCallback singleton reference (no ownership)
+        CallbackHandle AddCallback(const IEventCallback& callback,
+            const CallbackPhaseState& phase,
+            const PriorityState& priority) {
+            std::lock_guard lock(mutex_);
+            auto handle = CallbackHandle(nextHandle_++);
+            // Wrap singleton pointer with no-op deleter
+            auto cbPtr = std::unique_ptr<IEventCallback, std::function<void(IEventCallback*)>>(
+                const_cast<IEventCallback*>(&callback),
+                [](IEventCallback*) {}
+            );
+            auto& vec = callbackManager_.callbacks_[std::type_index(typeid(callback))];
+            vec.emplace_back(handle, std::move(cbPtr));
+            callbackManager_.SortCallbacksByPriority(vec);
+            return handle;
         }
 
         bool RemoveCallback(CallbackHandle handle) {
@@ -44,36 +63,7 @@ namespace ecoscore::event::core {
         void Dispatch(const Event& event) const {
             EventContext ctx;
 
-            // Use compile-time cached hierarchy if possible
-            // Otherwise fallback to runtime cache
-            const auto& hierarchy = [&]() -> const std::vector<std::type_index>&{
-                // Try to get compile-time hierarchy by dynamic cast
-                // (if you know the actual type, use DispatchTyped instead)
-                return EventHierarchyCache::Get(std::type_index(typeid(event)));
-                }();
-
-            PhaseInvoker invoker(callbackManager_);
-            bool stopped = false;
-
-            if (invoker.InvokePhase(hierarchy, event, BeforePhase::instance(), true, ctx))
-                stopped = true;
-            else if (invoker.InvokePhase(hierarchy, event, MainPhase::instance(), false, ctx))
-                stopped = true;
-            else if (invoker.InvokePhase(hierarchy, event, AfterPhase::instance(), false, ctx))
-                stopped = true;
-
-            if (stopped) {
-                std::lock_guard lock(mutex_);
-                if (fallbackCallback_)
-                    fallbackCallback_(event, ctx);
-            }
-        }
-
-        // Optional: dispatch with known compile-time event type for max efficiency
-        template <typename EventT>
-        void DispatchTyped(const EventT& event) const {
-            EventContext ctx;
-            const auto& hierarchy = EventHierarchyCache::Get<EventT>();
+            const auto& hierarchy = EventHierarchyCache::instance().Get(std::type_index(typeid(event)));
 
             PhaseInvoker invoker(callbackManager_);
             bool stopped = false;
@@ -96,8 +86,9 @@ namespace ecoscore::event::core {
         CallbackManager callbackManager_;
         mutable std::mutex mutex_;
         FallbackCallback fallbackCallback_;
+        std::size_t nextHandle_ = 1;
     };
 
-} // namespace ecoscore::event::core
+} // namespace ecoscore::event
 
 #endif // ECOSCORE_EVENT_EVENT_DISPATCHER_H

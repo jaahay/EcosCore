@@ -1,6 +1,6 @@
-// EcosCore/event/Types.h
-#ifndef ECOSCORE_EVENT_TYPES_H
-#define ECOSCORE_EVENT_TYPES_H
+// EcosCore/event/StrongTypedefs.h
+#ifndef ECOSCORE_EVENT_STRONG_TYPEDEFS_H
+#define ECOSCORE_EVENT_STRONG_TYPEDEFS_H
 
 #include <cstddef>
 #include <type_traits>
@@ -13,6 +13,7 @@ namespace ecoscore::event {
         explicit constexpr StrongTypedef(T value) : value_(value) {}
         constexpr T get() const { return value_; }
 
+        // Equality operators
         constexpr bool operator==(const StrongTypedef& other) const { return value_ == other.value_; }
         constexpr bool operator!=(const StrongTypedef& other) const { return !(*this == other); }
 
@@ -37,4 +38,4 @@ namespace ecoscore::event {
 
 } // namespace ecoscore::event
 
-#endif // ECOSCORE_EVENT_TYPES_H
+#endif // ECOSCORE_EVENT_STRONG_TYPEDEFS_H
