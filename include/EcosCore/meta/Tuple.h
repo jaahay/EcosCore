@@ -1,11 +1,17 @@
-// EcosCore/meta/Tuple.h
+// include/ecoscore/meta/Tuple.h
 #ifndef ECOSCORE_META_TUPLE_H
 #define ECOSCORE_META_TUPLE_H
 
 #include <tuple>
+#include <type_traits>
 
 namespace ecoscore::meta {
 
+    /**
+     * @brief Concatenates two std::tuple types into a single tuple type.
+     * @tparam Tuple1 First tuple type.
+     * @tparam Tuple2 Second tuple type.
+     */
     template <typename Tuple1, typename Tuple2>
     struct tuple_concat;
 
@@ -14,9 +20,16 @@ namespace ecoscore::meta {
         using type = std::tuple<Ts1..., Ts2...>;
     };
 
+    /**
+     * @brief Alias template for tuple_concat.
+     */
     template <typename Tuple1, typename Tuple2>
     using tuple_concat_t = typename tuple_concat<Tuple1, Tuple2>::type;
 
+    /**
+     * @brief Concatenates multiple std::tuple types into a single tuple type.
+     * @tparam Tuples Variadic list of tuple types.
+     */
     template <typename... Tuples>
     struct tuple_concat_many;
 
@@ -27,17 +40,27 @@ namespace ecoscore::meta {
 
     template <typename T>
     struct tuple_concat_many<T> {
+        static_assert(std::is_same_v<T, std::tuple<typename std::tuple_element<0, T>::type>>,
+            "tuple_concat_many<T>: T must be a std::tuple");
         using type = T;
     };
 
     template <typename T1, typename T2, typename... Ts>
     struct tuple_concat_many<T1, T2, Ts...> {
+        static_assert(std::is_same_v<T1, std::tuple<typename std::tuple_element<0, T1>::type>>,
+            "tuple_concat_many<T1, T2, ...>: T1 must be a std::tuple");
+        static_assert(std::is_same_v<T2, std::tuple<typename std::tuple_element<0, T2>::type>>,
+            "tuple_concat_many<T1, T2, ...>: T2 must be a std::tuple");
+
         using type = typename tuple_concat_many<
             tuple_concat_t<T1, T2>,
             Ts...
         >::type;
     };
 
+    /**
+     * @brief Alias template for tuple_concat_many.
+     */
     template <typename... Tuples>
     using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
 

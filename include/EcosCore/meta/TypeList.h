@@ -1,36 +1,49 @@
-// EcosCore/meta/TypeList.h
-#ifndef ECOSCORE_META_TYPELIST_H
-#define ECOSCORE_META_TYPELIST_H
+// include/ecoscore/meta/Variant.h
+#ifndef ECOSCORE_META_VARIANT_H
+#define ECOSCORE_META_VARIANT_H
 
-#include <type_traits>
+#include <variant>
+#include <tuple>
+#include "Tuple.h"
 
 namespace ecoscore::meta {
 
+    /**
+     * @brief Converts a std::tuple of types into a std::variant of those types.
+     * @tparam Tuple The std::tuple type to convert.
+     */
+    template <typename Tuple>
+    struct tuple_to_variant;
+
     template <typename... Ts>
-    struct TypeList {};
-
-    template <typename T, typename List>
-    struct Contains;
-
-    template <typename T>
-    struct Contains<T, TypeList<>> : std::false_type {};
-
-    template <typename T, typename Head, typename... Tail>
-    struct Contains<T, TypeList<Head, Tail...>> : std::conditional_t<
-        std::is_same_v<T, Head>,
-        std::true_type,
-        Contains<T, TypeList<Tail...>>
-    > {
+    struct tuple_to_variant<std::tuple<Ts...>> {
+        using type = std::variant<Ts...>;
     };
 
-    template <typename List, typename T>
-    struct Append;
+    /**
+     * @brief Alias template for tuple_to_variant.
+     */
+    template <typename Tuple>
+    using tuple_to_variant_t = typename tuple_to_variant<Tuple>::type;
 
-    template <typename... Ts, typename T>
-    struct Append<TypeList<Ts...>, T> {
-        using type = TypeList<Ts..., T>;
+    /**
+     * @brief Concatenates multiple std::variant types into a single variant type.
+     * @tparam Variants Variadic list of std::variant types.
+     */
+    template <typename... Variants>
+    struct variant_concat {
+    private:
+        using concatenated_tuple = tuple_concat_many_t<typename tuple_to_variant<Variants>::type...>;
+    public:
+        using type = tuple_to_variant_t<concatenated_tuple>;
     };
+
+    /**
+     * @brief Alias template for variant_concat.
+     */
+    template <typename... Variants>
+    using variant_concat_t = typename variant_concat<Variants...>::type;
 
 } // namespace ecoscore::meta
 
-#endif // ECOSCORE_META_TYPELIST_H
+#endif // ECOSCORE_META_VARIANT_H

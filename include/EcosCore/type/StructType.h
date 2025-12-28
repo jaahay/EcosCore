@@ -1,4 +1,4 @@
-// EcosCore/type/StructType.h
+// include/ecoscore/type/StructType.h
 #ifndef ECOSCORE_TYPE_STRUCT_TYPE_H
 #define ECOSCORE_TYPE_STRUCT_TYPE_H
 
@@ -7,14 +7,18 @@
 namespace ecoscore::type {
 
     /**
-     * Base struct type for polymorphic hierarchy or tagging.
+     * @brief Base struct type for polymorphic hierarchies.
      */
     struct StructType {
-        virtual ~StructType() = default;
+        virtual ~StructType() noexcept = default;
 
-        virtual void print(std::ostream& os) const = 0;
+        /**
+         * @brief Print the object to the output stream.
+         * @param os Output stream.
+         */
+        virtual void print(std::ostream& os) const noexcept = 0;
 
-        friend std::ostream& operator<<(std::ostream& os, const StructType& obj) {
+        friend std::ostream& operator<<(std::ostream& os, const StructType& obj) noexcept {
             obj.print(os);
             return os;
         }

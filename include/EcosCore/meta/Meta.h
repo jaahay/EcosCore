@@ -1,10 +1,17 @@
-// EcosCore/meta/Meta.h
-#ifndef ECOSCORE_META_META_H
-#define ECOSCORE_META_META_H
+// include/ecoscore/meta/Meta.h
+#ifndef ECOSCORE_META_H
+#define ECOSCORE_META_H
 
-#include "EcosCore/meta/Tuple.h"
-#include "EcosCore/meta/Variant.h"
-#include "EcosCore/meta/TypeList.h"
-#include "EcosCore/meta/CycleCheck.h"
+/**
+ * @file Meta.h
+ * @brief Facade header for the ecoscore::meta domain.
+ *
+ * Includes all primary public headers of the meta module.
+ */
 
-#endif // ECOSCORE_META_META_H
+#include "CycleCheck.h"
+#include "Tuple.h"
+#include "TypeList.h"
+#include "Variant.h"
+
+#endif // ECOSCORE_META_H

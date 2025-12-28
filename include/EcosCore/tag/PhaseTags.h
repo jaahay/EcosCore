@@ -1,25 +1,28 @@
-// EcoScore/tags/PhaseTags.h
+// include/ecoscore/tag/PhaseTags.h
 #ifndef ECOSCORE_TAG_PHASE_TAGS_H
 #define ECOSCORE_TAG_PHASE_TAGS_H
 
-#include "Tag.h"
-#include "EcosCore/type/TemplateType.h"
-#include "NameSet.h"
+#include "ecoscore/tag/Tag.h"
+#include "ecoscore/type/TemplateType.h"
+#include "ecoscore/tag/NameSet.h"
 
 namespace ecoscore::tag {
 
-    /** Abstract phase category */
+    /**
+     * @brief Abstract phase category.
+     */
     struct Phase : Tag<Phase> {
     protected:
         constexpr Phase() noexcept = default;
     };
 
-    /** Concrete phases */
-
+    /**
+     * @brief Concrete phases.
+     */
     struct Before : type::TemplateType<Before, Phase> {
         static constexpr std::string_view name() noexcept { return "Before"; }
         static constexpr NameSet names() noexcept {
-            return {
+            return NameSet{
                 "Before",
                 "before",
                 "before_phase",
@@ -35,7 +38,7 @@ namespace ecoscore::tag {
     struct Main : type::TemplateType<Main, Phase> {
         static constexpr std::string_view name() noexcept { return "Main"; }
         static constexpr NameSet names() noexcept {
-            return {
+            return NameSet{
                 "Main",
                 "main",
                 "main_phase",
@@ -50,7 +53,7 @@ namespace ecoscore::tag {
     struct After : type::TemplateType<After, Phase> {
         static constexpr std::string_view name() noexcept { return "After"; }
         static constexpr NameSet names() noexcept {
-            return {
+            return NameSet{
                 "After",
                 "after",
                 "after_phase",
@@ -65,7 +68,7 @@ namespace ecoscore::tag {
     struct Error : type::TemplateType<Error, Phase> {
         static constexpr std::string_view name() noexcept { return "Error"; }
         static constexpr NameSet names() noexcept {
-            return {
+            return NameSet{
                 "Error",
                 "error",
                 "error_phase",
@@ -80,7 +83,7 @@ namespace ecoscore::tag {
     struct Finalize : type::TemplateType<Finalize, Phase> {
         static constexpr std::string_view name() noexcept { return "Finalize"; }
         static constexpr NameSet names() noexcept {
-            return {
+            return NameSet{
                 "Finalize",
                 "finalize",
                 "finalize_phase",
@@ -94,4 +97,4 @@ namespace ecoscore::tag {
 
 } // namespace ecoscore::tag
 
-#endif
+#endif // ECOSCORE_TAG_PHASE_TAGS_H
