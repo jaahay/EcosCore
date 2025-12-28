@@ -4,7 +4,7 @@
 #include "EcosCore/event/util/MetricsCallback.h"
 #include "EcosCore/event/util/DebugLogger.h"
 #include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/state/DefaultPriorityState.h"
+#include "EcosCore/state/DefaultPriorityTags.h"
 
 using namespace ecoscore::event;
 using namespace ecoscore::event::core;

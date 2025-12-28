@@ -1,85 +1,44 @@
 // EcosCore/event/core/PhaseInvoker.h
-#ifndef ECOSCORE_EVENT_PHASE_INVOKER_H
-#define ECOSCORE_EVENT_PHASE_INVOKER_H
-
-#include "EcosCore/event/core/CallbackManager.h"
-#include "EcosCore/event/core/EventContext.h"
-#include "EcosCore/event/core/CallbackPhaseState.h"
-#include "EcosCore/state/PriorityState.h"
+#ifndef ECOSCORE_EVENT_CORE_PHASE_INVOKER_H
+#define ECOSCORE_EVENT_CORE_PHASE_INVOKER_H
 
 #include <vector>
-#include <typeindex>
-#include <iostream>
+#include "EcosCore/event/core/EventContext.h"
+#include "EcosCore/event/core/EventCallback.h"
+#include "EcosCore/tag/PhaseTags.h"
 
-using namespace ecoscore::state;
+namespace EcosCore::event::core {
 
-namespace ecoscore::event::core {
-
+    /**
+     * PhaseInvoker:
+     * Invokes callbacks registered for a specific phase in order.
+     */
+    template <typename EventType, typename PhaseTag>
     class PhaseInvoker {
     public:
-        explicit PhaseInvoker(const CallbackManager& cbManager)
-            : callbackManager_(cbManager) {
+        using CallbackType = EventCallback<EventType, PhaseTag, EcosCore::tag::Priority>;
+
+        PhaseInvoker() = default;
+
+        explicit PhaseInvoker(std::vector<CallbackType> callbacks)
+            : callbacks_(std::move(callbacks)) {
         }
 
-        bool InvokePhase(const std::vector<std::type_index>& hierarchy,
-            const Event& event,
-            const CallbackPhaseState& phase,
-            bool generalToSpecific,
-            EventContext& ctx) const {
-            if (generalToSpecific) {
-                for (const auto& type : hierarchy) {
-                    if (InvokeCallbacksForType(type, event, phase, ctx))
-                        return true;
-                    if (ctx.IsCanceled())
-                        return true;
-                    if (ctx.ShouldSkipPhase())
-                        break;
-                }
+        void AddCallback(CallbackType callback) {
+            callbacks_.push_back(std::move(callback));
+        }
+
+        void Invoke(const EventType& event, EventContext& ctx) {
+            for (const auto& cb : callbacks_) {
+                cb(event);
+                if (ctx.IsCanceled()) break;
             }
-            else {
-                for (auto it = hierarchy.rbegin(); it != hierarchy.rend(); ++it) {
-                    if (InvokeCallbacksForType(*it, event, phase, ctx))
-                        return true;
-                    if (ctx.IsCanceled())
-                        return true;
-                    if (ctx.ShouldSkipPhase())
-                        break;
-                }
-            }
-            return false;
         }
 
     private:
-        bool InvokeCallbacksForType(std::type_index type,
-            const Event& event,
-            const CallbackPhaseState& phase,
-            EventContext& ctx) const {
-            auto callbacks = callbackManager_.GetCallbacks(type);
-            for (const auto& [handle, cb] : callbacks) {
-                // Narrow Phase and Priority states
-                auto cbPhase = dynamic_cast<const CallbackPhaseState*>(cb->Phase());
-                if (cbPhase && *cbPhase == phase) {
-                    try {
-                        const auto& result = cb->Invoke(event, ctx);
-                        if (&result == &Stop::instance() || ctx.IsCanceled())
-                            return true;
-                        if (ctx.ShouldSkipPhase())
-                            break;
-                    }
-                    catch (const std::exception& ex) {
-                        std::cerr << "Exception in event callback: " << ex.what() << "\n";
-                    }
-                    catch (...) {
-                        std::cerr << "Unknown exception in event callback\n";
-                    }
-                }
-            }
-            return false;
-        }
-
-        const CallbackManager& callbackManager_;
+        std::vector<CallbackType> callbacks_;
     };
 
-} // namespace ecoscore::event::core
+} // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_PHASE_INVOKER_H
+#endif // ECOSCORE_EVENT_CORE_PHASE_INVOKER_H

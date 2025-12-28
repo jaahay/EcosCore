@@ -2,29 +2,38 @@
 #ifndef ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
 #define ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
 
-#include "EcosCore/concepts/Concepts.h"
+#include <concepts>
+#include "EcosCore/event/Event.h"
+#include "EcosCore/tag/concepts/Concepts.h"
 
-namespace ecoscore::event::concepts {
+namespace EcosCore::event::concepts {
 
-    using namespace ecoscore::concepts;
+    /**
+     * Concept for event types derived from EcosCore::event::Event.
+     */
+    template <typename T>
+    concept EventType = std::is_base_of_v<EcosCore::event::Event, T>;
 
+    /**
+     * Concept for callable objects accepting an event type.
+     */
     template <typename F, typename EventT>
-    concept CallableWithEventContext = requires(F f, const EventT & e, ecoscore::event::EventContext & ctx) {
-        { f(e, ctx) };
+    concept CallableWithEvent = requires(F f, EventT e) {
+        { f(e) } -> std::same_as<void>;
     };
 
+    /**
+     * Concept for Phase tags.
+     */
     template <typename T>
-    concept EventCallbackType = std::is_base_of_v<IEventCallback, T>;
+    concept PhaseTag = EcosCore::tag::concepts::PhaseTag<T>;
 
+    /**
+     * Concept for Priority tags.
+     */
     template <typename T>
-    concept PhaseState = DerivedFromBaseState<T>;
+    concept PriorityTag = EcosCore::tag::concepts::PriorityTag<T>;
 
-    template <typename T>
-    concept PriorityState = DerivedFromBaseState<T>;
-
-    template <typename T>
-    concept ValidEventType = EventType<T>;
-
-} // namespace ecoscore::event::concepts
+} // namespace EcosCore::event::concepts
 
 #endif // ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H

@@ -1,9 +1,12 @@
-#include <gtest/gtest.h>
-#include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/event/util/MetricsCallback.h"
-#include "EcosCore/state/BaseState.h"
+// tests/integration/IntegrationTest1.cpp
 
-using namespace ecoscore::event;
+#include <gtest/gtest.h>
+#include "Ecoscore/event/core/EventDispatcher.h"
+#include "Ecoscore/event/util/MetricsCallback.h"
+#include "Ecoscore/state/DefaultPriorityTags.h"
+
+using namespace ecoscore::event::core;
+using namespace ecoscore::event::util;
 using namespace ecoscore::state;
 
 struct IntegrationEvent : Event {};

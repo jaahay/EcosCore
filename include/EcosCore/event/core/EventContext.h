@@ -1,24 +1,24 @@
 // EcosCore/event/core/EventContext.h
-#ifndef ECOSCORE_EVENT_EVENT_CONTEXT_H
-#define ECOSCORE_EVENT_EVENT_CONTEXT_H
+#ifndef ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H
+#define ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H
 
-#include "EcosCore/event/core/CallbackResultState.h"
+#include "EcosCore/tag/ResultTags.h"
 #include <any>
 
-namespace ecoscore::event::core {
+namespace EcosCore::event::core {
 
     class EventContext {
     public:
-        EventContext() : result_(&Continue::instance()), canceled_(false), skipPhase_(false) {}
+        EventContext() : result_(&EcosCore::tag::Continue::instance()), canceled_(false), skipPhase_(false) {}
 
-        void SetResult(const CallbackResultState& result) noexcept {
+        void SetResult(const EcosCore::tag::Result& result) noexcept {
             result_ = &result;
-            if (result == Stop::instance()) {
+            if (result == EcosCore::tag::Stop::instance()) {
                 canceled_ = true;
             }
         }
 
-        const CallbackResultState& GetResult() const noexcept {
+        const EcosCore::tag::Result& GetResult() const noexcept {
             return *result_;
         }
 
@@ -32,12 +32,12 @@ namespace ecoscore::event::core {
         const std::any& GetUserData() const { return userData_; }
 
     private:
-        const CallbackResultState* result_;
+        const EcosCore::tag::Result* result_;
         bool canceled_;
         bool skipPhase_;
         std::any userData_;
     };
 
-} // namespace ecoscore::event
+} // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_EVENT_CONTEXT_H
+#endif // ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H

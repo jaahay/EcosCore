@@ -1,77 +1,78 @@
-// EcosCore/event/CallbackManager.h
-#ifndef ECOSCORE_EVENT_CALLBACK_MANAGER_H
-#define ECOSCORE_EVENT_CALLBACK_MANAGER_H
+// EcosCore/event/core/CallbackManager.h
+#ifndef ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H
+#define ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H
 
-#include "EcosCore/event/Types.h"
-#include "EcosCore/event/EventCallback.h"
-#include "EcosCore/event/CallbackPhaseState.h"
-#include "Ecoscore/state/PriorityState.h"
-
-#include <unordered_map>
 #include <vector>
-#include <typeindex>
 #include <mutex>
-#include <memory>
 #include <algorithm>
+#include <iostream>
+#include "EcosCore/event/core/EventCallback.h"
+#include "EcosCore/event/core/IEventCallback.h"
+#include "EcosCore/event/core/CallbackHandle.h"
+#include "EcosCore/tag/PriorityTags.h"
+#include "EcosCore/tag/PriorityOrderingGraph.h"  // updated include path
 
-namespace ecoscore::event {
+namespace EcosCore::event::core {
 
-    class CallbackManager {
+    /**
+     * CallbackManager: manages callbacks for a single EventType, PhaseTag, PriorityTag.
+     * Uses PriorityOrderingGraph for sorting callbacks by priority.
+     */
+    template <
+        typename EventType,
+        typename PhaseTag,
+        typename PriorityTag
+    >
+    class CallbackManager : public IEventCallback {
     public:
+        using CallbackType = EventCallback<EventType, PhaseTag, PriorityTag>;
+
         CallbackManager() = default;
 
-        template <typename EventT, typename F>
-        CallbackHandle AddCallback(F&& cb,
-            const CallbackPhaseState& phase,
-            const PriorityState& priority) {
-            auto handle = CallbackHandle(nextHandle_++);
-            auto callback = std::make_unique<EventCallback<EventT>>(std::forward<F>(cb), phase, priority);
-
+        CallbackHandle RegisterCallback(const CallbackType& callback) {
             std::lock_guard lock(mutex_);
-            auto& vec = callbacks_[std::type_index(typeid(EventT))];
-            vec.emplace_back(handle, std::move(callback));
-            SortCallbacksByPriority(vec);
+            auto handle = CallbackHandleGenerator::Generate();
+            callbacks_.emplace_back(handle, callback);
+            SortCallbacks();
             return handle;
         }
 
-        bool RemoveCallback(CallbackHandle handle) {
+        void RemoveCallback(CallbackHandle handle) override {
             std::lock_guard lock(mutex_);
-            for (auto& [type, vec] : callbacks_) {
-                auto it = std::remove_if(vec.begin(), vec.end(),
-                    [handle](const auto& pair) { return pair.first == handle; });
-                if (it != vec.end()) {
-                    vec.erase(it, vec.end());
-                    return true;
+            callbacks_.erase(std::remove_if(callbacks_.begin(), callbacks_.end(),
+                [handle](const auto& pair) { return pair.first == handle; }), callbacks_.end());
+        }
+
+        void Dispatch(const EventType& event, EventContext& ctx) override {
+            for (const auto& [handle, cb] : callbacks_) {
+                if (cb.phase() == PhaseTag::instance()) {
+                    cb(event);
+                    if (ctx.IsCanceled()) break;
                 }
             }
-            return false;
         }
 
-        std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>> GetCallbacks(std::type_index type) const {
-            std::lock_guard lock(mutex_);
-            auto found = callbacks_.find(type);
-            if (found != callbacks_.end())
-                return found->second;
-            return {};
-        }
+    private:
+        void SortCallbacks() {
+            std::sort(callbacks_.begin(), callbacks_.end(),
+                [this](const auto& a, const auto& b) {
+                    const auto& p1 = a.second.priority();
+                    const auto& p2 = b.second.priority();
 
-        void SortCallbacksByPriority(std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>& vec) {
-            std::stable_sort(vec.begin(), vec.end(),
-                [](const auto& a, const auto& b) {
-                    auto p1 = dynamic_cast<const PriorityState*>(a.second->Priority());
-                    auto p2 = dynamic_cast<const PriorityState*>(b.second->Priority());
-                    if (!p1 || !p2) return false;
-                    return (*p1) < (*p2);
+                    if (priorityOrderingGraph_.IsHigher(&p1, &p2)) return true;
+                    if (priorityOrderingGraph_.IsHigher(&p2, &p1)) return false;
+
+                    // Fallback deterministic ordering by name
+                    return std::string(p1.names().name) < std::string(p2.names().name);
                 });
         }
 
-        mutable std::mutex mutex_;
+        std::vector<std::pair<CallbackHandle, CallbackType>> callbacks_;
+        std::mutex mutex_;
 
-    private:
-        std::unordered_map<std::type_index, std::vector<std::pair<CallbackHandle, std::unique_ptr<IEventCallback>>>> callbacks_;
-        std::size_t nextHandle_ = 1;
+        EcosCore::tag::PriorityOrderingGraph priorityOrderingGraph_;
     };
 
-} // namespace ecoscore::event
+} // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CALLBACK_MANAGER_H
+#endif // ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H

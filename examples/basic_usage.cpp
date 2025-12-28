@@ -2,7 +2,7 @@
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/state/DefaultPriorityState.h"
+#include "EcosCore/state/DefaultPriorityTags.h"
 
 using namespace ecoscore::event;
 using namespace ecoscore::event::core;

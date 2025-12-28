@@ -2,14 +2,14 @@
 
 #include <gtest/gtest.h>
 
-#include "EcosCore/state/TemplateState.h"
-#include "EcosCore/state/BaseState.h"
+#include "EcosCore/state/TemplateType.h"
+#include "EcosCore/state/BaseType.h"
 #include "EcosCore/event/EventDispatcher.h"
 #include "EcosCore/event/EventCallback.h"
-#include "EcosCore/event/CallbackPhaseState.h"
-#include "EcosCore/event/DefaultPriorityState.h"
-#include "EcosCore/event/PriorityState.h"
-#include "EcosCore/event/CallbackResultState.h"
+#include "EcosCore/event/PhaseTagsState.h"
+#include "EcosCore/event/DefaultPriorityTags.h"
+#include "EcosCore/event/PriorityTags.h"
+#include "EcosCore/event/CallbackResult.h"
 #include "EcosCore/event/EventContext.h"
 
 using namespace ecoscore::state;
@@ -20,7 +20,7 @@ using ecoscore::state::operator!=;
 using ecoscore::state::operator<=>;
 
 // Priority States
-struct TestPriorityHigh : TemplateState<TestPriorityHigh, PriorityState> {
+struct TestPriorityHigh : TemplateType<TestPriorityHigh, Priority> {
 private:
     TestPriorityHigh() = default;
 public:
@@ -28,11 +28,11 @@ public:
         static TestPriorityHigh inst;
         return inst;
     }
-    constexpr std::string_view name() const noexcept { return "TestPriorityHigh"; }
+    constexpr static constexpr NameSet names() const noexcept { return "TestPriorityHigh"; }
     void print(std::ostream& os) const noexcept override { os << name(); }
 };
 
-struct TestPriorityLow : TemplateState<TestPriorityLow, PriorityState> {
+struct TestPriorityLow : TemplateType<TestPriorityLow, Priority> {
 private:
     TestPriorityLow() = default;
 public:
@@ -40,7 +40,7 @@ public:
         static TestPriorityLow inst;
         return inst;
     }
-    constexpr std::string_view name() const noexcept { return "TestPriorityLow"; }
+    constexpr static constexpr NameSet names() const noexcept { return "TestPriorityLow"; }
     void print(std::ostream& os) const noexcept override { os << name(); }
 };
 
@@ -49,9 +49,9 @@ struct TestEvent : Event {};
 // Tests
 
 TEST(CoreSystem, SingletonStateIdentity) {
-    const BaseState& p1a = TestPriorityHigh::instance();
-    const BaseState& p1b = TestPriorityHigh::instance();
-    const BaseState& p2 = TestPriorityLow::instance();
+    const BaseType& p1a = TestPriorityHigh::instance();
+    const BaseType& p1b = TestPriorityHigh::instance();
+    const BaseType& p2 = TestPriorityLow::instance();
 
     EXPECT_EQ(&p1a, &p1b);
     EXPECT_NE(&p1a, &p2);
@@ -61,8 +61,8 @@ TEST(CoreSystem, SingletonStateIdentity) {
 }
 
 TEST(CoreSystem, PriorityOrdering) {
-    const BaseState& high = TestPriorityHigh::instance();
-    const BaseState& low = TestPriorityLow::instance();
+    const BaseType& high = TestPriorityHigh::instance();
+    const BaseType& low = TestPriorityLow::instance();
 
     auto cmp = high <=> low;
 

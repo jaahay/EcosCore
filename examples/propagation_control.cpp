@@ -1,9 +1,9 @@
 // examples/propagation_control.cpp
 #include <iostream>
 #include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/event/CallbackPhaseState.h"
-#include "EcosCore/event/CallbackResultState.h"
-#include "EcosCore/state/BaseState.h"
+#include "EcosCore/event/PhaseTagsState.h"
+#include "EcosCore/event/CallbackResult.h"
+#include "EcosCore/state/BaseType.h"
 
 using namespace ecoscore::event;
 using namespace ecoscore::state;

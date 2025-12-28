@@ -1,14 +1,19 @@
-// EcosCore/event/core/EventHierarchyRegistry.h
+// EcosCore/event/EventHierarchyRegistry.h
 #ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H
 #define ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H
 
-#include <typeindex>
-#include <vector>
 #include <unordered_map>
+#include <typeindex>
+#include <memory>
 #include <mutex>
+#include "EcosCore/event/EventHierarchy.h"
 
-namespace ecoscore::event::core {
+namespace EcosCore::event {
 
+    /**
+     * EventHierarchyRegistry:
+     * Manages registration and lookup of event hierarchies keyed by base event type.
+     */
     class EventHierarchyRegistry {
     public:
         static EventHierarchyRegistry& instance() {
@@ -16,31 +21,30 @@ namespace ecoscore::event::core {
             return inst;
         }
 
-        // Register base types for a derived event type
-        void RegisterHierarchy(std::type_index derived, std::vector<std::type_index> bases) {
+        void RegisterHierarchy(std::type_index baseEvent, std::shared_ptr<EventHierarchy> hierarchy) {
             std::lock_guard lock(mutex_);
-            registry_[derived] = std::move(bases);
+            hierarchies_[baseEvent] = hierarchy;
         }
 
-        // Retrieve hierarchy: base types first, then derived
-        std::vector<std::type_index> GetHierarchy(std::type_index type) const {
+        std::shared_ptr<EventHierarchy> GetHierarchy(std::type_index baseEvent) {
             std::lock_guard lock(mutex_);
-            auto it = registry_.find(type);
-            if (it != registry_.end()) {
-                // Copy bases + derived type
-                auto vec = it->second;
-                vec.push_back(type);
-                return vec;
+            auto it = hierarchies_.find(baseEvent);
+            if (it != hierarchies_.end()) {
+                return it->second;
             }
-            // Default: only the type itself
-            return { type };
+            return nullptr;
         }
 
     private:
-        mutable std::mutex mutex_;
-        std::unordered_map<std::type_index, std::vector<std::type_index>> registry_;
+        EventHierarchyRegistry() = default;
+        ~EventHierarchyRegistry() = default;
+        EventHierarchyRegistry(const EventHierarchyRegistry&) = delete;
+        EventHierarchyRegistry& operator=(const EventHierarchyRegistry&) = delete;
+
+        std::mutex mutex_;
+        std::unordered_map<std::type_index, std::shared_ptr<EventHierarchy>> hierarchies_;
     };
 
-} // namespace ecoscore::event::core
+} // namespace EcosCore::event
 
 #endif // ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H

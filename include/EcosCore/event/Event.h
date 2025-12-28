@@ -1,13 +1,16 @@
-// EcosCore/event/Event.h
-#ifndef ECOSCORE_EVENT_EVENT_H
-#define ECOSCORE_EVENT_EVENT_H
+// EcosCore/event/VirtualEvent.h
+#ifndef ECOSCORE_EVENT_VIRTUAL_EVENT_H
+#define ECOSCORE_EVENT_VIRTUAL_EVENT_H
 
-namespace ecoscore::event {
+namespace EcosCore::event {
 
-    struct Event {
-        virtual ~Event() = default;
+    /**
+     * Base class for all events.
+     */
+    struct VirtualEvent {
+        virtual ~VirtualEvent() = default;
     };
 
-} // namespace ecoscore::event
+} // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_EVENT_H
+#endif // ECOSCORE_EVENT_VIRTUAL_EVENT_H

@@ -25,13 +25,13 @@ A modular, extensible, and type-safe C++20 core library for event-driven state m
     concepts/
       Concepts.h
     event/
-      CallbackPhaseState.h
-      DefaultPriorityState.h
+      PhaseTagsState.h
+      DefaultPriorityTags.h
       Event.h
       EventCallback.h
       EventDispatcher.h
       EventHierarchy.h
-      PriorityState.h
+      PriorityTags.h
       ScopedCallbackHandler.h
     meta/
       Meta.h
@@ -40,8 +40,8 @@ A modular, extensible, and type-safe C++20 core library for event-driven state m
       TypeList.h
       CycleCheck.h
     state/
-      BaseState.h
-      TemplateState.h
+      BaseType.h
+      TemplateType.h
 /src
   /core
     CMakeLists.txt

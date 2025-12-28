@@ -1,41 +1,36 @@
 // EcosCore/event/StrongTypedefs.h
-#ifndef ECOSCORE_EVENT_STRONG_TYPEDEFS_H
-#define ECOSCORE_EVENT_STRONG_TYPEDEFS_H
+#ifndef ECOSCORE_EVENT_STRONGTYPEDEFS_H
+#define ECOSCORE_EVENT_STRONGTYPEDEFS_H
 
-#include <cstddef>
+#include <cstdint>
 #include <type_traits>
+#include <utility>
 
-namespace ecoscore::event {
+/**
+ * Strong typedef utility to create distinct types from base types.
+ * Inspired by Boost.StrongTypedef.
+ */
+template <typename T, typename Parameter>
+class StrongTypedef {
+public:
+    explicit constexpr StrongTypedef(const T& value) : value_(value) {}
+    explicit constexpr StrongTypedef(T&& value) : value_(std::move(value)) {}
 
-    template <typename T, typename Tag>
-    class StrongTypedef {
-    public:
-        explicit constexpr StrongTypedef(T value) : value_(value) {}
-        constexpr T get() const { return value_; }
+    constexpr const T& get() const noexcept { return value_; }
+    constexpr T& get() noexcept { return value_; }
 
-        // Equality operators
-        constexpr bool operator==(const StrongTypedef& other) const { return value_ == other.value_; }
-        constexpr bool operator!=(const StrongTypedef& other) const { return !(*this == other); }
+    constexpr explicit operator T() const noexcept { return value_; }
 
-    private:
-        T value_;
-    };
+    // Comparison operators
+    friend constexpr bool operator==(const StrongTypedef& lhs, const StrongTypedef& rhs) {
+        return lhs.value_ == rhs.value_;
+    }
+    friend constexpr bool operator!=(const StrongTypedef& lhs, const StrongTypedef& rhs) {
+        return !(lhs == rhs);
+    }
 
-    struct CallbackHandleTag {};
-    using CallbackHandle = StrongTypedef<std::size_t, CallbackHandleTag>;
+private:
+    T value_;
+};
 
-    struct EventIDTag {};
-    using EventID = StrongTypedef<std::size_t, EventIDTag>;
-
-    struct PhaseIDTag {};
-    using PhaseID = StrongTypedef<int, PhaseIDTag>;
-
-    struct PriorityIDTag {};
-    using PriorityID = StrongTypedef<int, PriorityIDTag>;
-
-    struct CallbackGroupIDTag {};
-    using CallbackGroupID = StrongTypedef<std::size_t, CallbackGroupIDTag>;
-
-} // namespace ecoscore::event
-
-#endif // ECOSCORE_EVENT_STRONG_TYPEDEFS_H
+#endif // ECOSCORE_EVENT_STRONGTYPEDEFS_H

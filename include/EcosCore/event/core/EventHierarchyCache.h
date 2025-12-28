@@ -2,13 +2,19 @@
 #ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H
 #define ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H
 
-#include <vector>
-#include <typeindex>
-#include <unordered_map>
 #include <mutex>
+#include <unordered_map>
+#include <typeindex>
+#include <memory>
+#include "EcosCore/event/EventHierarchy.h"
 
-namespace ecoscore::event {
+namespace EcosCore::event {
 
+    /**
+     * EventHierarchyCache:
+     * Thread-safe singleton cache for event hierarchies keyed by base event type.
+     * Supports multiple independent hierarchies distinguished by base event types.
+     */
     class EventHierarchyCache {
     public:
         static EventHierarchyCache& instance() {
@@ -16,26 +22,27 @@ namespace ecoscore::event {
             return inst;
         }
 
-        const std::vector<std::type_index>& Get(std::type_index type) {
+        std::shared_ptr<EventHierarchy> GetOrCreate(std::type_index baseEvent) {
             std::lock_guard lock(mutex_);
-            auto it = cache_.find(type);
+            auto it = cache_.find(baseEvent);
             if (it != cache_.end()) {
                 return it->second;
             }
-            static const std::vector<std::type_index> defaultVec{ type };
-            return defaultVec;
-        }
-
-        void Insert(std::type_index type, std::vector<std::type_index> hierarchy) {
-            std::lock_guard lock(mutex_);
-            cache_[type] = std::move(hierarchy);
+            auto hierarchy = std::make_shared<EventHierarchy>();
+            cache_[baseEvent] = hierarchy;
+            return hierarchy;
         }
 
     private:
-        std::unordered_map<std::type_index, std::vector<std::type_index>> cache_;
+        EventHierarchyCache() = default;
+        ~EventHierarchyCache() = default;
+        EventHierarchyCache(const EventHierarchyCache&) = delete;
+        EventHierarchyCache& operator=(const EventHierarchyCache&) = delete;
+
         std::mutex mutex_;
+        std::unordered_map<std::type_index, std::shared_ptr<EventHierarchy>> cache_;
     };
 
-} // namespace ecoscore::event
+} // namespace EcosCore::event
 
 #endif // ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H

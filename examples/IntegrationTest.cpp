@@ -1,9 +1,11 @@
 // examples/IntegrationTest.cpp
+
 #include <iostream>
-#include <string>
+#include <string_view>
 #include <vector>
 
 #include "EcosCore/event/core/EventDispatcher.h"
+#include "EcosCore/event/core/EventHierarchy.h"
 #include "EcosCore/event/helpers/EventHierarchyHelpers.h"
 #include "EcosCore/event/util/LoggingCallback.h"
 #include "EcosCore/event/util/MetricsCallback.h"
@@ -12,8 +14,8 @@
 #include "EcosCore/event/core/CallbackGuard.h"
 #include "EcosCore/event/core/EventContext.h"
 #include "EcosCore/event/util/DefaultFallbackCallbacks.h"
-#include "EcosCore/state/BaseState.h"
-#include "EcosCore/state/PriorityState.h"
+#include "EcosCore/state/BaseType.h"
+#include "EcosCore/state/PriorityTags.h"
 
 using namespace ecoscore::event;
 using namespace ecoscore::state;
@@ -28,54 +30,54 @@ struct DerivedEvent : BaseEvent {};
 ECOSCORE_REGISTER_BASE_EVENTS(DerivedEvent, BaseEvent)
 
 // Simple priority states
-struct HighPriority : PriorityState {
-    static const HighPriority& instance() {
-        static HighPriority inst;
+struct HigherPriority : Priority {
+    static const HigherPriority& instance() {
+        static HigherPriority inst;
         return inst;
     }
-    constexpr std::string_view name() const noexcept { return "HighPriority"; }
+    constexpr static constexpr NameSet names() const noexcept { return "HigherPriority"; }
     void print(std::ostream& os) const noexcept override { os << name(); }
 };
 
-struct LowPriority : PriorityState {
-    static const LowPriority& instance() {
-        static LowPriority inst;
+struct LowerPriority : Priority {
+    static const LowerPriority& instance() {
+        static LowerPriority inst;
         return inst;
     }
-    constexpr std::string_view name() const noexcept { return "LowPriority"; }
+    constexpr static constexpr NameSet names() const noexcept { return "LowerPriority"; }
     void print(std::ostream& os) const noexcept override { os << name(); }
 };
 
 int main() {
     EventDispatcher dispatcher;
 
-    // Register fallback interceptor
+    // Register fallback interceptor to log when dispatch stops early
     dispatcher.SetFallbackCallback([](const Event& e, const EventContext& ctx) {
         std::cerr << "[Fallback] Dispatch stopped early for event type: " << typeid(e).name() << "\n";
         });
 
     // Register LoggingCallback for BaseEvent with DebugLogger
     dispatcher.AddCallback<BaseEvent>(
-        LoggingCallback<BaseEvent>(DebugLogger::instance()),
+        LoggingCallback<BaseEvent>::instance(),
         BeforePhase::instance(),
-        HighPriority::instance()
+        HigherPriority::instance()
     );
 
     // Register MetricsCallback for BaseEvent
     dispatcher.AddCallback<BaseEvent>(
         MetricsCallback<BaseEvent>::instance(),
         AfterPhase::instance(),
-        LowPriority::instance()
+        LowerPriority::instance()
     );
 
     // Register TimingCallback for DerivedEvent
     dispatcher.AddCallback<DerivedEvent>(
         TimingCallback<DerivedEvent>::instance(),
         AfterPhase::instance(),
-        LowPriority::instance()
+        LowerPriority::instance()
     );
 
-    // Register guarded callback for DerivedEvent
+    // Register guarded callback for DerivedEvent with cancellation support
     bool cancelFlag = false;
     CallbackGuard<DerivedEvent> guardedCallback(
         [](const DerivedEvent&, EventContext& ctx) {
@@ -88,7 +90,7 @@ int main() {
     dispatcher.AddCallback<DerivedEvent>(
         guardedCallback,
         MainPhase::instance(),
-        HighPriority::instance()
+        HigherPriority::instance()
     );
 
     // Dispatch DerivedEvent - all callbacks should run

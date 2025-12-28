@@ -4,12 +4,12 @@
 
 // Umbrella header for EcosCore public API
 
-#include "EcosCore/concepts/Concepts.h"
-#include "EcosCore/event/Event.h"
-#include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/state/BaseState.h"
-#include "EcosCore/state/TemplateState.h"
-#include "EcosCore/meta/Meta.h"
+//#include "EcosCore/concepts/Concepts.h"
+//#include "EcosCore/event/Event.h"
+//#include "EcosCore/event/EventDispatcher.h"
+//#include "EcosCore/state/BaseType.h"
+//#include "EcosCore/state/TemplateType.h"
+//#include "EcosCore/meta/Meta.h"
 
 // Add other public headers as needed
 

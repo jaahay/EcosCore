@@ -1,22 +1,42 @@
-// EcosCore/event/core/EventHierarchy.h
+// EcosCore/event/EventHierarchy.h
 #ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_H
 #define ECOSCORE_EVENT_EVENT_HIERARCHY_H
 
-#include <typeindex>
 #include <vector>
-#include <type_traits>
+#include <typeindex>
+#include <unordered_map>
 
-namespace ecoscore::event::core {
+namespace EcosCore::event {
 
-    // Default: event hierarchy is just the event itself
-    template <typename EventT>
-    struct EventHierarchy {
-        static const std::vector<std::type_index>& Get() {
-            static const std::vector<std::type_index> hierarchy = { std::type_index(typeid(EventT)) };
-            return hierarchy;
+    /**
+     * EventHierarchy: manages base and derived event type relationships.
+     */
+    class EventHierarchy {
+    public:
+        EventHierarchy() = default;
+
+        void AddBaseEvent(std::type_index derived, std::type_index base) {
+            base_map_[derived].push_back(base);
+            derived_map_[base].push_back(derived);
         }
+
+        const std::vector<std::type_index>& GetBaseEvents(std::type_index derived) const {
+            static const std::vector<std::type_index> empty;
+            auto it = base_map_.find(derived);
+            return it != base_map_.end() ? it->second : empty;
+        }
+
+        const std::vector<std::type_index>& GetDerivedEvents(std::type_index base) const {
+            static const std::vector<std::type_index> empty;
+            auto it = derived_map_.find(base);
+            return it != derived_map_.end() ? it->second : empty;
+        }
+
+    private:
+        std::unordered_map<std::type_index, std::vector<std::type_index>> base_map_;
+        std::unordered_map<std::type_index, std::vector<std::type_index>> derived_map_;
     };
 
-} // namespace ecoscore::event::core
+} // namespace EcosCore::event
 
 #endif // ECOSCORE_EVENT_EVENT_HIERARCHY_H

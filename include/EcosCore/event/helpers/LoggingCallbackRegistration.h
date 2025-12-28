@@ -4,20 +4,23 @@
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/event/core/CallbackPhaseState.h"
-#include "EcosCore/state/DefaultPriorityState.h"
+#include "EcosCore/tag/PhaseTags.h"
+#include "EcosCore/tag/PriorityTags.h"
 
-namespace ecoscore::event::helpers {
+namespace EcosCore::event::helpers {
 
+    /**
+     * Registers the default logging callback for an event type.
+     */
     template <typename EventT>
-    inline CallbackHandle RegisterDefaultLoggingCallback(EventDispatcher& dispatcher) {
+    inline EcosCore::event::core::CallbackHandle RegisterDefaultLoggingCallback(EcosCore::event::core::EventDispatcher& dispatcher) {
         return dispatcher.AddCallback<EventT>(
-            util::LoggingCallback<EventT>::instance(),
-            BeforePhase::instance(),
-            DefaultPriority::instance()
+            EcosCore::event::util::LoggingCallback<EventT>::instance(),
+            EcosCore::tag::Before::instance(),
+            EcosCore::tag::Medium::instance()
         );
     }
 
-} // namespace ecoscore::event::helpers
+} // namespace EcosCore::event::helpers
 
 #endif // ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H

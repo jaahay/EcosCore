@@ -1,9 +1,12 @@
-#include <gtest/gtest.h>
-#include "EcosCore/event/EventDispatcher.h"
-#include "EcosCore/event/util/LoggingCallback.h"
-#include "EcosCore/state/BaseState.h"
+// tests/examples/ExampleTest1.cpp
 
-using namespace ecoscore::event;
+#include <gtest/gtest.h>
+#include "EcosCore/event/core/EventDispatcher.h"
+#include "EcosCore/event/util/LoggingCallback.h"
+#include "EcosCore/state/DefaultPriorityTags.h"
+
+using namespace ecoscore::event::core;
+using namespace ecoscore::event::util;
 using namespace ecoscore::state;
 
 struct TestEvent : Event {};

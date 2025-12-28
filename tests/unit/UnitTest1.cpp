@@ -1,17 +1,19 @@
+// tests/unit/UnitTest1.cpp
+
 #include <gtest/gtest.h>
-#include "EcosCore/state/TemplateState.h"
-#include "EcosCore/state/BaseState.h"
+#include "Ecoscore/state/TemplateType.h"
+#include "Ecoscore/state/BaseType.h"
 
 using namespace ecoscore::state;
 
-struct TestPriorityHigh : TemplateState<TestPriorityHigh, BaseState> {
+struct TestPriorityHigh : TemplateType<TestPriorityHigh, BaseType> {
     static const TestPriorityHigh& instance() {
         static TestPriorityHigh inst;
         return inst;
     }
 };
 
-struct TestPriorityLow : TemplateState<TestPriorityLow, BaseState> {
+struct TestPriorityLow : TemplateType<TestPriorityLow, BaseType> {
     static const TestPriorityLow& instance() {
         static TestPriorityLow inst;
         return inst;
