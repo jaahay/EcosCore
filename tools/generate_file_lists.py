@@ -31,7 +31,7 @@ def list_root_files(base_path, output_file):
 
 def main():
     project_root = os.getcwd()
-    output_dir = os.path.join(project_root, "tools", "generated")
+    output_dir = os.path.join(project_root, "tools", "artifacts")
     os.makedirs(output_dir, exist_ok=True)
 
     # Process main directories

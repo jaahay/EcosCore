@@ -96,4 +96,4 @@ core.*
 # Ignore Windows Thumbs.db
 Thumbs.db
 
-tools/generated/*
+tools/artifacts/*

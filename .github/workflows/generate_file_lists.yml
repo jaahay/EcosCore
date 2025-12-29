@@ -30,8 +30,8 @@ jobs:
         with:
           name: file-listings
           path: |
-            tools/generated/include_tree.generated.txt
-            tools/generated/src_tree.generated.txt
-            tools/generated/tests_tree.generated.txt
-            tools/generated/examples_tree.generated.txt
-            tools/generated/root_files.generated.txt
+            tools/artifacts/include_tree.generated.txt
+            tools/artifacts/src_tree.generated.txt
+            tools/artifacts/tests_tree.generated.txt
+            tools/artifacts/examples_tree.generated.txt
+            tools/artifacts/root_files.generated.txt
