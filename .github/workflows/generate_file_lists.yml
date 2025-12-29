@@ -1,0 +1,37 @@
+name: Generate File Listings
+
+on:
+  workflow_dispatch:  # Manual trigger from GitHub UI
+
+jobs:
+  generate-listings:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          # Add here if your script has dependencies
+          echo "No dependencies to install"
+
+      - name: Run file listing script
+        run: |
+          python tools/generate_file_lists.py
+
+      - name: Upload generated listings as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: file-listings
+          path: |
+            tools/generated/include_tree.generated.txt
+            tools/generated/src_tree.generated.txt
+            tools/generated/tests_tree.generated.txt
+            tools/generated/examples_tree.generated.txt
+            tools/generated/root_files.generated.txt
