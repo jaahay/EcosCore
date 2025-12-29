@@ -1,12 +1,26 @@
 # src/ecoscore/type/CMakeLists.txt
-add_library(ecoscore_type_StructType MODULE StructType.ixx)
-add_library(ecoscore_type_TemplateType MODULE TemplateType.ixx)
-add_library(ecoscore_type_Concepts MODULE Concepts.ixx)
+add_library(ecoscore.type.impl STATIC)
 
-add_library(ecoscore_type INTERFACE)
-target_link_libraries(ecoscore_type INTERFACE
-    ecoscore_type_StructType
-    ecoscore_type_TemplateType
-    ecoscore_type_Concepts
+target_sources(ecoscore.type.impl PRIVATE
+    FILE_SET cxx_modules TYPE CXX_MODULES
+    FILES
+        StructType.ixx
+        TemplateType.ixx
+        Concepts.ixx
 )
-target_include_directories(ecoscore_type INTERFACE ${CMAKE_SOURCE_DIR}/include)
+
+target_include_directories(ecoscore.type.impl PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_compile_features(ecoscore.type.impl PUBLIC cxx_std_20)
+
+add_library(ecoscore.type STATIC)
+
+target_sources(ecoscore.type PRIVATE
+    FILE_SET cxx_modules TYPE CXX_MODULES
+    FILES
+        Type.ixx
+)
+
+target_include_directories(ecoscore.type PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_compile_features(ecoscore.type PUBLIC cxx_std_20)
+
+target_link_libraries(ecoscore.type PUBLIC ecoscore.type.impl)

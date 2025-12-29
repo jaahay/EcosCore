@@ -9,6 +9,6 @@
  * Includes the facade header to expose the public API of the type module.
  */
 
-#include "type/Type.h"
+#include "ecoscore/type/Type.h"
 
 #endif // ECOSCORE_TYPE_H

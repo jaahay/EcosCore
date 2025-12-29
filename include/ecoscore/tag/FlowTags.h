@@ -2,9 +2,10 @@
 #ifndef ECOSCORE_TAG_FLOW_TAGS_H
 #define ECOSCORE_TAG_FLOW_TAGS_H
 
-#include "ecoscore/tag/Tag.h"
+#include "ecoscore/language/NameSet.h"
+#include "Tag.h"
+#include "OutcomeTags.h"
 #include "ecoscore/type/TemplateType.h"
-#include "ecoscore/tag/NameSet.h"
 
 namespace ecoscore::tag {
 

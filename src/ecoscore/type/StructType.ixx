@@ -1,5 +1,5 @@
 // src/ecoscore/type/StructType.ixx
-module ecoscore.type.StructType;
+export module ecoscore.type.StructType;
 
 import <iostream>;
 
@@ -23,4 +23,4 @@ export namespace ecoscore::type {
         }
     };
 
-}
+} // namespace ecoscore::type

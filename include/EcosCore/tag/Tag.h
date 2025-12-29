@@ -4,8 +4,7 @@
 
 #include <string_view>
 #include <iostream>
-#include "StructType.h"
-#include "TemplateType.h"
+#include "ecoscore/type/StructType.h"
 
 namespace ecoscore::tag {
 

@@ -1,4 +1,4 @@
-// src/ecoscore/tag/PriorityTags.ixx
-module ecoscore.tag.PriorityTags;
+// src/ecoscore/priority/PriorityTags.ixx
+module ecoscore.priority.PriorityTags;
 
-export import "include/ecoscore/tag/PriorityTags.h";
+export import "ecoscore/priority/PriorityTags.h";

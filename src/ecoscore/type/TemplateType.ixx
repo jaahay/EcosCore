@@ -1,9 +1,10 @@
 // src/ecoscore/type/TemplateType.ixx
-module ecoscore.type.TemplateType;
+export module ecoscore.type.TemplateType;
 
 import ecoscore.type.StructType;
 import <typeinfo>;
 import <string_view>;
+import <type_traits>;
 
 export namespace ecoscore::type {
 
@@ -14,13 +15,15 @@ export namespace ecoscore::type {
      */
     template <typename Derived, typename Parent = StructType>
     struct TemplateType : Parent {
+        static_assert(std::is_base_of_v<Parent, Derived>, "Derived must inherit from Parent");
+
         void print(std::ostream& os) const noexcept override {
             os << typeid(Derived).name();
         }
 
-        static constexpr std::string_view name() noexcept {
+        [[nodiscard]] static constexpr std::string_view name() noexcept {
             return typeid(Derived).name();
         }
     };
 
-}
+} // namespace ecoscore::type

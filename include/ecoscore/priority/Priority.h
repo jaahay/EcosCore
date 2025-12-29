@@ -9,8 +9,9 @@
  * Includes all primary public headers of the priority module.
  */
 
-#include "VirtualPriorityOrdering.h"
-#include "StaticPriorityOrdering.h"
 #include "PriorityOrderingGraph.h"
+#include "PriorityTags.h"
+#include "StaticPriorityOrdering.h"
+#include "VirtualPriorityOrdering.h"
 
 #endif // ECOSCORE_PRIORITY_PRIORITY_H

@@ -1,14 +1,18 @@
 # src/ecoscore/meta/CMakeLists.txt
-add_library(ecoscore_meta_TypeList MODULE TypeList.ixx)
-add_library(ecoscore_meta_Tuple MODULE Tuple.ixx)
-add_library(ecoscore_meta_Variant MODULE Variant.ixx)
-add_library(ecoscore_meta_CycleCheck MODULE CycleCheck.ixx)
+add_library(ecoscore.meta STATIC)
 
-add_library(ecoscore_meta INTERFACE)
-target_link_libraries(ecoscore_meta INTERFACE
-    ecoscore_meta_TypeList
-    ecoscore_meta_Tuple
-    ecoscore_meta_Variant
-    ecoscore_meta_CycleCheck
+target_sources(ecoscore.meta PRIVATE
+    FILE_SET cxx_modules TYPE CXX_MODULES
+    FILES
+        Meta.ixx
+        CycleCheck.ixx
+        Tuple.ixx
+        TypeList.ixx
+        Variant.ixx
 )
-target_include_directories(ecoscore_meta INTERFACE ${CMAKE_SOURCE_DIR}/include)
+
+target_include_directories(ecoscore.meta PUBLIC
+    ${CMAKE_SOURCE_DIR}/include
+)
+
+target_compile_features(ecoscore.meta PUBLIC cxx_std_20)

@@ -1,4 +1,4 @@
 // src/ecoscore/tag/OutcomeTags.ixx
 module ecoscore.tag.OutcomeTags;
 
-export import "include/ecoscore/tag/OutcomeTags.h";
+export import "ecoscore/tag/OutcomeTags.h";

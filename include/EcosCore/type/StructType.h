@@ -7,8 +7,12 @@
 namespace ecoscore::type {
 
     /**
+     * @file StructType.h
      * @brief Base struct type for polymorphic hierarchies.
+     *
+     * Provides an abstract interface with a virtual print method.
      */
+
     struct StructType {
         virtual ~StructType() noexcept = default;
 

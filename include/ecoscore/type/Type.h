@@ -9,8 +9,8 @@
  * Includes all primary public headers of the type module.
  */
 
-#include "StructType.h"
-#include "TemplateType.h"
-#include "Concepts.h"
+#include "ecoscore/type/StructType.h"
+#include "ecoscore/type/TemplateType.h"
+#include "ecoscore/type/concepts/Concepts.h"
 
 #endif // ECOSCORE_TYPE_TYPE_H
