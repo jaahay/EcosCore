@@ -2,32 +2,34 @@
 #ifndef ECOSCORE_LANGUAGE_LANG_EN_H
 #define ECOSCORE_LANGUAGE_LANG_EN_H
 
-#include "ecoscore/tag/Tag.h"
-#include "ecoscore/type/TemplateType.h"
-#include "ecoscore/language/NameSet.h"
-#include "ecoscore/language/LocalizedName.h"
+#include "ecoscore/language/Languages.h"
+#include "ecoscore/tag/Concepts.h"
+#include <string_view>
 
 namespace ecoscore::language::lang {
 
     /**
      * @brief English language tag.
      */
-    struct en : type::TemplateType<en, ecoscore::language::Language> {
-        static constexpr std::string_view name() noexcept { return "English"; }
-        static constexpr NameSet names() noexcept {
-            return NameSet{
-                "English",
-                "english",
-                "en",
-                "English language",
-                "E*****h",
-                "Eng...",
-                {{"en", {{"English", "UTF-8"}}},
-                 {"fr", {{"Anglais", "UTF-8"}}}}
-            };
+    struct En final : language::Language<En> {
+        friend tag::concepts::Category<En>;
+
+    protected:
+        constexpr En() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
+            return "English";
         }
+
+        static constexpr En instance{};
     };
 
-} // namespace ecoscore::language::lang
+    /**
+     * @brief Alias for the singleton instance of English.
+     */
+    inline constexpr En& En = En::instance;
 
-#endif // ECOSCORE_LANGUAGE_LANG_EN_H
+}  // namespace ecoscore::language::lang
+
+#endif  // ECOSCORE_LANGUAGE_LANG_EN_H

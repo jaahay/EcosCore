@@ -1,11 +1,8 @@
-// src/ecoscore/tag/Tag.ixx
-module ecoscore.tag;
+// include/ecoscore/tag/Tag.ixx
+export module ecoscore.tag.Tag;
 
-export import ecoscore.tag.CharsetTags;
-export import ecoscore.tag.LanguageTags;
-export import ecoscore.tag.PhaseTags;
-export import ecoscore.tag.FlowTags;
-export import ecoscore.tag.OutcomeTags;
-export import ecoscore.tag.NameSet;
-export import ecoscore.tag.SynonymTag;
-export import ecoscore.tag.Tag;
+export import ecoscore.tag.Category;
+export import ecoscore.tag.Flows;
+export import ecoscore.tag.Outcomes;
+export import ecoscore.tag.Phases;
+export import ecoscore.tag.concepts.Concepts;

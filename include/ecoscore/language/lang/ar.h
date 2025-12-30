@@ -2,32 +2,34 @@
 #ifndef ECOSCORE_LANGUAGE_LANG_AR_H
 #define ECOSCORE_LANGUAGE_LANG_AR_H
 
-#include "ecoscore/tag/Tag.h"
-#include "ecoscore/type/TemplateType.h"
-#include "ecoscore/language/NameSet.h"
-#include "ecoscore/language/LocalizedName.h"
+#include "ecoscore/language/Languages.h"
+#include "ecoscore/tag/Concepts.h"
+#include <string_view>
 
 namespace ecoscore::language::lang {
 
     /**
      * @brief Arabic language tag.
      */
-    struct ar : type::TemplateType<ar, ecoscore::language::Language> {
-        static constexpr std::string_view name() noexcept { return "Arabic"; }
-        static constexpr NameSet names() noexcept {
-            return NameSet{
-                "Arabic",
-                "arabic",
-                "ar",
-                "العربية",
-                "A****",
-                "Ara...",
-                {{"ar", {{"العربية", "UTF-8"}}},
-                 {"en", {{"Arabic", "UTF-8"}}}}
-            };
+    struct Ar final : language::Language<Ar> {
+        friend tag::concepts::Category<Ar>;
+
+    protected:
+        constexpr Ar() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
+            return "Arabic";
         }
+
+        static constexpr Ar instance{};
     };
 
-} // namespace ecoscore::language::lang
+    /**
+     * @brief Alias for the singleton instance of Arabic.
+     */
+    inline constexpr Ar& Ar = Ar::instance;
 
-#endif // ECOSCORE_LANGUAGE_LANG_AR_H
+}  // namespace ecoscore::language::lang
+
+#endif  // ECOSCORE_LANGUAGE_LANG_AR_H

@@ -2,58 +2,33 @@
 #ifndef ECOSCORE_TAG_TAG_H
 #define ECOSCORE_TAG_TAG_H
 
-#include <string_view>
-#include <iostream>
-#include "ecoscore/type/StructType.h"
+/**
+ * @file Tag.h
+ * @brief Umbrella header for the tag domain.
+ *
+ * Includes all primary public headers of the tag module,
+ * providing access to tag categories, concrete tags, and concepts.
+ */
 
-namespace ecoscore::tag {
+#include "ecoscore/tag/Category.h"
+#include "ecoscore/tag/Flows.h"
+#include "ecoscore/tag/Outcomes.h"
+#include "ecoscore/tag/Phases.h"
+#include "ecoscore/tag/concepts/Concepts.ixx"
 
-    /**
-     * @brief Base mixin for all tag types.
-     *
-     * Combines polymorphic StructType and CRTP TemplateType for compile-time identity,
-     * and provides singleton instance and static name.
-     *
-     * @tparam Derived The derived tag type.
-     */
-    template <typename Derived>
-    struct Tag : TemplateType<Derived, StructType> {
-    private:
-        constexpr Tag() noexcept = default;
+ // Include concrete tags as needed or separately
+#include "ecoscore/tag/flow/Continue.h"
+#include "ecoscore/tag/flow/Stop.h"
+#include "ecoscore/tag/outcome/Fail.h"
+#include "ecoscore/tag/outcome/Pass.h"
+#include "ecoscore/tag/outcome/Partial.h"
+#include "ecoscore/tag/phase/After.h"
+#include "ecoscore/tag/phase/Before.h"
+#include "ecoscore/tag/phase/End.h"
+#include "ecoscore/tag/phase/Error.h"
+#include "ecoscore/tag/phase/Finalize.h"
+#include "ecoscore/tag/phase/Main.h"
+#include "ecoscore/tag/phase/Process.h"
+#include "ecoscore/tag/phase/Start.h"
 
-    public:
-        /**
-         * @brief Returns the singleton instance of the Derived tag.
-         *
-         * @return constexpr reference to the Derived instance.
-         */
-        static constexpr const Derived& instance() noexcept {
-            static constexpr Derived inst{};
-            return inst;
-        }
-
-        /**
-         * @brief Returns the static name of the Derived tag.
-         *
-         * @return constexpr string_view name.
-         */
-        static constexpr std::string_view name() noexcept {
-            return Derived::name();
-        }
-
-        /**
-         * @brief Stream insertion operator for the tag, prints the tag name.
-         *
-         * @param os Output stream.
-         * @param tag Tag instance.
-         * @return std::ostream& Reference to the output stream.
-         */
-        friend std::ostream& operator<<(std::ostream& os, const Tag& tag) {
-            os << tag.name();
-            return os;
-        }
-    };
-
-} // namespace ecoscore::tag
-
-#endif // ECOSCORE_TAG_TAG_H
+#endif  // ECOSCORE_TAG_TAG_H
