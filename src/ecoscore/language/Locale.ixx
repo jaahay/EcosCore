@@ -3,6 +3,7 @@ export module ecoscore.language.Locale;
 
 import std;
 
+import ecoscore.language.Langs;
 import ecoscore.language.Languages;
 import ecoscore.language.TextRepresentations;
 

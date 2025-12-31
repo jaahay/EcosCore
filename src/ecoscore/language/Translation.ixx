@@ -3,7 +3,8 @@ export module ecoscore.language.translation.Translation;
 
 import std;
 
-import ecoscore.tag.concepts.Category;
+import ecoscore.state.Category;
+
 import ecoscore.language.NameSet;
 import ecoscore.language.Languages;
 
@@ -17,7 +18,7 @@ namespace ecoscore::language::translation {
      * @tparam Derived Concrete translation container.
      */
     export template <typename Derived>
-        struct Translation : tag::concepts::Category<Derived> {
+        struct Translation : ecoscore::state::Category<Derived> {
         protected:
             constexpr Translation() noexcept = default;
             constexpr ~Translation() noexcept = default;
@@ -26,7 +27,7 @@ namespace ecoscore::language::translation {
             Translation(const Translation&) = delete;
             Translation& operator=(const Translation&) = delete;
 
-            [[nodiscard]] const NameSet& get(const Languages::Language& lang) const noexcept {
+            [[nodiscard]] const NameSet& get(const ecoscore::language::Language& lang) const noexcept {
                 auto const& map = static_cast<const Derived&>(*this).translations;
                 auto it = map.find(&lang);
                 if (it != map.end()) {

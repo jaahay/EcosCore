@@ -1,10 +1,9 @@
 // /src/ecoscore/state/Category.ixx
 export module ecoscore.state.Category;
 
-import ecoscore.state.detail;
+import std;
 
-import <string_view>;
-import <type_traits>;
+import ecoscore.state.detail;
 
 namespace ecoscore::state {
 

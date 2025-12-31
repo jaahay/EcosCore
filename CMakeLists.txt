@@ -1,17 +1,14 @@
 # /CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
 
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
+
 project(EcosCore LANGUAGES CXX)
 
-# -----------------------------------------------------------------------------
-# @brief Root CMake configuration for EcosCore project.
-# Enforces C++20 standard and strict compiler warnings globally.
-# Delegates build to src/ecoscore subdirectory.
-# -----------------------------------------------------------------------------
-
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 # Enable strict compiler warnings globally
 if(MSVC)

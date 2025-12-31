@@ -3,7 +3,7 @@ export module ecoscore.state.Flows;
 
 import ecoscore.state.Category;
 
-namespace ecoscore::state {
+namespace ecoscore::state::flow {
 
     /**
      * @brief CRTP base for flow control states.
@@ -17,4 +17,4 @@ namespace ecoscore::state {
             constexpr ~Flow() noexcept = default;
     };
 
-} // namespace ecoscore::state
+} // namespace ecoscore::state::flow

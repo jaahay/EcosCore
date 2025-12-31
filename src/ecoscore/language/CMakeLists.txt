@@ -49,11 +49,18 @@ target_include_directories(ecoscore.language PUBLIC
     ${CMAKE_SOURCE_DIR}/include
 )
 
-target_compile_features(ecoscore.language PUBLIC cxx_std_20)
+target_compile_features(ecoscore.language PUBLIC cxx_std_23)
 
 target_compile_options(ecoscore.language PRIVATE
     /W4 /WX
-    $<$<CXX_COMPILER_ID:MSVC>:/std:c++20 /experimental:module /permissive->
+    $<$<CXX_COMPILER_ID:MSVC>:/std:c++latest /permissive->
 )
 
-target_link_libraries(ecoscore.language ecoscore.state)
+set_target_properties(ecoscore.language PROPERTIES
+    CXX_STANDARD 23
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+    CXX_MODULE_STD 1
+)
+
+target_link_libraries(ecoscore.language PRIVATE ecoscore.state)

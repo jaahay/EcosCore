@@ -17,6 +17,8 @@ add_subdirectory(state)
 # Aggregate interface library for EcosCore
 add_library(ecoscore INTERFACE)
 
+
+
 # Include root include directory transitively for all consumers
 target_include_directories(ecoscore INTERFACE
     ${CMAKE_SOURCE_DIR}/include
@@ -32,10 +34,4 @@ target_link_libraries(ecoscore INTERFACE
     # ecoscore.type
 )
 
-# Enforce C++20 for consumers of ecoscore
-target_compile_features(ecoscore INTERFACE cxx_std_20)
-
-# Enable strict warnings for all existing component libraries (MSVC example)
-foreach(lib IN ITEMS ecoscore.language ecoscore.meta ecoscore.state)
-    target_compile_options(${lib} PRIVATE /W4 /WX)
-endforeach()
+target_compile_features(ecoscore INTERFACE cxx_std_23)

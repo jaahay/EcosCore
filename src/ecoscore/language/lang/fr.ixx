@@ -4,7 +4,6 @@ export module ecoscore.language.lang.fr;
 import std;
 
 import ecoscore.language.Languages;
-import ecoscore.tag.concepts.Category;
 
 namespace ecoscore::language::lang {
 

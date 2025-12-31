@@ -1,5 +1,5 @@
-// /src/ecoscore/language/Lang.ixx
-export module ecoscore.language.Lang;
+// /src/ecoscore/language/Charset.ixx
+export module ecoscore.language.lang.Lang;
 
 import std;
 
