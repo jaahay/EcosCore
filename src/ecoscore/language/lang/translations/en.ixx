@@ -1,12 +1,11 @@
 // /src/ecoscore/language/translations/en.ixx
 export module ecoscore.language.translations.en;
 
-import ecoscore.language.NameSet;
-import ecoscore.language.lang.Lang;          // All nine language tags with aliases
-import ecoscore.language.translation.Translation;
+import std;
 
-import <unordered_map>;
-import <string_view>;
+import ecoscore.language.NameSet;
+import ecoscore.language.lang.Lang;
+import ecoscore.language.translation.Translation
 
 namespace ecoscore::language::translations::en {
 

@@ -1,11 +1,11 @@
 // src/ecoscore/priority/StaticPriorityOrdering.ixx
 module ecoscore.priority.StaticPriorityOrdering;
 
-import <map>;
-import <set>;
-import <vector>;
-import <algorithm>;
-import <stdexcept>;
+#include <map>
+#include <set>
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
 import ecoscore.type.StructType;
 
 export namespace ecoscore::priority {

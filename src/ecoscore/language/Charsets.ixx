@@ -1,8 +1,9 @@
 // /src/ecoscore/language/Charsets.ixx
 export module ecoscore.language.Charsets;
 
+import std;
+
 import ecoscore.language.TextRepresentations;
-import <string_view>;
 
 namespace ecoscore::language {
 

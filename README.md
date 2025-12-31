@@ -20,31 +20,12 @@ A modular, extensible, and type-safe C++20 core library for event-driven state m
 
 ## Directory Structure
 
-/include
-  /core
-    concepts/
-      Concepts.h
-    event/
-      PhaseTagsState.h
-      DefaultPriorityTags.h
-      Event.h
-      EventCallback.h
-      EventDispatcher.h
-      EventHierarchy.h
-      PriorityTags.h
-      ScopedCallbackHandler.h
-    meta/
-      Meta.h
-      Tuple.h
-      Variant.h
-      TypeList.h
-      CycleCheck.h
-    state/
-      BaseType.h
-      TemplateType.h
-/src
-  /core
-    CMakeLists.txt
+.../core/
+	├── state/                  # Singleton state definitions and utilities
+	├── event/                  # Event definitions and dispatching mechanisms
+	├── callback/               # Callback registration and handling
+	├── priority/               # Priority state definitions and ordering
+	├── meta/                   # Compile-time meta-programming utilities
 
 ---
 

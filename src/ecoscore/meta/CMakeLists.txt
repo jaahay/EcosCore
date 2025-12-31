@@ -1,5 +1,6 @@
-# /src/ecoscore/meta/CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
+
+project(ecoscore.meta LANGUAGES CXX)
 
 add_library(ecoscore.meta STATIC)
 
@@ -16,10 +17,13 @@ target_sources(ecoscore.meta PRIVATE
 target_include_directories(ecoscore.meta PUBLIC
     ${CMAKE_SOURCE_DIR}/include
 )
-
-target_compile_features(ecoscore.meta PUBLIC cxx_std_20)
-
+target_compile_features(ecoscore.meta PUBLIC cxx_std_23) 
 target_compile_options(ecoscore.meta PRIVATE
-    /W4 /WX
-    $<$<CXX_COMPILER_ID:MSVC>:/std:c++20 /experimental:module /permissive->
+    $<$<CXX_COMPILER_ID:MSVC>:/std:c++latest /permissive->
+)
+
+set_target_properties(ecoscore.meta PROPERTIES
+    CXX_STANDARD 20
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
 )

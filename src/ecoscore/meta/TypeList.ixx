@@ -1,9 +1,7 @@
 // src/ecoscore/meta/TypeList.ixx
 export module ecoscore.meta.TypeList;
 
-import <cstddef>;
-import <type_traits>;
-import <utility>;
+import std;
 
 namespace ecoscore::meta {
 

@@ -1,8 +1,9 @@
 // /src/ecoscore/language/Languages.ixx
 export module ecoscore.language.Languages;
 
-import ecoscore.tag.concepts.Category;
-import <string_view>;
+import std;
+
+import ecoscore.state.Category;
 
 namespace ecoscore::language {
 
@@ -12,14 +13,10 @@ namespace ecoscore::language {
      * @tparam Derived Concrete language tag.
      */
     export template <typename Derived>
-        struct Language : concepts::Category<Derived> {
+        struct Language : ecoscore::state::Category<Derived> {
         protected:
             constexpr Language() noexcept = default;
-
-        public:
-            [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-                return Derived::static_name();
-            }
+            constexpr ~Language() noexcept = default;
     };
 
 }

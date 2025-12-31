@@ -1,9 +1,9 @@
 // /src/ecoscore/language/lang/ar.ixx
 export module ecoscore.language.lang.ar;
 
+import std;
+
 import ecoscore.language.Languages;
-import ecoscore.tag.concepts.Category;
-import <string_view>;
 
 namespace ecoscore::language::lang {
 

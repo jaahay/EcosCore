@@ -1,8 +1,7 @@
 // /src/ecoscore/meta/Tuple.ixx
 export module ecoscore.meta.Tuple;
 
-import <tuple>;
-import <type_traits>;
+import std;
 
 namespace ecoscore::meta {
 

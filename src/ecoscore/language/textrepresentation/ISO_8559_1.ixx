@@ -2,7 +2,7 @@
 export module ecoscore.language.textrepresentation.ISO_8859_1;
 
 import ecoscore.language.Encodings;
-import <string_view>;
+#include <string_view>
 
 namespace ecoscore::language::textrepresentation {
 

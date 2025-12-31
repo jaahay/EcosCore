@@ -1,21 +1,23 @@
 // /src/ecoscore/language/Locale.ixx
 export module ecoscore.language.Locale;
 
+import std;
+
 import ecoscore.language.Languages;
-import ecoscore.tag.concepts.Category;
 import ecoscore.language.TextRepresentations;
-import <string_view>;
+
+import ecoscore.state.Category;
 
 namespace ecoscore::language {
 
     /**
-     * @brief Locale tag combining language, optional region, and charset.
+     * @brief Locale state combining language, optional region, and charset.
      *
      * Now includes charset as a TextRepresentation reference.
      */
-    export struct Locale : tag::concepts::Category<Locale> {
+    export struct Locale : ecoscore::state::Category<Locale> {
         using language_type = Language<Locale>; // or your Languages::Language if defined differently
-        using charset_type = TextRepresentation;
+        using charset_type = ecoscore::language::TextRepresentation;
 
         constexpr Locale(const language_type& lang,
             std::string_view region = "",
@@ -39,9 +41,7 @@ namespace ecoscore::language {
     };
 
     // Common locale instances for convenience
-    static constexpr Locale en_US{ language::lang::En::instance, "US", UTF8::instance() };
-    static constexpr Locale fr_FR{ language::lang::Fr::instance, "FR", UTF8::instance() };
+    static constexpr Locale en_US{ &ecoscore::language::En, "US", &ecoscore::language::UTF8 };
+    static constexpr Locale fr_FR{ &ecoscore::language::Fr, "FR", &ecoscore::language::UTF8 };
 
 }  // namespace ecoscore::language
-
-static_assert(concepts::Locale<ecoscore::language::Locale>, "Locale must satisfy Locale concept");

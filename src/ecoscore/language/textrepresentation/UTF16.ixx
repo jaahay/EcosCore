@@ -2,7 +2,7 @@
 export module ecoscore.language.textrepresentation.UTF16;
 
 import ecoscore.language.Encodings;
-import <string_view>;
+#include <string_view>
 
 namespace ecoscore::language::textrepresentation {
 

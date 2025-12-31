@@ -1,8 +1,9 @@
 // /src/ecoscore/language/TextRepresentations.ixx
 export module ecoscore.language.TextRepresentations;
 
-import ecoscore.tag.concepts.Category;
-import <string_view>;
+import std;
+
+import ecoscore.state.Category;
 
 namespace ecoscore::language {
 
@@ -12,7 +13,7 @@ namespace ecoscore::language {
      * Represents any form of text encoding or character set.
      */
     export template <typename Derived>
-        struct TextRepresentation : tag::concepts::Category<Derived> {
+        struct TextRepresentation : ecoscore::state::Category<Derived> {
         protected:
             constexpr TextRepresentation() noexcept = default;
 

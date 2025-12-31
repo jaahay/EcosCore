@@ -1,13 +1,13 @@
 // src/ecoscore/priority/PriorityOrderingGraph.ixx
 module ecoscore.priority.PriorityOrderingGraph;
 
-import <map>;
-import <set>;
-import <vector>;
-import <stack>;
-import <typeindex>;
-import <stdexcept>;
-import <iostream>;
+#include <map>
+#include <set>
+#include <vector>
+#include <stack>
+#include <typeindex>
+#include <stdexcept>
+#include <iostream>
 import ecoscore.type.StructType;
 
 export namespace ecoscore::priority {

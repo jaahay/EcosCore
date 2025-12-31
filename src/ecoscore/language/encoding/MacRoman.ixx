@@ -1,8 +1,9 @@
 // /src/ecoscore/language/encoding/MacRoman.ixx
 export module ecoscore.language.encoding.MacRoman;
 
+import std;
+
 import ecoscore.language.Encodings;
-import <string_view>;
 
 namespace ecoscore::language::encoding {
 

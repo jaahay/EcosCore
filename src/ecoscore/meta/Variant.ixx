@@ -1,10 +1,9 @@
 // /src/ecoscore/meta/Variant.ixx
 export module ecoscore.meta.Variant;
 
-import <variant>;
-import <tuple>;
-
 import ecoscore.meta.Tuple;
+
+import std;
 
 namespace ecoscore::meta {
 

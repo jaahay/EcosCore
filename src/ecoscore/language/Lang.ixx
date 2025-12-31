@@ -1,6 +1,8 @@
 // /src/ecoscore/language/lang/Lang.ixx
 export module ecoscore.language.lang.Lang;
 
+import std;
+
 export import ecoscore.language.lang.en;
 export import ecoscore.language.lang.fr;
 export import ecoscore.language.lang.de;

@@ -1,9 +1,10 @@
 // /src/ecoscore/language/lang/fr.ixx
 export module ecoscore.language.lang.fr;
 
+import std;
+
 import ecoscore.language.Languages;
 import ecoscore.tag.concepts.Category;
-import <string_view>;
 
 namespace ecoscore::language::lang {
 

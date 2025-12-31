@@ -2,8 +2,7 @@
 export module ecoscore.language.textrepresentation.UTF8;
 
 import ecoscore.language.Encodings;
-import <string_view>;
-
+#include <string_view>
 namespace ecoscore::language::textrepresentation {
 
     struct UTF8 final : Encoding<UTF8> {

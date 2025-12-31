@@ -1,4 +1,3 @@
-# /src/ecoscore/CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
 
 # -----------------------------------------------------------------------------
@@ -9,10 +8,11 @@ cmake_minimum_required(VERSION 3.28)
 
 # Add submodules in alphabetical order
 add_subdirectory(language)
-#add_subdirectory(localization)
+# add_subdirectory(localization)  # Uncomment when ready
 add_subdirectory(meta)
-#add_subdirectory(priority)
-add_subdirectory(tag)
+# add_subdirectory(priority)      # Uncomment when ready
+add_subdirectory(state)
+# add_subdirectory(type)          # Uncomment when ready
 
 # Aggregate interface library for EcosCore
 add_library(ecoscore INTERFACE)
@@ -25,16 +25,17 @@ target_include_directories(ecoscore INTERFACE
 # Link all component libraries transitively
 target_link_libraries(ecoscore INTERFACE
     ecoscore.language
-    #ecoscore.localization
+    # ecoscore.localization
     ecoscore.meta
-    #ecoscore.priority
+    # ecoscore.priority
     ecoscore.tag
+    # ecoscore.type
 )
 
 # Enforce C++20 for consumers of ecoscore
 target_compile_features(ecoscore INTERFACE cxx_std_20)
 
-# Enable strict warnings for all component libraries (MSVC example)
-foreach(lib IN ITEMS ecoscore.language ecoscore.localization ecoscore.meta ecoscore.priority ecoscore.tag ecoscore.type)
-#    target_compile_options(${lib} PRIVATE /W4 /WX)
+# Enable strict warnings for all existing component libraries (MSVC example)
+foreach(lib IN ITEMS ecoscore.language ecoscore.meta ecoscore.state)
+    target_compile_options(${lib} PRIVATE /W4 /WX)
 endforeach()

@@ -1,8 +1,9 @@
 // /src/ecoscore/language/Encodings.ixx
 export module ecoscore.language.Encodings;
 
+import std;
+
 import ecoscore.language.TextRepresentations;
-import <string_view>;
 
 namespace ecoscore::language {
 

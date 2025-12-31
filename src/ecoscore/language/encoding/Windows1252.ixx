@@ -1,8 +1,9 @@
 // /src/ecoscore/language/encoding/Windows1252.ixx
 export module ecoscore.language.encoding.Windows1252;
 
+import std;
+
 import ecoscore.language.Encodings;
-import <string_view>;
 
 namespace ecoscore::language::encoding {
 

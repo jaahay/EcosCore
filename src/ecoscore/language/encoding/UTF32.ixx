@@ -1,8 +1,9 @@
 // /src/ecoscore/language/encoding/UTF32.ixx
 export module ecoscore.language.encoding.UTF32;
 
+import std;
+
 import ecoscore.language.Encodings;
-import <string_view>;
 
 namespace ecoscore::language::encoding {
 

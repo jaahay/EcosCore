@@ -1,6 +1,8 @@
 // /src/ecoscore/language/TextRepresentation.ixx
 export module ecoscore.language.TextRepresentation;
 
+import std;
+
 export import ecoscore.language.Charsets;
 export import ecoscore.language.Encodings;
 
