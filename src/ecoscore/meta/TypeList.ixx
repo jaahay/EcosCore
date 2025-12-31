@@ -1,47 +1,91 @@
-// src/ecoscore/meta/TypeList.ixx
-module ecoscore.meta.TypeList;
+// /src/ecoscore/meta/TypeList.ixx
+export module ecoscore.meta.TypeList;
 
-import <type_traits>;
+#include <type_traits>
+#include <utility>
 
-export namespace ecoscore::meta {
+namespace ecoscore::meta {
 
     /**
-     * @brief Compile-time list of types.
+     * @brief A compile-time immutable list of types.
+     *
      * @tparam Ts Types contained in the list.
      */
-    template <typename... Ts>
-    struct TypeList {};
+    export template <typename... Ts>
+        struct TypeList {
+        // Tag to identify TypeList conceptually
+        using is_type_list_tag = void;
 
-    /**
-     * @brief Checks if a type T is contained within a TypeList.
-     * @tparam T Type to check.
-     * @tparam List TypeList to search.
-     */
-    template <typename T, typename List>
-    struct Contains;
+        // Number of types in the list
+        static constexpr std::size_t size = sizeof...(Ts);
 
-    template <typename T>
-    struct Contains<T, TypeList<>> : std::false_type {};
-
-    template <typename T, typename Head, typename... Tail>
-    struct Contains<T, TypeList<Head, Tail...>> : std::conditional_t<
-        std::is_same_v<T, Head>,
-        std::true_type,
-        Contains<T, TypeList<Tail...>>
-    > {
+        // Empty TypeList instance
+        static constexpr bool empty = (size == 0);
     };
 
     /**
-     * @brief Appends a type T to a TypeList.
-     * @tparam List Input TypeList.
-     * @tparam T Type to append.
+     * @brief Append a type T to a TypeList.
+     *
+     * @tparam List The original TypeList.
+     * @tparam T The type to append.
      */
-    template <typename List, typename T>
-    struct Append;
+    export template <typename List, typename T>
+        struct Append;
 
     template <typename... Ts, typename T>
     struct Append<TypeList<Ts...>, T> {
         using type = TypeList<Ts..., T>;
     };
 
-}
+    export template <typename List, typename T>
+        using Append_t = typename Append<List, T>::type;
+
+    /**
+     * @brief Check if a TypeList contains a type T.
+     *
+     * @tparam List The TypeList to check.
+     * @tparam T The type to find.
+     */
+    export template <typename List, typename T>
+        struct Contains : std::false_type {};
+
+    template <typename T, typename... Ts>
+    struct Contains<TypeList<T, Ts...>, T> : std::true_type {};
+
+    template <typename T, typename U, typename... Ts>
+    struct Contains<TypeList<U, Ts...>, T> : Contains<TypeList<Ts...>, T> {};
+
+    export template <typename List, typename T>
+        inline constexpr bool Contains_v = Contains<List, T>::value;
+
+    /**
+     * @brief Remove a type T from a TypeList.
+     *
+     * @tparam List The original TypeList.
+     * @tparam T The type to remove.
+     */
+    export template <typename List, typename T>
+        struct Remove;
+
+    template <typename T>
+    struct Remove<TypeList<>, T> {
+        using type = TypeList<>;
+    };
+
+    template <typename T, typename... Ts>
+    struct Remove<TypeList<T, Ts...>, T> {
+        using type = TypeList<Ts...>;
+    };
+
+    template <typename U, typename T, typename... Ts>
+    struct Remove<TypeList<U, Ts...>, T> {
+    private:
+        using TailResult = typename Remove<TypeList<Ts...>, T>::type;
+    public:
+        using type = Append_t<TypeList<U>, TailResult>;
+    };
+
+    export template <typename List, typename T>
+        using Remove_t = typename Remove<List, T>::type;
+
+} // namespace ecoscore::meta

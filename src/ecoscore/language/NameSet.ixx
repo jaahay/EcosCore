@@ -1,149 +1,45 @@
-// src/ecoscore/tag/NameSet.ixx
-module ecoscore.tag.NameSet;
+// /src/ecoscore/language/NameSet.ixx
+export module ecoscore.language.NameSet;
 
-import <string>;
 import <string_view>;
-import <vector>;
-import <map>;
-import <iostream>;
+import <tuple>;
+import <utility>;
 
-export namespace ecoscore::tag {
+namespace ecoscore::language {
 
     /**
-     * @brief Represents a localized name with optional charset information.
+     * @brief Immutable set of localized names for a tag in a locale.
+     *
+     * Holds a canonical name and an arbitrary number of synonyms (excluding the canonical).
+     * Provides constexpr iteration over synonyms for compile-time processing.
      */
-    struct LocalizedName {
-        std::string_view name;
-        std::string_view charset; // e.g., "UTF-8"
+    export struct NameSet {
+        std::string_view canonical_name;
+        std::tuple<std::string_view...> synonyms;
 
-        constexpr LocalizedName(std::string_view n = "", std::string_view cs = "UTF-8") noexcept
-            : name(n), charset(cs) {
+    private:
+        template <std::size_t Index = 0, typename Func>
+        static constexpr void iterate_impl(const std::tuple<std::string_view...>& t, Func&& func) {
+            if constexpr (Index < sizeof...(std::string_view)) {
+                func(std::get<Index>(t));
+                iterate_impl<Index + 1>(t, std::forward<Func>(func));
+            }
+        }
+
+    public:
+        template <typename Func>
+        constexpr void iterate(Func&& func) const {
+            iterate_impl<0>(synonyms, std::forward<Func>(func));
+        }
+
+        [[nodiscard]] constexpr std::string_view canonical_name() const noexcept {
+            return canonical_name;
+        }
+
+        template <typename... Syns>
+        constexpr NameSet(std::string_view canonical, Syns... syns)
+            : canonical_name(canonical), synonyms{ syns... } {
         }
     };
 
-    /**
-     * @brief Represents a set of names for a tag, including localized and alternate forms.
-     */
-    struct NameSet {
-        const std::string name;
-        const std::string external_key;
-        const std::string primary_key;
-        const std::string alt_text_name;
-        const std::string obfuscated_name;
-        const std::string truncated_name;
-
-        const std::map<std::string, std::vector<LocalizedName>> localized_names;
-        const std::vector<std::string> synonyms;
-
-        NameSet(
-            std::string n,
-            std::string ext_key,
-            std::string primary,
-            std::string alt_text,
-            std::string obfuscated,
-            std::string truncated,
-            std::map<std::string, std::vector<LocalizedName>> localized,
-            std::vector<std::string> syns = {})
-            : name(std::move(n)),
-            external_key(std::move(ext_key)),
-            primary_key(primary.empty() ? name : std::move(primary)),
-            alt_text_name(alt_text.empty() ? name : std::move(alt_text)),
-            obfuscated_name(obfuscated.empty() ? GenerateObfuscated(name) : std::move(obfuscated)),
-            truncated_name(truncated.empty() ? GenerateTruncated(name) : std::move(truncated)),
-            localized_names(std::move(localized)),
-            synonyms(std::move(syns)) {
-        }
-
-        static std::string GenerateObfuscated(const std::string& base) {
-            return std::string(base.size(), '*');
-        }
-
-        static std::string GenerateTruncated(const std::string& base) {
-            if (base.size() <= 8) return base;
-            return base.substr(0, 8) + "...";
-        }
-
-        std::string_view GetAltTextName() const noexcept {
-            return alt_text_name.empty() ? name : alt_text_name;
-        }
-
-        std::string_view GetObfuscatedName() const noexcept {
-            return obfuscated_name.empty() ? GenerateObfuscated(name) : obfuscated_name;
-        }
-
-        std::string_view GetTruncatedName() const noexcept {
-            return truncated_name.empty() ? GenerateTruncated(name) : truncated_name;
-        }
-
-        std::vector<std::string_view> GetDisplayNameCandidates(
-            const std::string& preferred_language = "en",
-            bool include_alt_text = false,
-            bool include_obfuscated = false,
-            bool include_truncated = false) const
-        {
-            std::vector<std::string_view> result;
-            auto append_if_not_empty = [&](const std::string& s) {
-                if (!s.empty()) result.push_back(s);
-                };
-
-            auto it = localized_names.find(preferred_language);
-            if (it == localized_names.end() && preferred_language != "en") {
-                it = localized_names.find("en");
-            }
-            if (it != localized_names.end()) {
-                for (const auto& ln : it->second) {
-                    if (!ln.name.empty()) result.push_back(ln.name);
-                }
-            }
-
-            append_if_not_empty(primary_key);
-
-            if (include_alt_text) append_if_not_empty(GetAltTextName());
-            if (include_obfuscated) append_if_not_empty(GetObfuscatedName());
-            if (include_truncated) append_if_not_empty(GetTruncatedName());
-
-            if (result.empty() && !name.empty()) {
-                result.push_back(name);
-            }
-
-            return result;
-        }
-
-        std::string GetBestDisplayName(
-            const std::string& preferred_language = "en",
-            bool include_alt_text = false,
-            bool include_obfuscated = false,
-            bool include_truncated = false) const
-        {
-            auto candidates = GetDisplayNameCandidates(preferred_language, include_alt_text, include_obfuscated, include_truncated);
-            if (!candidates.empty()) {
-                return std::string(candidates.front());
-            }
-            return "[Localization Unavailable]";
-        }
-
-        friend std::ostream& operator<<(std::ostream& os, const NameSet& names) {
-            os << "NameSet{name: \"" << names.name
-                << "\", external_key: \"" << names.external_key
-                << "\", primary: \"" << names.primary_key
-                << "\", alt_text: \"" << names.alt_text_name
-                << "\", obfuscated: \"" << names.obfuscated_name
-                << "\", truncated: \"" << names.truncated_name
-                << "\", synonyms: [";
-            for (const auto& syn : names.synonyms) {
-                os << "\"" << syn << "\", ";
-            }
-            os << "], localized_names: [";
-            for (const auto& [lang, vec] : names.localized_names) {
-                os << lang << ": [";
-                for (const auto& ln : vec) {
-                    os << "{name: \"" << ln.name << "\", charset: \"" << ln.charset << "\"}, ";
-                }
-                os << "], ";
-            }
-            os << "]}";
-            return os;
-        }
-    };
-
-} // namespace ecoscore::tag
+}

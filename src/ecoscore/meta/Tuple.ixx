@@ -1,18 +1,19 @@
-// src/ecoscore/meta/Tuple.ixx
-module ecoscore.meta.Tuple;
+// /src/ecoscore/meta/Tuple.ixx
+export module ecoscore.meta.Tuple;
 
-import <tuple>;
-import <type_traits>;
+#include <tuple>
+#include <type_traits>
 
-export namespace ecoscore::meta {
+namespace ecoscore::meta {
 
     /**
      * @brief Concatenates two std::tuple types into a single tuple type.
+     *
      * @tparam Tuple1 First tuple type.
      * @tparam Tuple2 Second tuple type.
      */
-    template <typename Tuple1, typename Tuple2>
-    struct tuple_concat;
+    export template <typename Tuple1, typename Tuple2>
+        struct tuple_concat;
 
     template <typename... Ts1, typename... Ts2>
     struct tuple_concat<std::tuple<Ts1...>, std::tuple<Ts2...>> {
@@ -22,15 +23,16 @@ export namespace ecoscore::meta {
     /**
      * @brief Alias template for tuple_concat.
      */
-    template <typename Tuple1, typename Tuple2>
-    using tuple_concat_t = typename tuple_concat<Tuple1, Tuple2>::type;
+    export template <typename Tuple1, typename Tuple2>
+        using tuple_concat_t = typename tuple_concat<Tuple1, Tuple2>::type;
 
     /**
      * @brief Concatenates multiple std::tuple types into a single tuple type.
+     *
      * @tparam Tuples Variadic list of tuple types.
      */
-    template <typename... Tuples>
-    struct tuple_concat_many;
+    export template <typename... Tuples>
+        struct tuple_concat_many;
 
     template <>
     struct tuple_concat_many<> {
@@ -60,7 +62,7 @@ export namespace ecoscore::meta {
     /**
      * @brief Alias template for tuple_concat_many.
      */
-    template <typename... Tuples>
-    using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
+    export template <typename... Tuples>
+        using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
 
-}
+} // namespace ecoscore::meta

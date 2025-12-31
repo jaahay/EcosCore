@@ -6,7 +6,7 @@ MAIN_DIRS = ['include', 'src', 'tests', 'examples']
 # Root-level files to include (case-insensitive)
 ROOT_FILES = ['.gitignore', 'cmakelists.txt', 'license']  # lowercase for matching
 
-def list_files(base_path, output_file):
+def list_files(base_path, output_file, prefix=None):
     with open(output_file, 'w', encoding='utf-8') as f:
         for root, dirs, files in os.walk(base_path):
             # Filter out hidden and 'out' directories
@@ -18,6 +18,9 @@ def list_files(base_path, output_file):
                     rel_path = file
                 else:
                     rel_path = os.path.join(rel_dir, file)
+                # Prepend prefix directory if provided
+                if prefix:
+                    rel_path = os.path.join(prefix, rel_path)
                 # Use forward slashes for consistency
                 f.write(rel_path.replace(os.sep, '/') + '\n')
 
@@ -39,7 +42,7 @@ def main():
         dir_path = os.path.join(project_root, d)
         if os.path.isdir(dir_path):
             out_file = os.path.join(output_dir, f"{d}_tree.generated.txt")
-            list_files(dir_path, out_file)
+            list_files(dir_path, out_file, prefix=d)
             print(f"Wrote {out_file}")
 
     # Process root files

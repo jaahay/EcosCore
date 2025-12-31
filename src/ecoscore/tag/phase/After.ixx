@@ -1,50 +1,16 @@
-// include/ecoscore/tag/phase/After.ixx
+// /src/ecoscore/tag/phase/After.ixx
 export module ecoscore.tag.phase.After;
 
 import ecoscore.tag.Phases;
-import ecoscore.tag.concepts.Concepts;
-import ecoscore.language.NameSet;
-import ecoscore.language.LanguageTags;
-import ecoscore.language.CharsetTags;
+import ecoscore.tag.Category;
 
-import <string_view>;
+namespace ecoscore::tag::phase {
 
-export namespace ecoscore::tag::phase {
-
-    /**
-     * @brief Phase tag representing the 'After' phase.
-     */
-    struct After final : tag::Phase<After> {
-        friend tag::Category<After>;
-
-    protected:
+    struct After final : Phase, ecoscore::tag::Category<After> {
         constexpr After() noexcept = default;
+        constexpr ~After() noexcept = default;
 
-    public:
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "After";
-        }
-
-        [[nodiscard]] static constexpr language::NameSet<1, 1, 3> names() noexcept {
-            return language::NameSet<1, 1, 3>{
-                "After",
-                    "after",
-                    "after",
-                    "After phase",
-                    "A****",
-                    "After",
-                { {
-                    { lang::en::instance(),
-                      language::LocalizedNameGroup<1, 3>{
-                        { { "After", Charset::UTF8::instance() } },
-                        { "post", "later", "subsequent" }
-                      }
-                    }
-                } }
-            };
-        }
+        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "After"; }
     };
 
-    static_assert(concepts::Category<After, tag::Phase>, "After must satisfy Category concept");
-
-}  // namespace ecoscore::tag::phase
+}
