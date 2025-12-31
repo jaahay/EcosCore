@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::outcome {
 
-    struct Fail final : Outcome, ecoscore::tag::Category<Fail> {
+    struct Fail final : Outcome<Fail> {
         constexpr Fail() noexcept = default;
         constexpr ~Fail() noexcept = default;
 

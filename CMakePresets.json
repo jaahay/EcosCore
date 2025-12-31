@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "x64-Debug",
+      "displayName": "x64 Debug (Ninja, MSVC)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_STANDARD": "20"
+      },
+      "environment": {
+        "VSCMD_ARG_TGT_ARCH": "x64",
+        "VSCMD_ARG_HOST_ARCH": "x64"
+      },
+      "inherits": [ "msvc_x64_x64" ],
+      "hidden": false
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "x64-Debug",
+      "configurePreset": "x64-Debug",
+      "displayName": "Build x64 Debug",
+      "jobs": 8,
+      "targets": [],
+      "configuration": "Debug"
+    }
+  ],
+
+  "testPresets": [
+    {
+      "name": "x64-Debug",
+      "configurePreset": "x64-Debug",
+      "displayName": "Test x64 Debug",
+      "configuration": "Debug"
+    }
+  ]
+}

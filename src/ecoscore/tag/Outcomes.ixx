@@ -3,7 +3,7 @@ export module ecoscore.tag.Outcomes;
 
 import ecoscore.tag.Category;
 
-namespace ecoscore::tag {
+namespace ecoscore::tag::outcome {
 
     /**
      * @brief CRTP base for outcome tags.
@@ -17,4 +17,4 @@ namespace ecoscore::tag {
             constexpr ~Outcome() noexcept = default;
     };
 
-} // namespace ecoscore::tag
+} // namespace ecoscore::tag::outcome

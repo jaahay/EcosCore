@@ -1,10 +1,20 @@
 // /src/ecoscore/tag/Category.ixx
 export module ecoscore.tag.Category;
 
-#include <string_view>
-#include <type_traits>
+import ecoscore.tag.detail;
+
+import <string_view>;
+import <type_traits>;
 
 namespace ecoscore::tag {
+
+    // Concept enforcing final & non-abstract or abstract & non-final,
+    // but disables the check on MSVC due to compiler limitations.
+    template <typename T>
+    concept ValidCategoryDerived =
+        ecoscore::tag::detail::is_msvc || // Skip check on MSVC
+        ((std::is_final_v<T> && !std::is_abstract_v<T>) ||
+            (!std::is_final_v<T> && std::is_abstract_v<T>));
 
     /**
      * @brief CRTP base for all tag categories.
@@ -21,9 +31,8 @@ namespace ecoscore::tag {
      *       User-facing names and descriptions must be provided separately via localization data.
      *
      * @tparam Derived The derived tag type.
-     * @tparam IsLeaf Indicates if this is a leaf (concrete) tag type. Defaults to true.
      */
-    export template <typename Derived, bool IsLeaf = true>
+    export template <ValidCategoryDerived Derived>
         struct Category {
         protected:
             constexpr Category() noexcept = default;
@@ -42,8 +51,6 @@ namespace ecoscore::tag {
                 return Derived::static_name();
             }
 
-            static_assert(!IsLeaf || std::is_final_v<Derived>,
-                "Category derived types marked as leaf must be final for immutability.");
     };
 
 } // namespace ecoscore::tag

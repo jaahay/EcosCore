@@ -6,6 +6,8 @@ export import ecoscore.meta.Tuple;
 export import ecoscore.meta.TypeList;
 export import ecoscore.meta.Variant;
 
+import <string_view>;
+
 namespace ecoscore::meta {
 
     /**

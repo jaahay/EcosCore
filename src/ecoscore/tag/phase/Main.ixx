@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::phase {
 
-    struct Main final : Phase, ecoscore::tag::Category<Main> {
+    struct Main final : Phase<Main> {
         constexpr Main() noexcept = default;
         constexpr ~Main() noexcept = default;
 

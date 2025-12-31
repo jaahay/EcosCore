@@ -8,12 +8,11 @@ cmake_minimum_required(VERSION 3.28)
 # -----------------------------------------------------------------------------
 
 # Add submodules in alphabetical order
-#add_subdirectory(language)
+add_subdirectory(language)
 #add_subdirectory(localization)
 add_subdirectory(meta)
 #add_subdirectory(priority)
-#add_subdirectory(tag)
-#add_subdirectory(type)
+add_subdirectory(tag)
 
 # Aggregate interface library for EcosCore
 add_library(ecoscore INTERFACE)
@@ -25,12 +24,11 @@ target_include_directories(ecoscore INTERFACE
 
 # Link all component libraries transitively
 target_link_libraries(ecoscore INTERFACE
-    #ecoscore.language
+    ecoscore.language
     #ecoscore.localization
     ecoscore.meta
     #ecoscore.priority
-    #ecoscore.tag
-    #ecoscore.type
+    ecoscore.tag
 )
 
 # Enforce C++20 for consumers of ecoscore

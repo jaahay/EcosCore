@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::outcome {
 
-    struct Partial final : Outcome, ecoscore::tag::Category<Partial> {
+    struct Partial final : Outcome<Partial> {
         constexpr Partial() noexcept = default;
         constexpr ~Partial() noexcept = default;
 

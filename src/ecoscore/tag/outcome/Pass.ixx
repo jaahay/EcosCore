@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::outcome {
 
-    struct Pass final : Outcome, ecoscore::tag::Category<Pass> {
+    struct Pass final : Outcome<Pass> {
         constexpr Pass() noexcept = default;
         constexpr ~Pass() noexcept = default;
 

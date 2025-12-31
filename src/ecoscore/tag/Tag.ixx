@@ -5,7 +5,6 @@ export import ecoscore.tag.Category;
 export import ecoscore.tag.Flows;
 export import ecoscore.tag.Outcomes;
 export import ecoscore.tag.Phases;
-export import ecoscore.tag.Tag; // if you have a Tag.ixx core module
 
 // Export all flow tags
 export import ecoscore.tag.flow.Continue;
@@ -25,6 +24,8 @@ export import ecoscore.tag.phase.Start;
 export import ecoscore.tag.outcome.Fail;
 export import ecoscore.tag.outcome.Partial;
 export import ecoscore.tag.outcome.Pass;
+
+import <string_view>;
 
 namespace ecoscore::tag {
 

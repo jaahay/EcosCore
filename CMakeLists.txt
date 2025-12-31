@@ -22,7 +22,3 @@ endif()
 
 # Add main EcosCore library source directory
 add_subdirectory(src/ecoscore)
-
-# Add tests and examples when available
-# add_subdirectory(tests)
-# add_subdirectory(examples)

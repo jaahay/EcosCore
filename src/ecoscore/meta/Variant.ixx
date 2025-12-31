@@ -1,8 +1,8 @@
 // /src/ecoscore/meta/Variant.ixx
 export module ecoscore.meta.Variant;
 
-#include <variant>
-#include <tuple>
+import <variant>;
+import <tuple>;
 
 import ecoscore.meta.Tuple;
 

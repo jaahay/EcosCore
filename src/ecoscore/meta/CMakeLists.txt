@@ -19,4 +19,7 @@ target_include_directories(ecoscore.meta PUBLIC
 
 target_compile_features(ecoscore.meta PUBLIC cxx_std_20)
 
-target_compile_options(ecoscore.meta PRIVATE /W4 /WX)
+target_compile_options(ecoscore.meta PRIVATE
+    /W4 /WX
+    $<$<CXX_COMPILER_ID:MSVC>:/std:c++20 /experimental:module /permissive->
+)

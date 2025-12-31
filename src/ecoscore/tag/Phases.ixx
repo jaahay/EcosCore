@@ -3,7 +3,7 @@ export module ecoscore.tag.Phases;
 
 import ecoscore.tag.Category;
 
-namespace ecoscore::tag {
+namespace ecoscore::tag::phase {
 
     /**
      * @brief CRTP base for phase tags.
@@ -17,4 +17,4 @@ namespace ecoscore::tag {
             constexpr ~Phase() noexcept = default;
     };
 
-} // namespace ecoscore::tag
+} // namespace ecoscore::tag::phase

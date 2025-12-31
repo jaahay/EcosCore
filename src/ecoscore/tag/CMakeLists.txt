@@ -6,6 +6,8 @@ add_library(ecoscore.tag STATIC)
 target_sources(ecoscore.tag PRIVATE
     FILE_SET cxx_modules TYPE CXX_MODULES
     FILES
+        Detail.ixx
+
         Category.ixx
         Flows.ixx
         Outcomes.ixx

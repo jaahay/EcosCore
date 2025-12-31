@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::phase {
 
-    struct After final : Phase, ecoscore::tag::Category<After> {
+    struct After final : Phase<After> {
         constexpr After() noexcept = default;
         constexpr ~After() noexcept = default;
 

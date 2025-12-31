@@ -6,7 +6,7 @@ import ecoscore.tag.Category;
 
 namespace ecoscore::tag::phase {
 
-    struct Process final : Phase, ecoscore::tag::Category<Process> {
+    struct Process final : Phase<Process> {
         constexpr Process() noexcept = default;
         constexpr ~Process() noexcept = default;
 

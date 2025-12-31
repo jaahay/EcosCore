@@ -11,7 +11,7 @@ namespace ecoscore::tag::flow {
      *
      * Inherits from Flow (abstract) and Category (leaf).
      */
-    struct Continue final : Flow, ecoscore::tag::Category<Continue> {
+    struct Continue final : Flow<Continue> {
         constexpr Continue() noexcept = default;
         constexpr ~Continue() noexcept = default;
 

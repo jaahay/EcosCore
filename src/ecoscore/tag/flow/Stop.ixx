@@ -11,7 +11,7 @@ namespace ecoscore::tag::flow {
      *
      * Inherits from Flow (abstract) and Category (leaf).
      */
-    struct Stop final : Flow, ecoscore::tag::Category<Stop> {
+    struct Stop final : Flow<Stop> {
         constexpr Stop() noexcept = default;
         constexpr ~Stop() noexcept = default;
 
