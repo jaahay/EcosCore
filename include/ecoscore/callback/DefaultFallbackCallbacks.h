@@ -1,7 +1,7 @@
 // File: ecoscore/callback/DefaultFallbackCallbacks.h
 // EcosCore/event/util/DefaultFallbackCallbacks.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
-#define ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
+#ifndef ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
+#define ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
 
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -29,4 +29,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
+#endif // ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H

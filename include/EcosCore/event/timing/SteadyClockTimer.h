@@ -1,7 +1,7 @@
 // File: ecoscore/event/timing/SteadyClockTimer.h
 // EcosCore/event/util/timing/SteadyClockTimer.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
-#define ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
+#ifndef ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
+#define ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
 
 #include "VirtualTimer.h"
 #include <chrono>
@@ -39,4 +39,4 @@ namespace EcosCore::event::util::timing {
 
 } // namespace EcosCore::event::util::timing
 
-#endif // ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
+#endif // ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H

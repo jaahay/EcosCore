@@ -1,7 +1,7 @@
 // File: ecoscore/event/logger/ConsoleLogger.h
 // EcosCore/event/util/ConsoleLogger.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
-#define ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
+#ifndef ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
+#define ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
 
 #include <iostream>
 #include <string_view>
@@ -30,4 +30,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
+#endif // ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H

@@ -1,7 +1,7 @@
 // File: ecoscore/language/encoding/MacRoman.h
 // /src/ecoscore/language/encoding/MacRoman.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+#ifndef ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+#define ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::encoding {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+#endif // ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H

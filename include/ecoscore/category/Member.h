@@ -1,7 +1,7 @@
 // File: ecoscore/category/Member.h
 //// File: EcosCore/src/ecoscore/category/Member.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H
-#define ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H
+#ifndef ECOSCORE_CATEGORY_MEMBER_H
+#define ECOSCORE_CATEGORY_MEMBER_H
 
 #include "ecoscore/category/Category.h"
 
@@ -49,4 +49,4 @@ template <typename Derived, typename Base = ecoscore::category::Category>
     };
 
 } // namespace ecoscore::category
-#endif // ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H
+#endif // ECOSCORE_CATEGORY_MEMBER_H

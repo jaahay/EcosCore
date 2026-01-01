@@ -1,7 +1,7 @@
 // File: ecoscore/category/Flow.h
 //// File: EcosCore/src/ecoscore/category/Flow.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_FLOW_H
-#define ECOSCORE_ECOSCORE_CATEGORY_FLOW_H
+#ifndef ECOSCORE_CATEGORY_FLOW_H
+#define ECOSCORE_CATEGORY_FLOW_H
 
 #include "ecoscore/category/Category.h"
 
@@ -20,4 +20,4 @@ struct Flow : Category {
     };
 
 } // namespace ecoscore::category
-#endif // ECOSCORE_ECOSCORE_CATEGORY_FLOW_H
+#endif // ECOSCORE_CATEGORY_FLOW_H

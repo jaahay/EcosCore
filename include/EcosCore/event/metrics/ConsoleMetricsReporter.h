@@ -1,7 +1,7 @@
 // File: ecoscore/event/metrics/ConsoleMetricsReporter.h
 // EcosCore/event/util/metrics/ConsoleMetricsReporter.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
-#define ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
+#ifndef ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
+#define ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
 
 #include "VirtualMetricsCollector.h"
 #include <atomic>
@@ -37,4 +37,4 @@ namespace EcosCore::event::util::metrics {
 
 } // namespace EcosCore::event::util::metrics
 
-#endif // ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
+#endif // ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H

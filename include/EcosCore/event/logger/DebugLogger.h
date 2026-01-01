@@ -1,7 +1,7 @@
 // File: ecoscore/event/logger/DebugLogger.h
 // EcosCore/event/util/logger/DebugLogger.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H
-#define ECOSCORE_ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H
+#ifndef ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H
+#define ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H
 
 #include "VirtualLogger.h"
 #include <iostream>
@@ -31,4 +31,4 @@ namespace EcosCore::event::util::logger {
 
 } // namespace EcosCore::event::util::logger
 
-#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H
+#endif // ECOSCORE_EVENT_LOGGER_DEBUGLOGGER_H

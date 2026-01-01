@@ -1,6 +1,6 @@
 // File: ecoscore/priority/VirtualPriorityOrdering.h
-#ifndef ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
-#define ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
+#ifndef ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
+#define ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
 // src/ecoscore/priority/VirtualPriorityOrdering.ixx
 module ecoscore.priority.VirtualPriorityOrdering;
 
@@ -21,4 +21,4 @@ namespace ecoscore::priority {
     };
 
 } // namespace ecoscore::priority
-#endif // ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
+#endif // ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H

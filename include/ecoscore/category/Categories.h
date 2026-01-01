@@ -1,7 +1,7 @@
 // File: ecoscore/category/Categories.h
 //// File: EcosCore/src/ecoscore/category/Categories.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H
-#define ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H
+#ifndef ECOSCORE_CATEGORY_CATEGORIES_H
+#define ECOSCORE_CATEGORY_CATEGORIES_H
 
 #include "std.h"
 
@@ -43,4 +43,4 @@ namespace ecoscore::category {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H
+#endif // ECOSCORE_CATEGORY_CATEGORIES_H

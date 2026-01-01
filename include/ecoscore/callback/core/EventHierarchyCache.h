@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/EventHierarchyCache.h
 // EcosCore/event/EventHierarchyCache.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
+#ifndef ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
+#define ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
 
 #include <mutex>
 #include <unordered_map>
@@ -46,4 +46,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
+#endif // ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H

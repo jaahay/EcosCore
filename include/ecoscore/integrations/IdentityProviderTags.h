@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/IdentityProviderTags.h
 // include/ecoscore/integration/IdentityProviderTags.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H
+#ifndef ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H
+#define ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H
 
 /**
  * @file IdentityProviderTags.h
@@ -22,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H
+#endif // ECOSCORE_INTEGRATIONS_IDENTITYPROVIDERTAGS_H

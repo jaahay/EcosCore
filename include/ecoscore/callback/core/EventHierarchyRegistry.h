@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/EventHierarchyRegistry.h
 // EcosCore/event/EventHierarchyRegistry.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
+#ifndef ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
+#define ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
 
 #include <unordered_map>
 #include <typeindex>
@@ -48,4 +48,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
+#endif // ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H

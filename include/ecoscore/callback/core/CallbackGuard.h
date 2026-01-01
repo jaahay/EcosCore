@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackGuard.h
 // EcosCore/event/core/CallbackGuard.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
 
 #include "EcosCore/event/core/CallbackResult.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -35,4 +35,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H

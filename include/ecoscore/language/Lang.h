@@ -1,7 +1,7 @@
 // File: ecoscore/language/Lang.h
 // /src/ecoscore/language/Lang.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_H
+#ifndef ECOSCORE_LANGUAGE_LANG_H
+#define ECOSCORE_LANGUAGE_LANG_H
 
 #include "std.h"
 
@@ -27,4 +27,4 @@ namespace ecoscore::language::lang {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_H
+#endif // ECOSCORE_LANGUAGE_LANG_H

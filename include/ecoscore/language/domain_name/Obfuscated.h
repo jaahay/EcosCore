@@ -1,7 +1,7 @@
 // File: ecoscore/language/domain_name/Obfuscated.h
 // language/domain_name/ExternalId.h
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
+#ifndef ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
+#define ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
 
 #include <string_view>
 
@@ -18,4 +18,4 @@ namespace ecoscore::language::domain_name {
 
 } // namespace ecoscore::language::domain_name
 
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
+#endif // ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H

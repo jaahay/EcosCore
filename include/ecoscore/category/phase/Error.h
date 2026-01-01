@@ -1,7 +1,7 @@
 // File: ecoscore/category/phase/Error.h
 //// File: EcosCore/src/ecoscore/category/phase/Error.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_ERROR_H
-#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_ERROR_H
+#ifndef ECOSCORE_CATEGORY_PHASE_ERROR_H
+#define ECOSCORE_CATEGORY_PHASE_ERROR_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -20,4 +20,4 @@ struct Error final : Member<Error, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_ERROR_H
+#endif // ECOSCORE_CATEGORY_PHASE_ERROR_H

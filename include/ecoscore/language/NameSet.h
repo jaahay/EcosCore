@@ -1,7 +1,7 @@
 // File: ecoscore/language/NameSet.h
 // /src/ecoscore/language/NameSet.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H
+#ifndef ECOSCORE_LANGUAGE_NAMESET_H
+#define ECOSCORE_LANGUAGE_NAMESET_H
 
 #include "std.h"
 
@@ -43,4 +43,4 @@ template <typename... Syns>
     };
 
 } //  namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H
+#endif // ECOSCORE_LANGUAGE_NAMESET_H

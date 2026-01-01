@@ -1,7 +1,7 @@
 // File: ecoscore/event/metrics/MetricsCallback.h
 // EcosCore/event/util/MetricsCallback.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
-#define ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
+#ifndef ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
+#define ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
 
 #include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -47,4 +47,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
+#endif // ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H

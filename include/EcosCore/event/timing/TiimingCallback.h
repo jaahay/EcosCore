@@ -1,7 +1,7 @@
 // File: ecoscore/event/timing/TiimingCallback.h
 // EcosCore/event/util/TimingCallback.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H
-#define ECOSCORE_ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H
+#ifndef ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H
+#define ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H
 
 #include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -50,4 +50,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H
+#endif // ECOSCORE_EVENT_TIMING_TIIMINGCALLBACK_H

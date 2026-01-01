@@ -1,7 +1,7 @@
 // File: ecoscore/language/textrepresentation/ISO_8559_1.h
 // /src/ecoscore/language/textrepresentation/ISO_8859_1.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
 
 #include "ecoscore/language/Encodings.h"
 #include <string_view>
@@ -18,4 +18,4 @@ namespace ecoscore::language::textrepresentation {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H

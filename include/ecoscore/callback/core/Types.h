@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/Types.h
 // EcosCore/event/Types.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_TYPES_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_TYPES_H
+#ifndef ECOSCORE_CALLBACK_CORE_TYPES_H
+#define ECOSCORE_CALLBACK_CORE_TYPES_H
 
 #include "StrongTypedefs.h"
 #include <cstdint>
@@ -15,4 +15,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_TYPES_H
+#endif // ECOSCORE_CALLBACK_CORE_TYPES_H

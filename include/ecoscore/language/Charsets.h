@@ -1,7 +1,7 @@
 // File: ecoscore/language/Charsets.h
 // /src/ecoscore/language/Charsets.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H
+#ifndef ECOSCORE_LANGUAGE_CHARSETS_H
+#define ECOSCORE_LANGUAGE_CHARSETS_H
 
 #include "std.h"
 
@@ -26,4 +26,4 @@ template <typename Derived>
     };
 
 }  // namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H
+#endif // ECOSCORE_LANGUAGE_CHARSETS_H

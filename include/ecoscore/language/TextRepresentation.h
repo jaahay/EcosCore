@@ -1,7 +1,7 @@
 // File: ecoscore/language/TextRepresentation.h
 // /src/ecoscore/language/TextRepresentation.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
 
 #include "std.h"
 
@@ -26,4 +26,4 @@ template <typename Derived>
     };
 
 }  // namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H

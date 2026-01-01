@@ -1,9 +1,8 @@
 // File: ecoscore/meta/TypeList.h
-// src/ecoscore/meta/TypeList.ixx
-#ifndef ECOSCORE_ECOSCORE_META_TYPELIST_H
-#define ECOSCORE_ECOSCORE_META_TYPELIST_H
+#ifndef ECOSCORE_META_TYPELIST_H
+#define ECOSCORE_META_TYPELIST_H
 
-#include "std.h"
+#include <type_traits>
 
 namespace ecoscore::meta {
 
@@ -18,7 +17,7 @@ template <typename... Ts>
         using is_type_list_tag = void;
 
         // Number of types in the list
-        static constexpr std::size_t size = sizeof...(Ts);
+        static constexpr size_t size = sizeof...(Ts);
 
         // Empty TypeList instance
         static constexpr bool empty = (size == 0);
@@ -90,4 +89,4 @@ template <typename List, typename T>
         using Remove_t = typename Remove<List, T>::type;
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_ECOSCORE_META_TYPELIST_H
+#endif // ECOSCORE_META_TYPELIST_H

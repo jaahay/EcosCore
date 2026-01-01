@@ -1,7 +1,7 @@
 // File: ecoscore/category/flow/translations/Continue.h
 // /src/ecoscore/category/flow/translations/Continue.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
-#define ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+#ifndef ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+#define ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
 
 #include "ecoscore/language/NameSet.h"
 #include "ecoscore/language/lang/En.h"
@@ -60,4 +60,4 @@ namespace ecoscore::category::flow::translations {
 constexpr Continue ContinueInstance{};
 
 }
-#endif // ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+#endif // ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H

@@ -1,7 +1,7 @@
 // File: ecoscore/language/textrepresentation/UTF16.h
 // /src/ecoscore/language/textrepresentation/UTF16.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
 
 #include "ecoscore/language/Encodings.h"
 #include <string_view>
@@ -18,4 +18,4 @@ namespace ecoscore::language::textrepresentation {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H

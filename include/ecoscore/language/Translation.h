@@ -1,7 +1,7 @@
 // File: ecoscore/language/Translation.h
 // /src/ecoscore/language/Translation.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H
+#ifndef ECOSCORE_LANGUAGE_TRANSLATION_H
+#define ECOSCORE_LANGUAGE_TRANSLATION_H
 
 #include "std.h"
 
@@ -48,4 +48,4 @@ template <typename Derived>
 
 
 }#endif // __SRC_ECOSCORE_LANGUAGE_TRANSLATION_IXX__
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H
+#endif // ECOSCORE_LANGUAGE_TRANSLATION_H

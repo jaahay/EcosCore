@@ -1,7 +1,7 @@
 // File: ecoscore/language/Locale.h
 // /src/ecoscore/language/Locale.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H
+#ifndef ECOSCORE_LANGUAGE_LOCALE_H
+#define ECOSCORE_LANGUAGE_LOCALE_H
 
 #include "std.h"
 
@@ -48,4 +48,4 @@ struct Locale : ecoscore::category::Category<Locale> {
     static constexpr Locale fr_FR{ &ecoscore::language::Fr, "FR", &ecoscore::language::UTF8 };
 
 }  // namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H
+#endif // ECOSCORE_LANGUAGE_LOCALE_H

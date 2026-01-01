@@ -1,7 +1,7 @@
 // File: ecoscore/event/serialization/SimpleConsoleSerializer.h
 // EcosCore/event/util/serialization/SimpleConsoleSerializer.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
-#define ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#ifndef ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#define ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
 
 #include "VirtualSerializer.h"
 #include "EcosCore/event/Event.h"
@@ -36,4 +36,4 @@ namespace EcosCore::event::util::serialization {
 
 } // namespace EcosCore::event::util::serialization
 
-#endif // ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#endif // ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H

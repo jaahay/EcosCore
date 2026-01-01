@@ -1,7 +1,7 @@
 // File: ecoscore/language/lang/fr.h
 //// File: EcosCore/src/ecoscore/language/lang/fr.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_FR_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_FR_H
+#ifndef ECOSCORE_LANGUAGE_LANG_FR_H
+#define ECOSCORE_LANGUAGE_LANG_FR_H
 
 #include "std.h"
 #include "std/string_view.h"
@@ -25,4 +25,4 @@ struct Fr final : Member<Fr, ecoscore::language::Language> {
 inline constexpr auto& fr = Fr::instance();
 
 } // namespace ecoscore::language::lang
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_FR_H
+#endif // ECOSCORE_LANGUAGE_LANG_FR_H

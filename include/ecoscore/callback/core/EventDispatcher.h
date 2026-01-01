@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/EventDispatcher.h
 // EcosCore/event/core/EventDispatcher.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
+#ifndef ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
+#define ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
 
 #include <unordered_map>
 #include <memory>
@@ -167,4 +167,4 @@ namespace EcosCore::event::core {
     };
 
 } // namespace EcosCore::event::core
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
+#endif // ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H

@@ -1,9 +1,8 @@
 // File: ecoscore/meta/Tuple.h
-// /src/ecoscore/meta/Tuple.ixx
-#ifndef ECOSCORE_ECOSCORE_META_TUPLE_H
-#define ECOSCORE_ECOSCORE_META_TUPLE_H
+#ifndef ECOSCORE_META_TUPLE_H
+#define ECOSCORE_META_TUPLE_H
 
-#include "std.h"
+#include <tuple>
 
 namespace ecoscore::meta {
 
@@ -67,4 +66,4 @@ template <typename... Tuples>
         using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_ECOSCORE_META_TUPLE_H
+#endif // ECOSCORE_META_TUPLE_H

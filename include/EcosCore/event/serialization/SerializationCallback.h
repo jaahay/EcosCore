@@ -1,7 +1,7 @@
 // File: ecoscore/event/serialization/SerializationCallback.h
 // EcosCore/event/util/SerializationCallback.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
-#define ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
+#ifndef ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
+#define ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
 
 #include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -47,4 +47,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
+#endif // ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H

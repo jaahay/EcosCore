@@ -1,7 +1,7 @@
 // File: ecoscore/category/flow/Continue.h
 //// File: EcosCore/src/ecoscore/category/flow/Continue.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_FLOW_CONTINUE_H
-#define ECOSCORE_ECOSCORE_CATEGORY_FLOW_CONTINUE_H
+#ifndef ECOSCORE_CATEGORY_FLOW_CONTINUE_H
+#define ECOSCORE_CATEGORY_FLOW_CONTINUE_H
 
 #include "std.h"
 
@@ -22,4 +22,4 @@ struct Continue final : Member<Continue, ecoscore::category::Flow> {
     };
 
 } // namespace ecoscore::category::flow
-#endif // ECOSCORE_ECOSCORE_CATEGORY_FLOW_CONTINUE_H
+#endif // ECOSCORE_CATEGORY_FLOW_CONTINUE_H

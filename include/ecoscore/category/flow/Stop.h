@@ -1,7 +1,7 @@
 // File: ecoscore/category/flow/Stop.h
 //// File: EcosCore/src/ecoscore/category/flow/Stop.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_FLOW_STOP_H
-#define ECOSCORE_ECOSCORE_CATEGORY_FLOW_STOP_H
+#ifndef ECOSCORE_CATEGORY_FLOW_STOP_H
+#define ECOSCORE_CATEGORY_FLOW_STOP_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Flow.h"
@@ -20,4 +20,4 @@ struct Stop final : Member<Stop, ecoscore::category::Flow> {
     };
 
 } // namespace ecoscore::category::flow
-#endif // ECOSCORE_ECOSCORE_CATEGORY_FLOW_STOP_H
+#endif // ECOSCORE_CATEGORY_FLOW_STOP_H

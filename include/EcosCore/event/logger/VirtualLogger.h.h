@@ -1,7 +1,7 @@
 // File: ecoscore/event/logger/VirtualLogger.h.h
 // EcosCore/event/util/logger/VirtualLogger.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H
-#define ECOSCORE_ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H
+#ifndef ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H
+#define ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H
 
 #include <string_view>
 
@@ -18,4 +18,4 @@ namespace EcosCore::event::util::logger {
 
 } // namespace EcosCore::event::util::logger
 
-#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H
+#endif // ECOSCORE_EVENT_LOGGER_VIRTUALLOGGER_H_H

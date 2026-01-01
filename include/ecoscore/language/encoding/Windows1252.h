@@ -1,7 +1,7 @@
 // File: ecoscore/language/encoding/Windows1252.h
 // /src/ecoscore/language/encoding/Windows1252.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
+#ifndef ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
+#define ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::encoding {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
+#endif // ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H

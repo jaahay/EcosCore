@@ -1,7 +1,7 @@
 // File: ecoscore/category/Outcome.h
 //// File: EcosCore/src/ecoscore/category/Outcome.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_H
-#define ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_H
+#ifndef ECOSCORE_CATEGORY_OUTCOME_H
+#define ECOSCORE_CATEGORY_OUTCOME_H
 
 #include "ecoscore/category/Category.h"
 
@@ -20,4 +20,4 @@ struct Outcome : Category {
     };
 
 } // namespace ecoscore::category
-#endif // ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_H
+#endif // ECOSCORE_CATEGORY_OUTCOME_H

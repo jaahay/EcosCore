@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/Concepts.h
 // include/ecoscore/integration/concepts/Concepts.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_CONCEPTS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_CONCEPTS_H
+#ifndef ECOSCORE_INTEGRATIONS_CONCEPTS_H
+#define ECOSCORE_INTEGRATIONS_CONCEPTS_H
 
 /**
  * @file Concepts.h
@@ -62,4 +62,4 @@ namespace ecoscore::integration::concepts {
 
 } // namespace ecoscore::integration::concepts
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_CONCEPTS_H
+#endif // ECOSCORE_INTEGRATIONS_CONCEPTS_H

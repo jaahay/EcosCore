@@ -1,7 +1,7 @@
 // File: ecoscore/localization/LocalizationContext.h
 // include/ecoscore/localization/LocalizationContext.h
-#ifndef ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
-#define ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#ifndef ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#define ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
 
 #include "ecoscore/language/Locale.h"
 #include "ecoscore/language/textrepresentation.h"
@@ -88,4 +88,4 @@ namespace ecoscore::localization {
 
 }  // namespace ecoscore::localization
 
-#endif // ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#endif // ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H

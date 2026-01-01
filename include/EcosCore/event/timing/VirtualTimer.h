@@ -1,7 +1,7 @@
 // File: ecoscore/event/timing/VirtualTimer.h
 // EcosCore/event/util/timing/VirtualTimer.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H
-#define ECOSCORE_ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H
+#ifndef ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H
+#define ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H
 
 namespace EcosCore::event::util::timing {
 
@@ -19,4 +19,4 @@ namespace EcosCore::event::util::timing {
 
 } // namespace EcosCore::event::util::timing
 
-#endif // ECOSCORE_ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H
+#endif // ECOSCORE_EVENT_TIMING_VIRTUALTIMER_H

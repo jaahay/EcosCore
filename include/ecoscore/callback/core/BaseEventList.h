@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/BaseEventList.h
 // EcosCore/event/core/BaseEventList.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H
+#ifndef ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H
+#define ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H
 
 #include <tuple>
 
@@ -18,4 +18,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H
+#endif // ECOSCORE_CALLBACK_CORE_BASEEVENTLIST_H

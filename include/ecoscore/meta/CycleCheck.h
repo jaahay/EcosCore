@@ -4,6 +4,7 @@
 #define ECOSCORE_META_CYCLECHECK_H
 
 #include "ecoscore/meta/TypeList.h"
+#include <type_traits>
 
 namespace ecoscore::meta {
 
@@ -39,4 +40,4 @@ template <typename T, typename Visited = TypeList<>>
     };
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_ECOSCORE_META_CYCLECHECK_H
+#endif // ECOSCORE_META_CYCLECHECK_H

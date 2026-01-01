@@ -1,7 +1,7 @@
 // File: ecoscore/callback/ScopedCallbackHandler.h
 // EcosCore/event/ScopedCallbackHandler.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
-#define ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
+#ifndef ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
+#define ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
 
 #include <atomic>
 #include <utility>
@@ -67,4 +67,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
+#endif // ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H

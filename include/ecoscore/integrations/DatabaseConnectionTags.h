@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/DatabaseConnectionTags.h
 // include/ecoscore/integration/DatabaseConnectionTags.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H
+#ifndef ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H
+#define ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H
 
 /**
  * @file DatabaseConnectionTags.h
@@ -22,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H
+#endif // ECOSCORE_INTEGRATIONS_DATABASECONNECTIONTAGS_H

@@ -1,7 +1,7 @@
 // File: ecoscore/language/Encodings.h
 // /src/ecoscore/language/Encodings.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H
+#ifndef ECOSCORE_LANGUAGE_ENCODINGS_H
+#define ECOSCORE_LANGUAGE_ENCODINGS_H
 
 #include "std.h"
 
@@ -26,4 +26,4 @@ template <typename Derived>
     };
 
 }  // namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H
+#endif // ECOSCORE_LANGUAGE_ENCODINGS_H

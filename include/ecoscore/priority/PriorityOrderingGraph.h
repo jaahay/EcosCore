@@ -1,6 +1,6 @@
 // File: ecoscore/priority/PriorityOrderingGraph.h
-#ifndef ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
-#define ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
+#ifndef ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
+#define ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
 // src/ecoscore/priority/PriorityOrderingGraph.ixx
 module ecoscore.priority.PriorityOrderingGraph;
 
@@ -118,4 +118,4 @@ namespace ecoscore::priority {
     }
 
 }
-#endif // ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
+#endif // ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H

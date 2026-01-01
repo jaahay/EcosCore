@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackManagerKey.h
 // EcosCore/event/core/CallbackManagerKey.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
 
 #include <functional>
 #include <string_view>
@@ -46,4 +46,4 @@ namespace std {
     };
 }
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H

@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/MessageBrokerTags.h
 // include/ecoscore/integration/MessageBrokerTags.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H
+#ifndef ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H
+#define ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H
 
 /**
  * @file MessageBrokerTags.h
@@ -22,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H
+#endif // ECOSCORE_INTEGRATIONS_MESSAGEBROKERTAGS_H

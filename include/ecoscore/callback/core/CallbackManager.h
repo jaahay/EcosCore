@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackManager.h
 // EcosCore/event/core/CallbackManager.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
 
 #include <vector>
 #include <mutex>
@@ -76,4 +76,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H

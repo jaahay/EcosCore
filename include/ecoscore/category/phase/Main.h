@@ -1,7 +1,7 @@
 // File: ecoscore/category/phase/Main.h
 //// File: EcosCore/src/ecoscore/category/phase/Main.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_MAIN_H
-#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_MAIN_H
+#ifndef ECOSCORE_CATEGORY_PHASE_MAIN_H
+#define ECOSCORE_CATEGORY_PHASE_MAIN_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -20,4 +20,4 @@ struct Main final : Member<Main, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_MAIN_H
+#endif // ECOSCORE_CATEGORY_PHASE_MAIN_H

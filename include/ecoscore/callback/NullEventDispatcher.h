@@ -1,7 +1,7 @@
 // File: ecoscore/callback/NullEventDispatcher.h
 // EcosCore/event/core/NullEventDispatcher.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H
-#define ECOSCORE_ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H
+#ifndef ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H
+#define ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H
 
 #include "EcosCore/event/core/CallbackHandle.h"
 
@@ -36,4 +36,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H
+#endif // ECOSCORE_CALLBACK_NULLEVENTDISPATCHER_H

@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackRegistration.h
 // EcosCore/event/core/CallbackRegistration.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/tag/PhaseTags.h"
@@ -36,4 +36,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H

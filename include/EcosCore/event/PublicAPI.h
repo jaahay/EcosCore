@@ -1,7 +1,7 @@
 // File: ecoscore/event/PublicAPI.h
 // EcosCore/event/PublicAPI.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H
-#define ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H
+#ifndef ECOSCORE_EVENT_PUBLICAPI_H
+#define ECOSCORE_EVENT_PUBLICAPI_H
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/core/EventCallback.h"
@@ -39,4 +39,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H
+#endif // ECOSCORE_EVENT_PUBLICAPI_H

@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackHandle.h
 // EcosCore/event/core/CallbackHandle.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
 
 #include <cstdint>
 #include <atomic>
@@ -46,4 +46,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H

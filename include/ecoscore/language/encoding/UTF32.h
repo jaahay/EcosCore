@@ -1,7 +1,7 @@
 // File: ecoscore/language/encoding/UTF32.h
 // /src/ecoscore/language/encoding/UTF32.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+#ifndef ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+#define ECOSCORE_LANGUAGE_ENCODING_UTF32_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::encoding {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+#endif // ECOSCORE_LANGUAGE_ENCODING_UTF32_H

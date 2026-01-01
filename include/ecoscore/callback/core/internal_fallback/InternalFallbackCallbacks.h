@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/internal_fallback/InternalFallbackCallbacks.h
 // EcosCore/event/core/internal_fallbacks/InternalFallbackCallbacks.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
+#ifndef ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
+#define ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
 
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -58,4 +58,4 @@ namespace EcosCore::event::core::internal_fallbacks {
 
 } // namespace EcosCore::event::core::internal_fallbacks
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
+#endif // ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H

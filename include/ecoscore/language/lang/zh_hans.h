@@ -1,7 +1,7 @@
 // File: ecoscore/language/lang/zh_hans.h
 //// File: EcosCore/src/ecoscore/language/lang/zh_hans.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANS_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANS_H
+#ifndef ECOSCORE_LANGUAGE_LANG_ZH_HANS_H
+#define ECOSCORE_LANGUAGE_LANG_ZH_HANS_H
 
 #include "std.h"
 #include "std/string_view.h"
@@ -25,4 +25,4 @@ struct Zh_hans final : Member<Zh_hans, ecoscore::language::Language> {
 inline constexpr auto& zh_hans = Zh_hans::instance();
 
 } // namespace ecoscore::language::lang
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANS_H
+#endif // ECOSCORE_LANGUAGE_LANG_ZH_HANS_H

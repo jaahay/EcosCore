@@ -1,7 +1,7 @@
 // File: ecoscore/event/logger/CerrLogger.h
 // EcosCore/event/util/CerrLogger.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
-#define ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
+#ifndef ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
+#define ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
 
 #include <iostream>
 #include <string_view>
@@ -30,4 +30,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
+#endif // ECOSCORE_EVENT_LOGGER_CERRLOGGER_H

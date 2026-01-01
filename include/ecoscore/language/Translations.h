@@ -1,7 +1,7 @@
 // File: ecoscore/language/Translations.h
 // /src/ecoscore/language/Translations.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H
+#ifndef ECOSCORE_LANGUAGE_TRANSLATIONS_H
+#define ECOSCORE_LANGUAGE_TRANSLATIONS_H
 
 #include "std.h"
 
@@ -22,4 +22,4 @@ namespace ecoscore::language::translation {
 } // namespace ecoscore::language::translation
     };
 } // namespace ecoscore::language::translation
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H
+#endif // ECOSCORE_LANGUAGE_TRANSLATIONS_H

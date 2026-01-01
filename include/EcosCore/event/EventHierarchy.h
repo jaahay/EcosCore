@@ -1,7 +1,7 @@
 // File: ecoscore/event/EventHierarchy.h
 // EcosCore/event/EventHierarchy.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H
-#define ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H
+#ifndef ECOSCORE_EVENT_EVENTHIERARCHY_H
+#define ECOSCORE_EVENT_EVENTHIERARCHY_H
 
 #include <vector>
 #include <typeindex>
@@ -40,4 +40,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H
+#endif // ECOSCORE_EVENT_EVENTHIERARCHY_H

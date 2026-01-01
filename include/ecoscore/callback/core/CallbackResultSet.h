@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/CallbackResultSet.h
 // EcosCore/event/core/CallbackResultSet.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
+#ifndef ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
+#define ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
 
 #include <set>
 #include <typeindex>
@@ -61,4 +61,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
+#endif // ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H

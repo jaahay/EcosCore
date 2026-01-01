@@ -1,7 +1,7 @@
 // File: ecoscore/event/StrongTypedefs.h
 // EcosCore/event/StrongTypedefs.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_STRONGTYPEDEFS_H
-#define ECOSCORE_ECOSCORE_EVENT_STRONGTYPEDEFS_H
+#ifndef ECOSCORE_EVENT_STRONGTYPEDEFS_H
+#define ECOSCORE_EVENT_STRONGTYPEDEFS_H
 
 #include <cstdint>
 #include <type_traits>
@@ -34,4 +34,4 @@ private:
     T value_;
 };
 
-#endif // ECOSCORE_ECOSCORE_EVENT_STRONGTYPEDEFS_H
+#endif // ECOSCORE_EVENT_STRONGTYPEDEFS_H

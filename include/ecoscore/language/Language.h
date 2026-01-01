@@ -1,7 +1,7 @@
 // File: ecoscore/language/Language.h
 //// File: EcosCore/src/ecoscore/language/Language.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGE_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGE_H
+#ifndef ECOSCORE_LANGUAGE_LANGUAGE_H
+#define ECOSCORE_LANGUAGE_LANGUAGE_H
 
 #include "ecoscore/category/Category.h"
 
@@ -21,4 +21,4 @@ struct Language : ecoscore::category::Category {
     };
 
 } // namespace ecoscore::language
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGE_H
+#endif // ECOSCORE_LANGUAGE_LANGUAGE_H

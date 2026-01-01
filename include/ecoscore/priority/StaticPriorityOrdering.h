@@ -1,6 +1,6 @@
 // File: ecoscore/priority/StaticPriorityOrdering.h
-#ifndef ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
-#define ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
+#ifndef ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
+#define ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
 // src/ecoscore/priority/StaticPriorityOrdering.ixx
 module ecoscore.priority.StaticPriorityOrdering;
 
@@ -96,4 +96,4 @@ namespace ecoscore::priority {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
+#endif // ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H

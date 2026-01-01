@@ -1,7 +1,7 @@
 // File: ecoscore/callback/core/EventContext.h
 // EcosCore/event/core/EventContext.h
-#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
-#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
+#ifndef ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
+#define ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
 
 #include "EcosCore/tag/ResultTags.h"
 #include <any>
@@ -41,4 +41,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
+#endif // ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H

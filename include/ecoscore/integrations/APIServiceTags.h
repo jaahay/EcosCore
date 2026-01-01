@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/APIServiceTags.h
 // include/ecoscore/integration/APIServiceTags.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_APISERVICETAGS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_APISERVICETAGS_H
+#ifndef ECOSCORE_INTEGRATIONS_APISERVICETAGS_H
+#define ECOSCORE_INTEGRATIONS_APISERVICETAGS_H
 
 /**
  * @file APIServiceTags.h
@@ -22,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_APISERVICETAGS_H
+#endif // ECOSCORE_INTEGRATIONS_APISERVICETAGS_H

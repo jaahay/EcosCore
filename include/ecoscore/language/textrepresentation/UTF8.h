@@ -1,7 +1,7 @@
 // File: ecoscore/language/textrepresentation/UTF8.h
 // /src/ecoscore/language/textrepresentation/UTF8.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H
 
 #include "ecoscore/language/Encodings.h"
 #include <string_view>
@@ -17,4 +17,4 @@ namespace ecoscore::language::textrepresentation {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H

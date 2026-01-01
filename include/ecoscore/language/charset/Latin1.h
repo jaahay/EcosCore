@@ -1,7 +1,7 @@
 // File: ecoscore/language/charset/Latin1.h
 // /src/ecoscore/language/charset/Latin1.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+#define ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::charset {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+#endif // ECOSCORE_LANGUAGE_CHARSET_LATIN1_H

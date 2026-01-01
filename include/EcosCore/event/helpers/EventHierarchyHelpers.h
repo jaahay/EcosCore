@@ -1,7 +1,7 @@
 // File: ecoscore/event/helpers/EventHierarchyHelpers.h
 // EcosCore/event/EventHierarchyHelpers.h
-#ifndef ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
-#define ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
+#ifndef ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
+#define ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
 
 #include <type_traits>
 #include <typeindex>
@@ -26,4 +26,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
+#endif // ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H

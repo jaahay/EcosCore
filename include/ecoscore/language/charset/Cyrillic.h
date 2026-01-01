@@ -1,7 +1,7 @@
 // File: ecoscore/language/charset/Cyrillic.h
 // /src/ecoscore/language/charset/Cyrillic.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
+#define ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::charset {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
+#endif // ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H

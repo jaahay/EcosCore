@@ -1,7 +1,7 @@
 // File: ecoscore/language/charset/Emoji.h
 // /src/ecoscore/language/charset/Emoji.ixx
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+#define ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
 
 #include "std.h"
 
@@ -19,4 +19,4 @@ namespace ecoscore::language::charset {
     };
 
 }
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+#endif // ECOSCORE_LANGUAGE_CHARSET_EMOJI_H

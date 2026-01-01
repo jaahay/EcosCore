@@ -1,7 +1,7 @@
 // File: ecoscore/language/textrepresentation/ASCII.h
 // include/ecoscore/language/textrepresentation/ASCII.h
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
 
 #include "TextRepresentation.h"
 #include <string_view>
@@ -27,4 +27,4 @@ public:
 
 }  // namespace ecoscore::language::textrepresentation
 
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H

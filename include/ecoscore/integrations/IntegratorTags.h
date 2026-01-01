@@ -1,7 +1,7 @@
 // File: ecoscore/integrations/IntegratorTags.h
 // include/ecoscore/integration/IntegratorTags.h
-#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H
-#define ECOSCORE_ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H
+#ifndef ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H
+#define ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H
 
 /**
  * @file IntegratorTags.h
@@ -65,4 +65,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H
+#endif // ECOSCORE_INTEGRATIONS_INTEGRATORTAGS_H

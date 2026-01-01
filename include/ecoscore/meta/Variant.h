@@ -4,6 +4,7 @@
 
 #include "ecoscore/meta/Tuple.h"
 #include <tuple>
+#include <variant>
 
 namespace ecoscore::meta {
 
@@ -46,4 +47,4 @@ template <typename... Variants>
         using variant_concat_t = typename variant_concat<Variants...>::type;
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_ECOSCORE_META_VARIANT_H
+#endif // ECOSCORE_META_VARIANT_H

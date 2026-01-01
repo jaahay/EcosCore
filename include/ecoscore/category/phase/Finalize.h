@@ -1,7 +1,7 @@
 // File: ecoscore/category/phase/Finalize.h
 //// File: EcosCore/src/ecoscore/category/phase/Finalize.ixx
-#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_FINALIZE_H
-#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_FINALIZE_H
+#ifndef ECOSCORE_CATEGORY_PHASE_FINALIZE_H
+#define ECOSCORE_CATEGORY_PHASE_FINALIZE_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -20,4 +20,4 @@ struct Finalize final : Member<Finalize, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_FINALIZE_H
+#endif // ECOSCORE_CATEGORY_PHASE_FINALIZE_H

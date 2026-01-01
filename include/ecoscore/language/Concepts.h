@@ -1,7 +1,7 @@
 // File: ecoscore/language/Concepts.h
 // include/ecoscore/language/Concepts.h
-#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CONCEPTS_H
-#define ECOSCORE_ECOSCORE_LANGUAGE_CONCEPTS_H
+#ifndef ECOSCORE_LANGUAGE_CONCEPTS_H
+#define ECOSCORE_LANGUAGE_CONCEPTS_H
 
 /**
  * @file Concepts.h
@@ -23,4 +23,4 @@ namespace ecoscore::language::concepts {
 
 } // namespace ecoscore::language::concepts
 
-#endif // ECOSCORE_ECOSCORE_LANGUAGE_CONCEPTS_H
+#endif // ECOSCORE_LANGUAGE_CONCEPTS_H
