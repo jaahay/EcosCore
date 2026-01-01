@@ -5,19 +5,17 @@ add_library(ecoscore.category STATIC)
 
 # Define all module interface files in a single variable
 set(MODULE_FILES
-    Detail.ixx
-
     Category.ixx
     Member.ixx
-    Virtual.ixx
-
+    
     Categories.ixx
 
-    Flows.ixx
+    Flow.ixx
     flow/Continue.ixx
+    #flow/translations/Continue.ixx
     flow/Stop.ixx
 
-    Phases.ixx
+    Phase.ixx
     phase/After.ixx
     phase/Before.ixx
     phase/End.ixx
@@ -27,7 +25,7 @@ set(MODULE_FILES
     phase/Process.ixx
     phase/Start.ixx
 
-    Outcomes.ixx
+    Outcome.ixx
     outcome/Fail.ixx
     outcome/Partial.ixx
     outcome/Pass.ixx

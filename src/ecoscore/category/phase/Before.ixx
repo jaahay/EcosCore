@@ -1,16 +1,20 @@
-// /src/ecoscore/category/phase/Before.ixx
+//// File: EcosCore/src/ecoscore/category/phase/Before.ixx
 export module ecoscore.category.phase.Before;
 
-import ecoscore.category.Phases;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Phase;
 
 namespace ecoscore::category::phase {
 
-    struct Before final : Phase<Before> {
-        constexpr Before() noexcept = default;
-        constexpr ~Before() noexcept = default;
+    export struct Before final : Member<Before, ecoscore::category::Phase> {
+        friend Member<Before, ecoscore::category::Phase>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "Before"; }
+    private:
+        constexpr Before() noexcept = default;
+        ~Before() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Before"; }
     };
 
-}
+} // namespace ecoscore::category::phase

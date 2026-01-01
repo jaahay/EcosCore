@@ -1,16 +1,20 @@
-// /src/ecoscore/category/outcome/Partial.ixx
+//// File: EcosCore/src/ecoscore/category/outcome/Partial.ixx
 export module ecoscore.category.outcome.Partial;
 
-import ecoscore.category.Outcomes;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Outcome;
 
 namespace ecoscore::category::outcome {
 
-    struct Partial final : OutcomeTemplate<Partial> {
-        constexpr Partial() noexcept = default;
-        constexpr ~Partial() noexcept = default;
+    export struct Partial final : Member<Partial, ecoscore::category::Outcome> {
+        friend Member<Partial, ecoscore::category::Outcome>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "Partial"; }
+    private:
+        constexpr Partial() noexcept = default;
+        ~Partial() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Partial"; }
     };
 
-}
+} // namespace ecoscore::category::outcome

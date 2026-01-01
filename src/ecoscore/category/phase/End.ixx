@@ -1,16 +1,20 @@
-// /src/ecoscore/category/phase/End.ixx
+//// File: EcosCore/src/ecoscore/category/phase/End.ixx
 export module ecoscore.category.phase.End;
 
-import ecoscore.category.Phases;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Phase;
 
 namespace ecoscore::category::phase {
 
-    struct End final : Phase<End> {
-        constexpr End() noexcept = default;
-        constexpr ~End() noexcept = default;
+    export struct End final : Member<End, ecoscore::category::Phase> {
+        friend Member<End, ecoscore::category::Phase>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "End"; }
+    private:
+        constexpr End() noexcept = default;
+        ~End() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "End"; }
     };
 
-}
+} // namespace ecoscore::category::phase

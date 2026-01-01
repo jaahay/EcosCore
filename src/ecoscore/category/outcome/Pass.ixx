@@ -1,16 +1,20 @@
-// /src/ecoscore/category/outcome/Pass.ixx
+//// File: EcosCore/src/ecoscore/category/outcome/Pass.ixx
 export module ecoscore.category.outcome.Pass;
 
-import ecoscore.category.Outcomes;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Outcome;
 
 namespace ecoscore::category::outcome {
 
-    struct Pass final : OutcomeTemplate<Pass> {
-        constexpr Pass() noexcept = default;
-        constexpr ~Pass() noexcept = default;
+    export struct Pass final : Member<Pass, ecoscore::category::Outcome> {
+        friend Member<Pass, ecoscore::category::Outcome>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "Pass"; }
+    private:
+        constexpr Pass() noexcept = default;
+        ~Pass() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Pass"; }
     };
 
-}
+} // namespace ecoscore::category::outcome

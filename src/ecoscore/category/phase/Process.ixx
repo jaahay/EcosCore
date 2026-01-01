@@ -1,16 +1,20 @@
-// /src/ecoscore/category/phase/Process.ixx
+//// File: EcosCore/src/ecoscore/category/phase/Process.ixx
 export module ecoscore.category.phase.Process;
 
-import ecoscore.category.Phases;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Phase;
 
 namespace ecoscore::category::phase {
 
-    struct Process final : Phase<Process> {
-        constexpr Process() noexcept = default;
-        constexpr ~Process() noexcept = default;
+    export struct Process final : Member<Process, ecoscore::category::Phase> {
+        friend Member<Process, ecoscore::category::Phase>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "Process"; }
+    private:
+        constexpr Process() noexcept = default;
+        ~Process() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Process"; }
     };
 
-}
+} // namespace ecoscore::category::phase

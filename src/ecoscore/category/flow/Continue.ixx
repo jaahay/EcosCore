@@ -1,23 +1,22 @@
-// /src/ecoscore/category/flow/Continue.ixx
+//// File: EcosCore/src/ecoscore/category/flow/Continue.ixx
 export module ecoscore.category.flow.Continue;
 
-import ecoscore.category.Flows;
-import ecoscore.category.Category;
+import std;
+
+import ecoscore.category.Flow;
+import ecoscore.category.Member;
 
 namespace ecoscore::category::flow {
 
-    /**
-     * @brief Concrete flow category representing "Continue".
-     *
-     * Inherits from Flow (abstract) and Category (leaf).
-     */
-    struct Continue final : Flow<Continue> {
-        constexpr Continue() noexcept = default;
-        constexpr ~Continue() noexcept = default;
+    export struct Continue final : Member<Continue, ecoscore::category::Flow> {
+        friend Member<Continue, ecoscore::category::Flow>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "Continue";
-        }
+    private:
+        constexpr Continue() noexcept = default;
+        ~Continue() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Continue"; }
     };
 
-}
+} // namespace ecoscore::category::flow

@@ -1,10 +1,12 @@
-// /src/ecoscore/category/category.ixx
-export module ecoscore.category.category;
+//// File: EcosCore/src/ecoscore/category/Categories.ixx
+export module ecoscore.category.Categories;
+
+import std;
 
 export import ecoscore.category.Category;
-export import ecoscore.category.Flows;
-export import ecoscore.category.Outcomes;
-export import ecoscore.category.Phases;
+export import ecoscore.category.Flow;
+export import ecoscore.category.Outcome;
+export import ecoscore.category.Phase;
 
 // Export all flow categorys
 export import ecoscore.category.flow.Continue;
@@ -24,8 +26,6 @@ export import ecoscore.category.phase.Start;
 export import ecoscore.category.outcome.Fail;
 export import ecoscore.category.outcome.Partial;
 export import ecoscore.category.outcome.Pass;
-
-import std;
 
 namespace ecoscore::category {
 

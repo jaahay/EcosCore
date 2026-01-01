@@ -1,16 +1,20 @@
-// /src/ecoscore/category/outcome/Fail.ixx
+//// File: EcosCore/src/ecoscore/category/outcome/Fail.ixx
 export module ecoscore.category.outcome.Fail;
 
-import ecoscore.category.Outcomes;
-import ecoscore.category.Category;
+import ecoscore.category.Member;
+import ecoscore.category.Outcome;
 
 namespace ecoscore::category::outcome {
 
-    struct Fail final : OutcomeTemplate<Fail> {
-        constexpr Fail() noexcept = default;
-        constexpr ~Fail() noexcept = default;
+    export struct Fail final : Member<Fail, ecoscore::category::Outcome> {
+        friend Member<Fail, ecoscore::category::Outcome>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept { return "Fail"; }
+    private:
+        constexpr Fail() noexcept = default;
+        ~Fail() noexcept = default;
+
+    public:
+        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Fail"; }
     };
 
-}
+} // namespace ecoscore::category::outcome
