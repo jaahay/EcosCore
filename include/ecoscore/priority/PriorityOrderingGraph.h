@@ -1,6 +1,5 @@
-// include/ecoscore/priority/PriorityOrderingGraph.h
-#ifndef ECOSCORE_PRIORITY_PRIORITY_ORDERING_GRAPH_H
-#define ECOSCORE_PRIORITY_PRIORITY_ORDERING_GRAPH_H
+// src/ecoscore/priority/PriorityOrderingGraph.ixx
+module ecoscore.priority.PriorityOrderingGraph;
 
 #include <map>
 #include <set>
@@ -13,25 +12,16 @@
 
 namespace ecoscore::priority {
 
-    /**
-     * @brief Manages a DAG of priority nodes.
-     *
-     * Nodes are pointers to ecoscore::type::StructType singletons.
-     */
     class PriorityOrderingGraph {
     public:
         using Node = const ecoscore::type::StructType*;
 
-        /**
-         * @brief Adds a dependency edge: higher > lower.
-         * Throws if cycle detected or null node passed.
-         */
         void AddDependency(Node higher, Node lower) {
             if (higher == nullptr || lower == nullptr) {
                 throw std::invalid_argument("PriorityOrderingGraph: null node");
             }
             adjacency_[higher].insert(lower);
-            adjacency_[lower]; // ensure node exists
+            adjacency_[lower];
 
             if (HasCycle()) {
                 adjacency_[higher].erase(lower);
@@ -39,17 +29,11 @@ namespace ecoscore::priority {
             }
         }
 
-        /**
-         * @brief Returns true if higher > lower (transitive closure).
-         */
         bool IsHigher(Node higher, Node lower) const {
             std::set<Node> visited;
             return Dfs(higher, lower, visited);
         }
 
-        /**
-         * @brief Returns a topological sort of priority nodes from highest to lowest.
-         */
         std::vector<Node> TopologicalSort() const {
             std::set<Node> visited;
             std::vector<Node> result;
@@ -62,9 +46,6 @@ namespace ecoscore::priority {
             return result;
         }
 
-        /**
-         * @brief Prints the graph contents to the output stream.
-         */
         void Print(std::ostream& os) const {
             os << "PriorityOrderingGraph:\n";
             for (const auto& [node, edges] : adjacency_) {
@@ -133,6 +114,4 @@ namespace ecoscore::priority {
         return os;
     }
 
-} // namespace ecoscore::priority
-
-#endif // ECOSCORE_PRIORITY_PRIORITY_ORDERING_GRAPH_H
+}

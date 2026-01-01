@@ -7,11 +7,11 @@ add_library(ecoscore.meta STATIC)
 
 # Define module interface files once
 set(MODULE_FILES
-    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/CycleCheck.ixx
-    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Meta.ixx
-    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Tuple.ixx
-    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/TypeList.ixx
-    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Variant.ixx
+    
+    
+    
+    
+    
 )
 
 

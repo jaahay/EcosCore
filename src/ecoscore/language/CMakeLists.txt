@@ -9,7 +9,7 @@ set(MODULE_FILES
     TextRepresentation.ixx
     TextRepresentations.ixx
     Encodings.ixx
-    Charsets.ixx
+    
     Language.ixx
     Languages.ixx
     Locale.ixx

@@ -1,0 +1,42 @@
+// /src/ecoscore/meta/CycleCheck.ixx
+
+#ifndef __SRC_ECOSCORE_META_CYCLECHECK_IXX__
+#define __SRC_ECOSCORE_META_CYCLECHECK_IXX__
+
+#include "ecoscore/meta/TypeList.h"
+
+namespace ecoscore::meta {
+
+    /**
+     * @brief Compile-time check to detect cycles in a type dependency graph.
+     *
+     * @tparam T Type to check.
+     * @tparam Visited List of visited types to detect cycles.
+     */
+template <typename T, typename Visited = TypeList<>>
+        struct CheckNoCycle {
+        static_assert(!Contains<T, Visited>::value, "Cycle detected in priority ordering!");
+
+        using NewVisited = typename Append<Visited, T>::type;
+
+        private:
+            template <typename List>
+            struct _CheckList;
+
+            template <>
+            struct _CheckList<TypeList<>> {
+                static constexpr bool value = true;
+            };
+
+            template <typename Head, typename... Tail>
+            struct _CheckList<TypeList<Head, Tail...>> {
+                static constexpr bool value =
+                    CheckNoCycle<Head, NewVisited>::value&& _CheckList<TypeList<Tail...>>::value;
+            };
+
+        public:
+            static constexpr bool value = _CheckList<typename T::HigherThanList>::value;
+    };
+
+} // namespace ecoscore::meta
+#endif // __SRC_ECOSCORE_META_CYCLECHECK_IXX__

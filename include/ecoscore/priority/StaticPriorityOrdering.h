@@ -1,6 +1,5 @@
-// include/ecoscore/priority/StaticPriorityOrdering.h
-#ifndef ECOSCORE_PRIORITY_STATIC_PRIORITY_ORDERING_H
-#define ECOSCORE_PRIORITY_STATIC_PRIORITY_ORDERING_H
+// src/ecoscore/priority/StaticPriorityOrdering.ixx
+module ecoscore.priority.StaticPriorityOrdering;
 
 #include <map>
 #include <set>
@@ -11,41 +10,24 @@
 
 namespace ecoscore::priority {
 
-    /**
-     * @brief Static, template-based priority ordering implementation.
-     *
-     * Manages relative ordering between priority tags (no fixed numeric levels).
-     * Template parameter Priority must derive from StructType.
-     */
     template <typename Priority>
         requires std::derived_from<Priority, ecoscore::type::StructType>
     class StaticPriorityOrdering {
     public:
-        /**
-         * @brief Add a "higher > lower" relation.
-         * Throws if adding this dependency introduces a cycle.
-         */
         void AddDependency(const Priority& higher, const Priority& lower) {
             adjacency_[&higher].insert(&lower);
-            adjacency_[&lower]; // Ensure lower node exists
-
+            adjacency_[&lower];
             if (HasCycle()) {
                 adjacency_[&higher].erase(&lower);
                 throw std::runtime_error("StaticPriorityOrdering: cycle detected");
             }
         }
 
-        /**
-         * @brief Returns true if higher > lower (transitive closure).
-         */
         bool IsHigher(const Priority* higher, const Priority* lower) const {
             std::set<const Priority*> visited;
             return Dfs(higher, lower, visited);
         }
 
-        /**
-         * @brief Returns a topological sorted vector of priority tags from highest to lowest.
-         */
         std::vector<const Priority*> TopologicalSort() const {
             std::set<const Priority*> visited;
             std::vector<const Priority*> result;
@@ -110,6 +92,4 @@ namespace ecoscore::priority {
         }
     };
 
-} // namespace ecoscore::priority
-
-#endif // ECOSCORE_PRIORITY_STATIC_PRIORITY_ORDERING_H
+}
