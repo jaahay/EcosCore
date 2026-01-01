@@ -3,32 +3,36 @@ cmake_minimum_required(VERSION 3.28)
 
 add_library(ecoscore.state STATIC)
 
+# Define all module interface files in a single variable
+set(MODULE_FILES
+    Detail.ixx
+
+    Category.ixx
+    Flows.ixx
+    Outcomes.ixx
+    Phases.ixx
+    Tag.ixx
+
+    flow/Continue.ixx
+    flow/Stop.ixx
+
+    phase/After.ixx
+    phase/Before.ixx
+    phase/End.ixx
+    phase/Error.ixx
+    phase/Finalize.ixx
+    phase/Main.ixx
+    phase/Process.ixx
+    phase/Start.ixx
+
+    outcome/Fail.ixx
+    outcome/Partial.ixx
+    outcome/Pass.ixx
+)
+
 target_sources(ecoscore.state PUBLIC
     FILE_SET cxx_modules TYPE CXX_MODULES
-    FILES
-        Detail.ixx
-
-        Category.ixx
-        Flows.ixx
-        Outcomes.ixx
-        Phases.ixx
-        Tag.ixx
-
-        flow/Continue.ixx
-        flow/Stop.ixx
-
-        phase/After.ixx
-        phase/Before.ixx
-        phase/End.ixx
-        phase/Error.ixx
-        phase/Finalize.ixx
-        phase/Main.ixx
-        phase/Process.ixx
-        phase/Start.ixx
-
-        outcome/Fail.ixx
-        outcome/Partial.ixx
-        outcome/Pass.ixx
+    FILES ${MODULE_FILES}
 )
 
 target_include_directories(ecoscore.state PUBLIC
@@ -46,5 +50,11 @@ set_target_properties(ecoscore.state PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-    CXX_MODULE_STD 1
+#    CXX_MODULE_STD 1
+)
+
+source_group(
+    TREE ${CMAKE_SOURCE_DIR}/src/ecoscore
+    PREFIX "Source Files"
+    FILES ${MODULE_FILES}
 )

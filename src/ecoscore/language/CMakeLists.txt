@@ -3,46 +3,50 @@ cmake_minimum_required(VERSION 3.28)
 
 add_library(ecoscore.language STATIC)
 
+# Define module interface files once
+set(MODULE_FILES
+    Lang.ixx
+    TextRepresentation.ixx
+    TextRepresentations.ixx
+    Encodings.ixx
+    Charsets.ixx
+    Languages.ixx
+    Locale.ixx
+    NameSet.ixx
+    Translation.ixx
+    Translations.ixx
+
+    # Charsets
+    charset/Cyrillic.ixx
+    charset/Emoji.ixx
+    charset/Latin1.ixx
+
+    # Encodings
+    encoding/MacRoman.ixx
+    encoding/UTF32.ixx
+    encoding/Windows1252.ixx
+
+    # Language identities
+    lang/ar.ixx
+    lang/de.ixx
+    lang/en.ixx
+    lang/es.ixx
+    lang/fr.ixx
+    lang/ja.ixx
+    lang/ko.ixx
+    lang/zh_hans.ixx
+    lang/zh_hant.ixx
+
+    # Language translations
+    lang/translations/en.ixx
+    # lang/translations/fr.ixx
+    # lang/translations/de.ixx
+    # ...
+)
+
 target_sources(ecoscore.language PRIVATE
     FILE_SET cxx_modules TYPE CXX_MODULES
-    FILES
-        Lang.ixx
-        TextRepresentation.ixx
-        TextRepresentations.ixx
-        Encodings.ixx
-        Charsets.ixx
-        Languages.ixx
-        Locale.ixx
-        NameSet.ixx
-        Translation.ixx
-        Translations.ixx
-
-        # Charsets
-        charset/Cyrillic.ixx
-        charset/Emoji.ixx
-        charset/Latin1.ixx
-
-        # Encodings
-        encoding/MacRoman.ixx
-        encoding/UTF32.ixx
-        encoding/Windows1252.ixx
-
-        # Language identities
-        lang/ar.ixx
-        lang/de.ixx
-        lang/en.ixx
-        lang/es.ixx
-        lang/fr.ixx
-        lang/ja.ixx
-        lang/ko.ixx
-        lang/zh_hans.ixx
-        lang/zh_hant.ixx
-
-        # Language translations
-        lang/translations/en.ixx
-        # lang/translations/fr.ixx
-        # lang/translations/de.ixx
-        # ...
+    FILES ${MODULE_FILES}
 )
 
 target_include_directories(ecoscore.language PUBLIC
@@ -60,7 +64,13 @@ set_target_properties(ecoscore.language PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-    CXX_MODULE_STD 1
+#    CXX_MODULE_STD 1
 )
 
 target_link_libraries(ecoscore.language PRIVATE ecoscore.state)
+
+source_group(
+    TREE ${CMAKE_SOURCE_DIR}/src/ecoscore
+    PREFIX "Source Files"
+    FILES ${MODULE_FILES}
+)
