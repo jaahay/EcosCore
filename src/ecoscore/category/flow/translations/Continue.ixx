@@ -1,5 +1,5 @@
-// /src/ecoscore/state/flow/translations/Continue.ixx
-export module ecoscore.state.flow.translations.Continue;
+// /src/ecoscore/category/flow/translations/Continue.ixx
+export module ecoscore.category.flow.translations.Continue;
 
 import ecoscore.language.NameSet;
 import ecoscore.language.lang.En;
@@ -13,17 +13,17 @@ import ecoscore.language.lang.Ko;
 import ecoscore.language.lang.Ar;
 
 import ecoscore.language.translation.Translation;
-import ecoscore.state.flow.Continue;
+import ecoscore.category.flow.Continue;
 
 #include <unordered_map>
 #include <string_view>
 
-namespace ecoscore::state::flow::translations {
+namespace ecoscore::category::flow::translations {
 
     using namespace ecoscore::language;
     using namespace ecoscore::language::lang;
     using namespace ecoscore::language::translation;
-    using namespace ecoscore::state::flow;
+    using namespace ecoscore::category::flow;
 
     struct Continue final : Translation<Continue> {
         constexpr Continue() noexcept = default;

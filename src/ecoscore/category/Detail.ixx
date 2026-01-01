@@ -1,7 +1,7 @@
-// /src/ecoscore/state/Detail.ixx
-export module ecoscore.state.detail;
+// /src/ecoscore/category/Detail.ixx
+export module ecoscore.category.detail;
 
-namespace ecoscore::state::detail {
+namespace ecoscore::category::detail {
 
 	// Detect MSVC compiler
 #if defined(_MSC_VER)
@@ -24,4 +24,4 @@ namespace ecoscore::state::detail {
 	export inline constexpr bool is_gcc = false;
 #endif
 
-} // namespace ecoscore::state::detail
+} // namespace ecoscore::category::detail

@@ -1,21 +1,23 @@
-# /src/ecoscore/state/CMakeLists.txt
+# /src/ecoscore/category/CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
 
-add_library(ecoscore.state STATIC)
+add_library(ecoscore.category STATIC)
 
 # Define all module interface files in a single variable
 set(MODULE_FILES
     Detail.ixx
 
     Category.ixx
-    Flows.ixx
-    Outcomes.ixx
-    Phases.ixx
-    Tag.ixx
+    Member.ixx
+    Virtual.ixx
 
+    Categories.ixx
+
+    Flows.ixx
     flow/Continue.ixx
     flow/Stop.ixx
 
+    Phases.ixx
     phase/After.ixx
     phase/Before.ixx
     phase/End.ixx
@@ -25,32 +27,33 @@ set(MODULE_FILES
     phase/Process.ixx
     phase/Start.ixx
 
+    Outcomes.ixx
     outcome/Fail.ixx
     outcome/Partial.ixx
     outcome/Pass.ixx
 )
 
-target_sources(ecoscore.state PUBLIC
+target_sources(ecoscore.category PUBLIC
     FILE_SET cxx_modules TYPE CXX_MODULES
     FILES ${MODULE_FILES}
 )
 
-target_include_directories(ecoscore.state PUBLIC
+target_include_directories(ecoscore.category PUBLIC
     ${CMAKE_SOURCE_DIR}/include
 )
 
-target_compile_features(ecoscore.state PUBLIC cxx_std_23)
+target_compile_features(ecoscore.category PUBLIC cxx_std_23)
 
-target_compile_options(ecoscore.state PRIVATE
+target_compile_options(ecoscore.category PRIVATE
     /W4 /WX
     $<$<CXX_COMPILER_ID:MSVC>:/std:c++latest /permissive->
 )
 
-set_target_properties(ecoscore.state PROPERTIES
+set_target_properties(ecoscore.category PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-#    CXX_MODULE_STD 1
+    CXX_MODULE_STD 1
 )
 
 source_group(

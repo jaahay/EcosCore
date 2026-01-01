@@ -10,6 +10,7 @@ set(MODULE_FILES
     TextRepresentations.ixx
     Encodings.ixx
     Charsets.ixx
+    Language.ixx
     Languages.ixx
     Locale.ixx
     NameSet.ixx
@@ -64,10 +65,10 @@ set_target_properties(ecoscore.language PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-#    CXX_MODULE_STD 1
+    CXX_MODULE_STD 1
 )
 
-target_link_libraries(ecoscore.language PRIVATE ecoscore.state)
+target_link_libraries(ecoscore.language PRIVATE ecoscore.category)
 
 source_group(
     TREE ${CMAKE_SOURCE_DIR}/src/ecoscore

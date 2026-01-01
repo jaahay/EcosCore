@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/Finalize.ixx
-export module ecoscore.state.phase.Finalize;
+// /src/ecoscore/category/phase/Finalize.ixx
+export module ecoscore.category.phase.Finalize;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct Finalize final : Phase<Finalize> {
         constexpr Finalize() noexcept = default;

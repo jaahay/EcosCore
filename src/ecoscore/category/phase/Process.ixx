@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/Process.ixx
-export module ecoscore.state.phase.Process;
+// /src/ecoscore/category/phase/Process.ixx
+export module ecoscore.category.phase.Process;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct Process final : Phase<Process> {
         constexpr Process() noexcept = default;

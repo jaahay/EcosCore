@@ -7,12 +7,13 @@ add_library(ecoscore.meta STATIC)
 
 # Define module interface files once
 set(MODULE_FILES
-    CycleCheck.ixx
-    Meta.ixx
-    Tuple.ixx
-    TypeList.ixx
-    Variant.ixx
+    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/CycleCheck.ixx
+    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Meta.ixx
+    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Tuple.ixx
+    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/TypeList.ixx
+    ${CMAKE_SOURCE_DIR}/src/ecoscore/meta/Variant.ixx
 )
+
 
 target_sources(ecoscore.meta PRIVATE
     FILE_SET cxx_modules TYPE CXX_MODULES
@@ -34,7 +35,7 @@ set_target_properties(ecoscore.meta PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-#    CXX_MODULE_STD 1
+    CXX_MODULE_STD 1
 )
 
 source_group(

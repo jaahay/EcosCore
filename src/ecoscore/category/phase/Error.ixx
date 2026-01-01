@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/Error.ixx
-export module ecoscore.state.phase.Error;
+// /src/ecoscore/category/phase/Error.ixx
+export module ecoscore.category.phase.Error;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct Error final : Phase<Error> {
         constexpr Error() noexcept = default;

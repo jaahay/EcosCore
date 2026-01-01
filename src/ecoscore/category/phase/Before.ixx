@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/Before.ixx
-export module ecoscore.state.phase.Before;
+// /src/ecoscore/category/phase/Before.ixx
+export module ecoscore.category.phase.Before;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct Before final : Phase<Before> {
         constexpr Before() noexcept = default;

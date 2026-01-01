@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/End.ixx
-export module ecoscore.state.phase.End;
+// /src/ecoscore/category/phase/End.ixx
+export module ecoscore.category.phase.End;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct End final : Phase<End> {
         constexpr End() noexcept = default;

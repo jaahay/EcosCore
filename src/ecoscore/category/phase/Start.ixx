@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/Start.ixx
-export module ecoscore.state.phase.Start;
+// /src/ecoscore/category/phase/Start.ixx
+export module ecoscore.category.phase.Start;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct Start final : Phase<Start> {
         constexpr Start() noexcept = default;

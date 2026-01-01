@@ -11,7 +11,7 @@ add_subdirectory(language)
 # add_subdirectory(localization)  # Uncomment when ready
 add_subdirectory(meta)
 # add_subdirectory(priority)      # Uncomment when ready
-add_subdirectory(state)
+add_subdirectory(category)
 # add_subdirectory(type)          # Uncomment when ready
 
 # Aggregate interface library for EcosCore

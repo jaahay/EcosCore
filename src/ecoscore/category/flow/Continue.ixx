@@ -1,13 +1,13 @@
-// /src/ecoscore/state/flow/Continue.ixx
-export module ecoscore.state.flow.Continue;
+// /src/ecoscore/category/flow/Continue.ixx
+export module ecoscore.category.flow.Continue;
 
-import ecoscore.state.Flows;
-import ecoscore.state.Category;
+import ecoscore.category.Flows;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::flow {
+namespace ecoscore::category::flow {
 
     /**
-     * @brief Concrete flow state representing "Continue".
+     * @brief Concrete flow category representing "Continue".
      *
      * Inherits from Flow (abstract) and Category (leaf).
      */

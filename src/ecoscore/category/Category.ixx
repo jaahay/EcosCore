@@ -1,35 +1,28 @@
-// /src/ecoscore/state/Category.ixx
-export module ecoscore.state.Category;
+// /src/ecoscore/category/Category.ixx
+export module ecoscore.category.Category;
 
 import std;
 
-import ecoscore.state.detail;
+import ecoscore.category.detail;
 
-namespace ecoscore::state {
+namespace ecoscore::category {
 
     // Concept enforcing final & non-abstract or abstract & non-final,
     // but disables the check on MSVC due to compiler limitations.
     template <typename T>
     concept ValidCategoryDerived =
-        ecoscore::state::detail::is_msvc || // Skip check on MSVC
+        ecoscore::category::detail::is_msvc || // Skip check on MSVC
         ((std::is_final_v<T> && !std::is_abstract_v<T>) ||
             (!std::is_final_v<T> && std::is_abstract_v<T>));
 
     /**
-     * @brief CRTP base for all state categories.
+     * @brief CRTP base for all category categories.
      *
      * Provides a compile-time singleton instance and static_name().
      *
-     * Supports both abstract intermediate states (non-final) and concrete leaf states (final).
+     * Supports both abstract intermediate categorys (non-final) and concrete leaf categorys (final).
      *
-     * @note The static_name() method returns a canonical, internal identifier string.
-     *       This string is a stable, machine-readable key used for compile-time dispatch,
-     *       serialization, and metadata lookup.
-     *
-     *       It is NOT intended for display to end users and should never be localized.
-     *       User-facing names and descriptions must be provided separately via localization data.
-     *
-     * @tparam Derived The derived state type.
+     * @tparam Derived The derived category type.
      */
     export template <ValidCategoryDerived Derived>
         struct Category {
@@ -52,4 +45,4 @@ namespace ecoscore::state {
 
     };
 
-} // namespace ecoscore::state
+} // namespace ecoscore::category

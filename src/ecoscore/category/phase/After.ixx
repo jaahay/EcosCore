@@ -1,10 +1,10 @@
-// /src/ecoscore/state/phase/After.ixx
-export module ecoscore.state.phase.After;
+// /src/ecoscore/category/phase/After.ixx
+export module ecoscore.category.phase.After;
 
-import ecoscore.state.Phases;
-import ecoscore.state.Category;
+import ecoscore.category.Phases;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::phase {
+namespace ecoscore::category::phase {
 
     struct After final : Phase<After> {
         constexpr After() noexcept = default;

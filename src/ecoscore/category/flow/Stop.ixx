@@ -1,13 +1,13 @@
-// /src/ecoscore/state/flow/Stop.ixx
-export module ecoscore.state.flow.Stop;
+// /src/ecoscore/category/flow/Stop.ixx
+export module ecoscore.category.flow.Stop;
 
-import ecoscore.state.Flows;
-import ecoscore.state.Category;
+import ecoscore.category.Flows;
+import ecoscore.category.Category;
 
-namespace ecoscore::state::flow {
+namespace ecoscore::category::flow {
 
     /**
-     * @brief Concrete flow state representing "Stop".
+     * @brief Concrete flow category representing "Stop".
      *
      * Inherits from Flow (abstract) and Category (leaf).
      */
