@@ -1,6 +1,7 @@
+// File: ecoscore/category/Categories.h
 //// File: EcosCore/src/ecoscore/category/Categories.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_CATEGORIES_IXX__
-#define __SRC_ECOSCORE_CATEGORY_CATEGORIES_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H
+#define ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H
 
 #include "std.h"
 
@@ -38,8 +39,8 @@ namespace ecoscore::category {
     struct categoryDomain {
         [[nodiscard]] static constexpr std::string_view name() noexcept {
             return "ecoscore.category";
-        }
+} // namespace ecoscore::category
     };
 
 }
-#endif // __SRC_ECOSCORE_CATEGORY_CATEGORIES_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_CATEGORIES_H

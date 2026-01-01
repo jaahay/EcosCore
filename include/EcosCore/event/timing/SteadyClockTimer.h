@@ -1,6 +1,7 @@
+// File: ecoscore/event/timing/SteadyClockTimer.h
 // EcosCore/event/util/timing/SteadyClockTimer.h
-#ifndef ECOSCORE_EVENT_UTIL_TIMING_STEADYCLOCKTIMER_H
-#define ECOSCORE_EVENT_UTIL_TIMING_STEADYCLOCKTIMER_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
+#define ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H
 
 #include "VirtualTimer.h"
 #include <chrono>
@@ -17,7 +18,7 @@ namespace EcosCore::event::util::timing {
     public:
         void Start() override {
             start_ = std::chrono::steady_clock::now();
-        }
+} // namespace EcosCore::event::util::timing
 
         void Stop() override {
             end_ = std::chrono::steady_clock::now();
@@ -38,4 +39,4 @@ namespace EcosCore::event::util::timing {
 
 } // namespace EcosCore::event::util::timing
 
-#endif // ECOSCORE_EVENT_UTIL_TIMING_STEADYCLOCKTIMER_H
+#endif // ECOSCORE_ECOSCORE_EVENT_TIMING_STEADYCLOCKTIMER_H

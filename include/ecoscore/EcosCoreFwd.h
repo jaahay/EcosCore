@@ -1,6 +1,7 @@
+// File: ecoscore/EcosCoreFwd.h
 // include/ecoscore/EcosCoreFwd.h
-#ifndef ECOSCORE_ECOSCOREFWD_H
-#define ECOSCORE_ECOSCOREFWD_H
+#ifndef ECOSCORE_ECOSCORE_ECOSCOREFWD_H
+#define ECOSCORE_ECOSCORE_ECOSCOREFWD_H
 
 /**
  * @file EcosCoreFwd.h
@@ -24,19 +25,19 @@ namespace ecoscore {
 
         template <typename T, typename List>
         struct Contains;
-    }
+} // namespace meta
 
     namespace tag {
         template <typename Derived>
         struct Tag;
-    }
+} // namespace tag
 
     namespace type {
         struct StructType;
 
         template <typename Derived, typename Parent>
         struct TemplateType;
-    }
+} // namespace type
 
     // Common concepts
 
@@ -60,8 +61,8 @@ namespace ecoscore {
         template <typename T, template <typename> typename Base>
         concept TagCategory = std::derived_from<T, Base<T>>;
 
-    } // namespace concepts
+} // namespace concepts
 
 } // namespace ecoscore
 
-#endif // ECOSCORE_ECOSCOREFWD_H
+#endif // ECOSCORE_ECOSCORE_ECOSCOREFWD_H

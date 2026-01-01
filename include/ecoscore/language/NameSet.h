@@ -1,6 +1,7 @@
+// File: ecoscore/language/NameSet.h
 // /src/ecoscore/language/NameSet.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_NAMESET_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_NAMESET_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H
 
 #include "std.h"
 
@@ -23,7 +24,7 @@ template <typename... Syns>
                 if constexpr (Index < sizeof...(Syns) + 1) {  // +1 for canonical included in tuple
                     func(std::get<Index>(t));
                     iterate_impl<Index + 1>(t, std::forward<Func>(func));
-                }
+} // namespace ecoscore::language
             }
 
         public:
@@ -42,4 +43,4 @@ template <typename... Syns>
     };
 
 } //  namespace ecoscore::language
-#endif // __SRC_ECOSCORE_LANGUAGE_NAMESET_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_NAMESET_H

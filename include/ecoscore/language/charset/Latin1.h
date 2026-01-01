@@ -1,6 +1,7 @@
+// File: ecoscore/language/charset/Latin1.h
 // /src/ecoscore/language/charset/Latin1.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_CHARSET_LATIN1_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_CHARSET_LATIN1_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
 
 #include "std.h"
 
@@ -14,8 +15,8 @@ namespace ecoscore::language::charset {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "Latin1";
-        }
+} // namespace ecoscore::language::charset
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_CHARSET_LATIN1_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_LATIN1_H

@@ -1,3 +1,6 @@
+// File: ecoscore/Meta.h
+#ifndef ECOSCORE_ECOSCORE_META_H
+#define ECOSCORE_ECOSCORE_META_H
 // src/ecoscore/Meta.ixx
 module ecoscore.meta;
 
@@ -19,4 +22,5 @@ namespace ecoscore::meta {
     using tuple_to_variant_t = tuple_to_variant_t;
     using variant_concat = variant_concat;
     using variant_concat_t = variant_concat_t;
-}
+} // namespace ecoscore::meta
+#endif // ECOSCORE_ECOSCORE_META_H

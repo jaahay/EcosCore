@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackManager.h
 // EcosCore/event/core/CallbackManager.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H
 
 #include <vector>
 #include <mutex>
@@ -35,7 +36,7 @@ namespace EcosCore::event::core {
             callbacks_.emplace_back(handle, callback);
             SortCallbacks();
             return handle;
-        }
+} // namespace EcosCore::event::core
 
         void RemoveCallback(CallbackHandle handle) override {
             std::lock_guard lock(mutex_);
@@ -75,4 +76,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGER_H

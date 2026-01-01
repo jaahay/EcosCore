@@ -1,6 +1,7 @@
+// File: ecoscore/category/outcome/Partial.h
 //// File: EcosCore/src/ecoscore/category/outcome/Partial.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_IXX__
-#define __SRC_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_H
+#define ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Outcome.h"
@@ -19,4 +20,4 @@ struct Partial final : Member<Partial, ecoscore::category::Outcome> {
     };
 
 } // namespace ecoscore::category::outcome
-#endif // __SRC_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PARTIAL_H

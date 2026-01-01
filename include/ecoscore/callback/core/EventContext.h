@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/EventContext.h
 // EcosCore/event/core/EventContext.h
-#ifndef ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H
-#define ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H
 
 #include "EcosCore/tag/ResultTags.h"
 #include <any>
@@ -15,7 +16,7 @@ namespace EcosCore::event::core {
             result_ = &result;
             if (result == EcosCore::tag::Stop::instance()) {
                 canceled_ = true;
-            }
+} // namespace EcosCore::event::core
         }
 
         const EcosCore::tag::Result& GetResult() const noexcept {
@@ -40,4 +41,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_EVENT_CONTEXT_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCONTEXT_H

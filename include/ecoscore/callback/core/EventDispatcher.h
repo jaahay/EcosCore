@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/EventDispatcher.h
 // EcosCore/event/core/EventDispatcher.h
-#ifndef ECOSCORE_EVENT_CORE_EVENT_DISPATCHER_H
-#define ECOSCORE_EVENT_CORE_EVENT_DISPATCHER_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H
 
 #include <unordered_map>
 #include <memory>
@@ -28,7 +29,7 @@ namespace EcosCore::event::core {
                 auto& non_const_ctx = const_cast<EventContext&>(ctx);
                 internal_fallbacks::DefaultCancellationFallback(event, non_const_ctx);
                 });
-        }
+} // namespace EcosCore::event::core
 
         template <
             typename EventType,
@@ -166,3 +167,4 @@ namespace EcosCore::event::core {
     };
 
 } // namespace EcosCore::event::core
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTDISPATCHER_H

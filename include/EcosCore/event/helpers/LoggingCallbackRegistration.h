@@ -1,6 +1,7 @@
+// File: ecoscore/event/helpers/LoggingCallbackRegistration.h
 // EcosCore/event/helpers/LoggingCallbackRegistration.h
-#ifndef ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H
-#define ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_HELPERS_LOGGINGCALLBACKREGISTRATION_H
+#define ECOSCORE_ECOSCORE_EVENT_HELPERS_LOGGINGCALLBACKREGISTRATION_H
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/util/LoggingCallback.h"
@@ -19,8 +20,8 @@ namespace EcosCore::event::helpers {
             EcosCore::tag::Before::instance(),
             EcosCore::tag::Medium::instance()
         );
-    }
+} // namespace EcosCore::event::helpers
 
 } // namespace EcosCore::event::helpers
 
-#endif // ECOSCORE_EVENT_HELPERS_LOGGING_CALLBACK_REGISTRATION_H
+#endif // ECOSCORE_ECOSCORE_EVENT_HELPERS_LOGGINGCALLBACKREGISTRATION_H

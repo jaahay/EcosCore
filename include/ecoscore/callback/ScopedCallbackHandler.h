@@ -1,6 +1,7 @@
+// File: ecoscore/callback/ScopedCallbackHandler.h
 // EcosCore/event/ScopedCallbackHandler.h
-#ifndef ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
-#define ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
+#define ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H
 
 #include <atomic>
 #include <utility>
@@ -17,7 +18,7 @@ namespace EcosCore::event {
     public:
         ScopedCallbackHandler() noexcept
             : dispatcher_(core::NullEventDispatcher::instance()), handle_() {
-        }
+} // namespace EcosCore::event
 
         ScopedCallbackHandler(core::EventDispatcher& dispatcher, core::CallbackHandle handle) noexcept
             : dispatcher_(dispatcher), handle_(handle) {
@@ -66,4 +67,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_SCOPED_CALLBACK_HANDLER_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_SCOPEDCALLBACKHANDLER_H

@@ -1,6 +1,7 @@
+// File: ecoscore/language/Charsets.h
 // /src/ecoscore/language/Charsets.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_CHARSETS_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_CHARSETS_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H
 
 #include "std.h"
 
@@ -21,8 +22,8 @@ template <typename Derived>
         public:
             [[nodiscard]] static constexpr std::string_view static_name() noexcept {
                 return Derived::static_name();
-            }
+} // namespace ecoscore::language
     };
 
 }  // namespace ecoscore::language
-#endif // __SRC_ECOSCORE_LANGUAGE_CHARSETS_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSETS_H

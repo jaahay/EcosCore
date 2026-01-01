@@ -1,6 +1,7 @@
+// File: ecoscore/localization/Localizations.h
 // localization/Localizations.h
-#ifndef ECOSCORE_LOCALIZATION_LOCALIZATIONS_H
-#define ECOSCORE_LOCALIZATION_LOCALIZATIONS_H
+#ifndef ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONS_H
+#define ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONS_H
 
 #include "ecoscore/tag/Category.h"
 #include "language/Locale.h"
@@ -24,6 +25,6 @@ namespace ecoscore::localization {
         static constexpr language::NameSet names = {};
     };
 
-}  // namespace ecoscore::localization
+} // namespace ecoscore::localization
 
-#endif  // ECOSCORE_LOCALIZATION_LOCALIZATIONS_H
+#endif // ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONS_H

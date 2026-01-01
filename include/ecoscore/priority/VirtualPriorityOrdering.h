@@ -1,3 +1,6 @@
+// File: ecoscore/priority/VirtualPriorityOrdering.h
+#ifndef ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
+#define ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H
 // src/ecoscore/priority/VirtualPriorityOrdering.ixx
 module ecoscore.priority.VirtualPriorityOrdering;
 
@@ -17,4 +20,5 @@ namespace ecoscore::priority {
         virtual const std::vector<std::type_index>& ImmediatelyAfter() const noexcept = 0;
     };
 
-}
+} // namespace ecoscore::priority
+#endif // ECOSCORE_ECOSCORE_PRIORITY_VIRTUALPRIORITYORDERING_H

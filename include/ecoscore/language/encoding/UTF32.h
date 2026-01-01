@@ -1,6 +1,7 @@
+// File: ecoscore/language/encoding/UTF32.h
 // /src/ecoscore/language/encoding/UTF32.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_ENCODING_UTF32_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_ENCODING_UTF32_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H
 
 #include "std.h"
 
@@ -14,8 +15,8 @@ namespace ecoscore::language::encoding {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "UTF32";
-        }
+} // namespace ecoscore::language::encoding
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_ENCODING_UTF32_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_UTF32_H

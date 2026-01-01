@@ -1,6 +1,7 @@
+// File: ecoscore/category/phase/Before.h
 //// File: EcosCore/src/ecoscore/category/phase/Before.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_PHASE_BEFORE_IXX__
-#define __SRC_ECOSCORE_CATEGORY_PHASE_BEFORE_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_BEFORE_H
+#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_BEFORE_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -19,4 +20,4 @@ struct Before final : Member<Before, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // __SRC_ECOSCORE_CATEGORY_PHASE_BEFORE_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_BEFORE_H

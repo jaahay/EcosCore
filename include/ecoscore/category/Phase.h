@@ -1,6 +1,7 @@
+// File: ecoscore/category/Phase.h
 //// File: EcosCore/src/ecoscore/category/Phase.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_PHASE_IXX__
-#define __SRC_ECOSCORE_CATEGORY_PHASE_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_H
+#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_H
 
 #include "ecoscore/category/Category.h"
 
@@ -19,4 +20,4 @@ struct Phase : Category {
     };
 
 } // namespace ecoscore::category
-#endif // __SRC_ECOSCORE_CATEGORY_PHASE_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_H

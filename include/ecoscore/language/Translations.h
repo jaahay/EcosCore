@@ -1,6 +1,7 @@
+// File: ecoscore/language/Translations.h
 // /src/ecoscore/language/Translations.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_TRANSLATIONS_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_TRANSLATIONS_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H
 
 #include "std.h"
 
@@ -18,7 +19,7 @@ namespace ecoscore::language::translation {
     struct TranslationsDomain {
         [[nodiscard]] static constexpr std::string_view name() noexcept {
             return "ecoscore.language.translation";
-        }
+} // namespace ecoscore::language::translation
     };
 } // namespace ecoscore::language::translation
-#endif // __SRC_ECOSCORE_LANGUAGE_TRANSLATIONS_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATIONS_H

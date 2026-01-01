@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/EventHierarchyRegistry.h
 // EcosCore/event/EventHierarchyRegistry.h
-#ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H
-#define ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H
 
 #include <unordered_map>
 #include <typeindex>
@@ -19,7 +20,7 @@ namespace EcosCore::event {
         static EventHierarchyRegistry& instance() {
             static EventHierarchyRegistry inst;
             return inst;
-        }
+} // namespace EcosCore::event
 
         void RegisterHierarchy(std::type_index baseEvent, std::shared_ptr<EventHierarchy> hierarchy) {
             std::lock_guard lock(mutex_);
@@ -47,4 +48,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_EVENT_HIERARCHY_REGISTRY_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYREGISTRY_H

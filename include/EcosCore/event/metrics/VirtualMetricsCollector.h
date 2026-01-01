@@ -1,6 +1,7 @@
+// File: ecoscore/event/metrics/VirtualMetricsCollector.h
 // EcosCore/event/util/metrics/VirtualMetricsCollector.h
-#ifndef ECOSCORE_EVENT_UTIL_METRICS_VIRTUALMETRICSCOLLECTOR_H
-#define ECOSCORE_EVENT_UTIL_METRICS_VIRTUALMETRICSCOLLECTOR_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_METRICS_VIRTUALMETRICSCOLLECTOR_H
+#define ECOSCORE_ECOSCORE_EVENT_METRICS_VIRTUALMETRICSCOLLECTOR_H
 
 #include <string_view>
 
@@ -17,4 +18,4 @@ namespace EcosCore::event::util::metrics {
 
 } // namespace EcosCore::event::util::metrics
 
-#endif // ECOSCORE_EVENT_UTIL_METRICS_VIRTUALMETRICSCOLLECTOR_H
+#endif // ECOSCORE_ECOSCORE_EVENT_METRICS_VIRTUALMETRICSCOLLECTOR_H

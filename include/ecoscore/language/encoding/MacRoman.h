@@ -1,6 +1,7 @@
+// File: ecoscore/language/encoding/MacRoman.h
 // /src/ecoscore/language/encoding/MacRoman.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
 
 #include "std.h"
 
@@ -14,8 +15,8 @@ namespace ecoscore::language::encoding {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "MacRoman";
-        }
+} // namespace ecoscore::language::encoding
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H

@@ -1,22 +1,58 @@
-# /CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
-
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "d0edc3af-4c50-42ea-a356-e2862fe7a444")
-
 project(EcosCore LANGUAGES CXX)
 
-set(CMAKE_GENERATOR_PLATFORM x64)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
-# Enable strict compiler warnings globally
-if(MSVC)
-    add_compile_options(/W4 /WX)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang")
-    add_compile_options(-Wall -Wextra -Werror)
-endif()
+include(FetchContent)
 
-# Add main EcosCore library source directory
-add_subdirectory(src/ecoscore)
+# --- Fetch GoogleTest ---
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
+)
+# Prevent GoogleTest from overriding your compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+# --- Header-only library ---
+file(GLOB_RECURSE HEADERS
+    "${PROJECT_SOURCE_DIR}/include/ecoscore/*.h"
+    "${PROJECT_SOURCE_DIR}/include/ecoscore/*.hpp"
+)
+
+set(DUMMY_SOURCE "${PROJECT_SOURCE_DIR}/src/ecoscore/dummy.cpp")
+
+add_library(headers STATIC ${HEADERS} ${DUMMY_SOURCE})
+
+target_include_directories(headers PUBLIC "${PROJECT_SOURCE_DIR}/include")
+
+# Organize headers nicely in Visual Studio
+source_group(TREE "${PROJECT_SOURCE_DIR}/include/ecoscore" PREFIX "headers" FILES ${HEADERS})
+source_group("Sources" FILES ${DUMMY_SOURCE})
+
+# --- Tests executable ---
+file(GLOB_RECURSE TEST_SOURCES
+    "${PROJECT_SOURCE_DIR}/tests/*.cpp"
+)
+
+add_executable(tests ${TEST_SOURCES})
+target_link_libraries(tests PRIVATE headers gtest gtest_main)
+target_include_directories(tests PRIVATE "${PROJECT_SOURCE_DIR}/include")
+add_test(NAME AllTests COMMAND tests)
+
+source_group(TREE "${PROJECT_SOURCE_DIR}/tests" PREFIX "tests" FILES ${TEST_SOURCES})
+
+# --- Examples executable ---
+file(GLOB_RECURSE EXAMPLE_SOURCES
+    "${PROJECT_SOURCE_DIR}/examples/*.cpp"
+)
+
+add_executable(examples ${EXAMPLE_SOURCES})
+target_link_libraries(examples PRIVATE headers)
+target_include_directories(examples PRIVATE "${PROJECT_SOURCE_DIR}/include")
+
+source_group(TREE "${PROJECT_SOURCE_DIR}/examples" PREFIX "examples" FILES ${EXAMPLE_SOURCES})

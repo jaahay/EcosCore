@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackResultSet.h
 // EcosCore/event/core/CallbackResultSet.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_RESULT_SET_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_RESULT_SET_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H
 
 #include <set>
 #include <typeindex>
@@ -21,7 +22,7 @@ namespace EcosCore::event::core {
         template <typename Tag>
         void add() {
             tags_.insert(std::type_index(typeid(Tag)));
-        }
+} // namespace EcosCore::event::core
 
         template <typename Tag>
         bool contains() const {
@@ -60,4 +61,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_RESULT_SET_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKRESULTSET_H

@@ -1,6 +1,7 @@
+// File: ecoscore/language/Translation.h
 // /src/ecoscore/language/Translation.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_TRANSLATION_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_TRANSLATION_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H
 
 #include "std.h"
 
@@ -33,7 +34,7 @@ template <typename Derived>
                 auto it = map.find(&lang);
                 if (it != map.end()) {
                     return it->second;
-                }
+} // namespace ecoscore::language::translation
 
                 static const std::string fallback_name = std::string(Derived::static_name()) + " (translation unavailable)";
                 static const ecoscore::language::NameSet fallback{ fallback_name };
@@ -47,3 +48,4 @@ template <typename Derived>
 
 
 }#endif // __SRC_ECOSCORE_LANGUAGE_TRANSLATION_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_TRANSLATION_H

@@ -1,6 +1,7 @@
+// File: ecoscore/language/lang/zh_hant.h
 //// File: EcosCore/src/ecoscore/language/lang/zh_hant.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANG_ZH_HANT_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANG_ZH_HANT_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANT_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANT_H
 
 #include "std.h"
 #include "std/string_view.h"
@@ -23,4 +24,4 @@ struct Zh_hant final : Member<Zh_hant, ecoscore::language::Language> {
 inline constexpr auto& zh_hant = Zh_hant::instance();
 
 } // namespace ecoscore::language::lang
-#endif // __SRC_ECOSCORE_LANGUAGE_LANG_ZH_HANT_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_ZH_HANT_H

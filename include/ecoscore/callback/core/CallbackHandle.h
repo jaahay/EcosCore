@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackHandle.h
 // EcosCore/event/core/CallbackHandle.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_HANDLE_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_HANDLE_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H
 
 #include <cstdint>
 #include <atomic>
@@ -30,7 +31,7 @@ namespace EcosCore::event {
     inline std::ostream& operator<<(std::ostream& os, const CallbackHandle& handle) {
         os << "CallbackHandle(" << handle.value() << ")";
         return os;
-    }
+} // namespace EcosCore::event
 
     /**
      * CallbackHandleGenerator: Generates unique callback handles.
@@ -45,4 +46,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_HANDLE_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKHANDLE_H

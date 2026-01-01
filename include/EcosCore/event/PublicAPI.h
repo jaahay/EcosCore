@@ -1,6 +1,7 @@
+// File: ecoscore/event/PublicAPI.h
 // EcosCore/event/PublicAPI.h
-#ifndef ECOSCORE_EVENT_PUBLIC_API_H
-#define ECOSCORE_EVENT_PUBLIC_API_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H
+#define ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/event/core/EventCallback.h"
@@ -26,7 +27,7 @@ namespace EcosCore::event {
         const core::EventCallback<EventType, PhaseTag, PriorityTag>& callback)
     {
         return dispatcher.AddCallback<EventType>(callback);
-    }
+} // namespace EcosCore::event
 
     /**
      * Dispatch an event for a given phase.
@@ -38,4 +39,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_PUBLIC_API_H
+#endif // ECOSCORE_ECOSCORE_EVENT_PUBLICAPI_H

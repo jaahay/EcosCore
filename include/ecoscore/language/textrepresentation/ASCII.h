@@ -1,6 +1,7 @@
+// File: ecoscore/language/textrepresentation/ASCII.h
 // include/ecoscore/language/textrepresentation/ASCII.h
-#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
-#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
 
 #include "TextRepresentation.h"
 #include <string_view>
@@ -19,11 +20,11 @@ protected:
 public:
     [[nodiscard]] static constexpr std::string_view static_name() noexcept {
         return "ASCII";
-    }
+} // namespace ecoscore::language::textrepresentation
 
     static constexpr ASCII instance{};
 };
 
 }  // namespace ecoscore::language::textrepresentation
 
-#endif  // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H

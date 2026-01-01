@@ -1,6 +1,7 @@
+// File: ecoscore/integrations/WorkflowEngineTags.h
 // include/ecoscore/integration/WorkflowEngineTags.h
-#ifndef ECOSCORE_INTEGRATION_WORKFLOWENGINE_TAGS_H
-#define ECOSCORE_INTEGRATION_WORKFLOWENGINE_TAGS_H
+#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_WORKFLOWENGINETAGS_H
+#define ECOSCORE_ECOSCORE_INTEGRATIONS_WORKFLOWENGINETAGS_H
 
 /**
  * @file WorkflowEngineTags.h
@@ -21,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_INTEGRATION_WORKFLOWENGINE_TAGS_H
+#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_WORKFLOWENGINETAGS_H

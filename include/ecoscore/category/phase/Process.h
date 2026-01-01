@@ -1,6 +1,7 @@
+// File: ecoscore/category/phase/Process.h
 //// File: EcosCore/src/ecoscore/category/phase/Process.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_PHASE_PROCESS_IXX__
-#define __SRC_ECOSCORE_CATEGORY_PHASE_PROCESS_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_PROCESS_H
+#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_PROCESS_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -19,4 +20,4 @@ struct Process final : Member<Process, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // __SRC_ECOSCORE_CATEGORY_PHASE_PROCESS_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_PROCESS_H

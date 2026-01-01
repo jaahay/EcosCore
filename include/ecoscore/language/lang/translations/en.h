@@ -1,6 +1,7 @@
+// File: ecoscore/language/lang/translations/en.h
 // /src/ecoscore/language/translations/en.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
 
 #include "std.h"
 
@@ -23,7 +24,7 @@ namespace ecoscore::language::translations::en {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "EnglishTranslation";
-        }
+} // namespace ecoscore::language::translations::en
 
         const std::unordered_map<const Languages::Language*, NameSet> translations{
             { &En,    NameSet{ "English", "EN", "Eng" } },
@@ -50,4 +51,4 @@ namespace ecoscore::language::translations::en {
 constexpr EnglishTranslation EnglishTranslationInstance{};
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H

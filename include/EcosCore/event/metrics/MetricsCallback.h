@@ -1,6 +1,7 @@
+// File: ecoscore/event/metrics/MetricsCallback.h
 // EcosCore/event/util/MetricsCallback.h
-#ifndef ECOSCORE_EVENT_UTIL_METRICS_CALLBACK_H
-#define ECOSCORE_EVENT_UTIL_METRICS_CALLBACK_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
+#define ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H
 
 #include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -21,7 +22,7 @@ namespace EcosCore::event::util {
     public:
         explicit MetricsCallback(IMetricsCollector& collector)
             : collector_(collector) {
-        }
+} // namespace EcosCore::event::util
 
         static MetricsCallback& instance(IMetricsCollector& collector) {
             static MetricsCallback inst(collector);
@@ -46,4 +47,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_EVENT_UTIL_METRICS_CALLBACK_H
+#endif // ECOSCORE_ECOSCORE_EVENT_METRICS_METRICSCALLBACK_H

@@ -1,6 +1,7 @@
+// File: ecoscore/localization/LocalizationContext.h
 // include/ecoscore/localization/LocalizationContext.h
-#ifndef ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
-#define ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#ifndef ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#define ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
 
 #include "ecoscore/language/Locale.h"
 #include "ecoscore/language/textrepresentation.h"
@@ -26,7 +27,7 @@ namespace ecoscore::localization {
         explicit LocalizationContext(language::Locale locale,
             const language::textrepresentation::TextRepresentation& encoding = language::textrepresentation::UTF8::instance())
             : locale_(std::move(locale)), encoding_(encoding) {
-        }
+} // namespace ecoscore::localization
 
         /**
          * @brief Get localized canonical name for a tag.
@@ -87,4 +88,4 @@ namespace ecoscore::localization {
 
 }  // namespace ecoscore::localization
 
-#endif  // ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H
+#endif // ECOSCORE_ECOSCORE_LOCALIZATION_LOCALIZATIONCONTEXT_H

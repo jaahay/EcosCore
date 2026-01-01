@@ -1,6 +1,7 @@
+// File: ecoscore/language/domain_name/Obfuscated.h
 // language/domain_name/ExternalId.h
-#ifndef ECOSCORE_LANGUAGE_DOMAIN_NAME_EXTERNALID_H
-#define ECOSCORE_LANGUAGE_DOMAIN_NAME_EXTERNALID_H
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
 
 #include <string_view>
 
@@ -15,6 +16,6 @@ namespace ecoscore::language::domain_name {
         static constexpr std::string_view value = "";
     };
 
-}  // namespace ecoscore::language::domain_name
+} // namespace ecoscore::language::domain_name
 
-#endif  // ECOSCORE_LANGUAGE_DOMAIN_NAME_EXTERNALID_H
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H

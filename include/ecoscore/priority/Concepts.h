@@ -1,6 +1,7 @@
+// File: ecoscore/priority/Concepts.h
 // include/ecoscore/tag/concepts/Concepts.h
-#ifndef ECOSCORE_TAG_CONCEPTS_CONCEPTS_H
-#define ECOSCORE_TAG_CONCEPTS_CONCEPTS_H
+#ifndef ECOSCORE_ECOSCORE_PRIORITY_CONCEPTS_H
+#define ECOSCORE_ECOSCORE_PRIORITY_CONCEPTS_H
 
 import ecoscore.Concepts;
 
@@ -25,4 +26,4 @@ namespace ecoscore::tag::concepts {
 
 } // namespace ecoscore::tag::concepts
 
-#endif // ECOSCORE_TAG_CONCEPTS_CONCEPTS_H
+#endif // ECOSCORE_ECOSCORE_PRIORITY_CONCEPTS_H

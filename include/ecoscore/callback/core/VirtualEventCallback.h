@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/VirtualEventCallback.h
 // EcosCore/event/core/VirtualEventCallback.h
-#ifndef ECOSCORE_EVENT_CORE_VIRTUAL_EVENT_CALLBACK_H
-#define ECOSCORE_EVENT_CORE_VIRTUAL_EVENT_CALLBACK_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_VIRTUALEVENTCALLBACK_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_VIRTUALEVENTCALLBACK_H
 
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -30,4 +31,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_VIRTUAL_EVENT_CALLBACK_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_VIRTUALEVENTCALLBACK_H

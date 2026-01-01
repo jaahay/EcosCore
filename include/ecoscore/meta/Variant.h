@@ -1,10 +1,9 @@
-// /src/ecoscore/meta/Variant.ixx
-#ifndef __SRC_ECOSCORE_META_VARIANT_IXX__
-#define __SRC_ECOSCORE_META_VARIANT_IXX__
+// File: ecoscore/meta/Variant.h
+#ifndef ECOSCORE_META_VARIANT_H
+#define ECOSCORE_META_VARIANT_H
 
 #include "ecoscore/meta/Tuple.h"
-
-#include "std.h"
+#include <tuple>
 
 namespace ecoscore::meta {
 
@@ -47,4 +46,4 @@ template <typename... Variants>
         using variant_concat_t = typename variant_concat<Variants...>::type;
 
 } // namespace ecoscore::meta
-#endif // __SRC_ECOSCORE_META_VARIANT_IXX__
+#endif // ECOSCORE_ECOSCORE_META_VARIANT_H

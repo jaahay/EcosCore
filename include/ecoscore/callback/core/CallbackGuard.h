@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackGuard.h
 // EcosCore/event/core/CallbackGuard.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_GUARD_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_GUARD_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H
 
 #include "EcosCore/event/core/CallbackResult.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -18,7 +19,7 @@ namespace EcosCore::event::core {
 
         CallbackGuard(CallbackFunc cb, std::function<bool()> shouldTerminate)
             : callback_(std::move(cb)), shouldTerminate_(std::move(shouldTerminate)) {
-        }
+} // namespace EcosCore::event::core
 
         const CallbackResult& operator()(const EventT& event, EventContext& ctx) const {
             if (shouldTerminate_()) {
@@ -34,4 +35,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_GUARD_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKGUARD_H

@@ -1,3 +1,6 @@
+// File: ecoscore/priority/StaticPriorityOrdering.h
+#ifndef ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
+#define ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H
 // src/ecoscore/priority/StaticPriorityOrdering.ixx
 module ecoscore.priority.StaticPriorityOrdering;
 
@@ -20,7 +23,7 @@ namespace ecoscore::priority {
             if (HasCycle()) {
                 adjacency_[&higher].erase(&lower);
                 throw std::runtime_error("StaticPriorityOrdering: cycle detected");
-            }
+} // namespace ecoscore::priority
         }
 
         bool IsHigher(const Priority* higher, const Priority* lower) const {
@@ -93,3 +96,4 @@ namespace ecoscore::priority {
     };
 
 }
+#endif // ECOSCORE_ECOSCORE_PRIORITY_STATICPRIORITYORDERING_H

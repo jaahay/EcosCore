@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackManagerKey.h
 // EcosCore/event/core/CallbackManagerKey.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_KEY_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_KEY_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H
 
 #include <functional>
 #include <string_view>
@@ -22,7 +23,7 @@ namespace EcosCore::event::core {
             const EcosCore::state::Identified<void>& p,
             const EcosCore::state::Identified<void>& pr)
             : event_id(e), phase_id(p), priority_id(pr) {
-        }
+} // namespace EcosCore::event::core
 
         bool operator==(const CallbackManagerKey& other) const noexcept {
             return &event_id == &other.event_id
@@ -41,8 +42,8 @@ namespace std {
             auto h2 = std::hash<const void*>{}(std::addressof(key.phase_id));
             auto h3 = std::hash<const void*>{}(std::addressof(key.priority_id));
             return h1 ^ (h2 << 1) ^ (h3 << 2);
-        }
+} // namespace std
     };
 }
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_MANAGER_KEY_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKMANAGERKEY_H

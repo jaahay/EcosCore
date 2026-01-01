@@ -1,9 +1,10 @@
+// File: ecoscore/language/Languages.h
 // /src/ecoscore/language/Languages.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANGUAGES_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANGUAGES_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGES_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGES_H
 
 namespace ecoscore::language {
 
 
-}
-#endif // __SRC_ECOSCORE_LANGUAGE_LANGUAGES_IXX__
+} // namespace ecoscore::language
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANGUAGES_H

@@ -1,6 +1,7 @@
+// File: ecoscore/language/lang/ja.h
 //// File: EcosCore/src/ecoscore/language/lang/ja.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANG_JA_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANG_JA_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_JA_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_JA_H
 
 #include "std.h"
 #include "std/string_view.h"
@@ -24,4 +25,4 @@ struct Ja final : Member<Ja, ecoscore::language::Language> {
 inline constexpr auto& ja = Ja::instance();
 
 } // namespace ecoscore::language::lang
-#endif // __SRC_ECOSCORE_LANGUAGE_LANG_JA_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_JA_H

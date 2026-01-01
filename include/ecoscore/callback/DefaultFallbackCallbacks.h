@@ -1,6 +1,7 @@
+// File: ecoscore/callback/DefaultFallbackCallbacks.h
 // EcosCore/event/util/DefaultFallbackCallbacks.h
-#ifndef ECOSCORE_EVENT_UTIL_DEFAULT_FALLBACK_CALLBACKS_H
-#define ECOSCORE_EVENT_UTIL_DEFAULT_FALLBACK_CALLBACKS_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
+#define ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H
 
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -15,7 +16,7 @@ namespace EcosCore::event::util {
     inline void DefaultStopInterceptor(const EcosCore::event::Event& event, const EcosCore::event::core::EventContext& ctx) {
         std::cerr << "[Fallback] Event dispatch stopped early for event type: "
             << typeid(event).name() << "\n";
-    }
+} // namespace EcosCore::event::util
 
     /**
      * Counts events that were dropped or stopped.
@@ -28,4 +29,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_EVENT_UTIL_DEFAULT_FALLBACK_CALLBACKS_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_DEFAULTFALLBACKCALLBACKS_H

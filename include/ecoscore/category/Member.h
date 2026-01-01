@@ -1,6 +1,7 @@
+// File: ecoscore/category/Member.h
 //// File: EcosCore/src/ecoscore/category/Member.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_MEMBER_IXX__
-#define __SRC_ECOSCORE_CATEGORY_MEMBER_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H
+#define ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H
 
 #include "ecoscore/category/Category.h"
 
@@ -37,7 +38,7 @@ template <typename Derived, typename Base = ecoscore::category::Category>
         [[nodiscard]] static const Derived& instance() noexcept {
             static Derived inst{};
             return inst;
-        }
+} // namespace ecoscore::category
 
         /**
          * @brief Compile-time category name.
@@ -48,4 +49,4 @@ template <typename Derived, typename Base = ecoscore::category::Category>
     };
 
 } // namespace ecoscore::category
-#endif // __SRC_ECOSCORE_CATEGORY_MEMBER_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_MEMBER_H

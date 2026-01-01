@@ -1,6 +1,7 @@
+// File: ecoscore/event/helpers/EventHierarchyHelpers.h
 // EcosCore/event/EventHierarchyHelpers.h
-#ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_HELPERS_H
-#define ECOSCORE_EVENT_EVENT_HIERARCHY_HELPERS_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
+#define ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H
 
 #include <type_traits>
 #include <typeindex>
@@ -21,8 +22,8 @@ namespace EcosCore::event {
 
         const auto& bases = hierarchy.GetBaseEvents(derivedType);
         return std::find(bases.begin(), bases.end(), baseType) != bases.end();
-    }
+} // namespace EcosCore::event
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_EVENT_HIERARCHY_HELPERS_H
+#endif // ECOSCORE_ECOSCORE_EVENT_HELPERS_EVENTHIERARCHYHELPERS_H

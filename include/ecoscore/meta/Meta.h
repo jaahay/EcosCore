@@ -1,6 +1,7 @@
+// File: ecoscore/meta/Meta.h
 // /src/ecoscore/meta/Meta.ixx
-#ifndef __SRC_ECOSCORE_META_META_IXX__
-#define __SRC_ECOSCORE_META_META_IXX__
+#ifndef ECOSCORE_ECOSCORE_META_META_H
+#define ECOSCORE_ECOSCORE_META_META_H
 
 #include "ecoscore/meta/CycleCheck.h"
 #include "ecoscore/meta/Tuple.h"
@@ -23,8 +24,8 @@ namespace ecoscore::meta {
     struct MetaTags {
         [[nodiscard]] static constexpr std::string_view name() noexcept {
             return "ecoscore.meta";
-        }
+} // namespace ecoscore::meta
     };
 
 }
-#endif // __SRC_ECOSCORE_META_META_IXX__
+#endif // ECOSCORE_ECOSCORE_META_META_H

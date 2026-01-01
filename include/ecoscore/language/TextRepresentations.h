@@ -1,6 +1,7 @@
+// File: ecoscore/language/TextRepresentations.h
 // /src/ecoscore/language/TextRepresentations.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_H
 
 #include "std.h"
 
@@ -31,7 +32,8 @@ namespace ecoscore::language {
     struct TextRepresentationDomain {
         [[nodiscard]] static constexpr std::string_view name() noexcept {
             return "ecoscore.language.textrepresentation";
-        }
+} // namespace ecoscore::language
     };
 
 }#endif // __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_H

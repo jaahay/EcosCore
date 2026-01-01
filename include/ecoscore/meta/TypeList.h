@@ -1,6 +1,7 @@
+// File: ecoscore/meta/TypeList.h
 // src/ecoscore/meta/TypeList.ixx
-#ifndef __SRC_ECOSCORE_META_TYPELIST_IXX__
-#define __SRC_ECOSCORE_META_TYPELIST_IXX__
+#ifndef ECOSCORE_ECOSCORE_META_TYPELIST_H
+#define ECOSCORE_ECOSCORE_META_TYPELIST_H
 
 #include "std.h"
 
@@ -89,4 +90,4 @@ template <typename List, typename T>
         using Remove_t = typename Remove<List, T>::type;
 
 } // namespace ecoscore::meta
-#endif // __SRC_ECOSCORE_META_TYPELIST_IXX__
+#endif // ECOSCORE_ECOSCORE_META_TYPELIST_H

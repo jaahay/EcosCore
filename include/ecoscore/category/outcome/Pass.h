@@ -1,6 +1,7 @@
+// File: ecoscore/category/outcome/Pass.h
 //// File: EcosCore/src/ecoscore/category/outcome/Pass.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_OUTCOME_PASS_IXX__
-#define __SRC_ECOSCORE_CATEGORY_OUTCOME_PASS_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PASS_H
+#define ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PASS_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Outcome.h"
@@ -19,4 +20,4 @@ struct Pass final : Member<Pass, ecoscore::category::Outcome> {
     };
 
 } // namespace ecoscore::category::outcome
-#endif // __SRC_ECOSCORE_CATEGORY_OUTCOME_PASS_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_OUTCOME_PASS_H

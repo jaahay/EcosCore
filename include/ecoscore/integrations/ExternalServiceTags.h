@@ -1,6 +1,7 @@
+// File: ecoscore/integrations/ExternalServiceTags.h
 // include/ecoscore/integration/ExternalServiceTags.h
-#ifndef ECOSCORE_INTEGRATION_EXTERNALSERVICE_TAGS_H
-#define ECOSCORE_INTEGRATION_EXTERNALSERVICE_TAGS_H
+#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_EXTERNALSERVICETAGS_H
+#define ECOSCORE_ECOSCORE_INTEGRATIONS_EXTERNALSERVICETAGS_H
 
 /**
  * @file ExternalServiceTags.h
@@ -21,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_INTEGRATION_EXTERNALSERVICE_TAGS_H
+#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_EXTERNALSERVICETAGS_H

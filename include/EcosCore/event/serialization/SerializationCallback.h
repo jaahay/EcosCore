@@ -1,6 +1,7 @@
+// File: ecoscore/event/serialization/SerializationCallback.h
 // EcosCore/event/util/SerializationCallback.h
-#ifndef ECOSCORE_EVENT_UTIL_SERIALIZATION_CALLBACK_H
-#define ECOSCORE_EVENT_UTIL_SERIALIZATION_CALLBACK_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
+#define ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H
 
 #include "EcosCore/event/core/EventCallback.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -21,7 +22,7 @@ namespace EcosCore::event::util {
     public:
         explicit SerializationCallback(const ISerializer& serializer)
             : serializer_(serializer) {
-        }
+} // namespace EcosCore::event::util
 
         static SerializationCallback& instance(const ISerializer& serializer) {
             static SerializationCallback inst(serializer);
@@ -46,4 +47,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_EVENT_UTIL_SERIALIZATION_CALLBACK_H
+#endif // ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SERIALIZATIONCALLBACK_H

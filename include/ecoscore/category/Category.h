@@ -1,6 +1,7 @@
+// File: ecoscore/category/Category.h
 //// File: EcosCore/src/ecoscore/category/Category.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_CATEGORY_IXX__
-#define __SRC_ECOSCORE_CATEGORY_CATEGORY_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_CATEGORY_H
+#define ECOSCORE_ECOSCORE_CATEGORY_CATEGORY_H
 
 #include "std.h"
 
@@ -20,4 +21,4 @@ struct Category {
     };
 
 } // namespace ecoscore::category
-#endif // __SRC_ECOSCORE_CATEGORY_CATEGORY_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_CATEGORY_H

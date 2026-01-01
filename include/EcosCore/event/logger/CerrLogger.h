@@ -1,6 +1,7 @@
+// File: ecoscore/event/logger/CerrLogger.h
 // EcosCore/event/util/CerrLogger.h
-#ifndef ECOSCORE_EVENT_UTIL_CERRLOGGER_H
-#define ECOSCORE_EVENT_UTIL_CERRLOGGER_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
+#define ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H
 
 #include <iostream>
 #include <string_view>
@@ -15,7 +16,7 @@ namespace EcosCore::event::util {
         static CerrLogger& instance() {
             static CerrLogger inst;
             return inst;
-        }
+} // namespace EcosCore::event::util
 
         void Log(std::string_view tag, std::string_view message) const {
             std::cerr << "[" << tag << "] " << message << "\n";
@@ -29,4 +30,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_EVENT_UTIL_CERRLOGGER_H
+#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_CERRLOGGER_H

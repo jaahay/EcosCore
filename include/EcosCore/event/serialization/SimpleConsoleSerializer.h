@@ -1,6 +1,7 @@
+// File: ecoscore/event/serialization/SimpleConsoleSerializer.h
 // EcosCore/event/util/serialization/SimpleConsoleSerializer.h
-#ifndef ECOSCORE_EVENT_UTIL_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
-#define ECOSCORE_EVENT_UTIL_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#define ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
 
 #include "VirtualSerializer.h"
 #include "EcosCore/event/Event.h"
@@ -20,7 +21,7 @@ namespace EcosCore::event::util::serialization {
             if (eventData == nullptr) {
                 std::cout << "{ \"event_type\": \"" << eventTypeName << "\", \"data\": null }\n";
                 return;
-            }
+} // namespace EcosCore::event::util::serialization
 
             // Attempt to cast to Event base class and print type name (safe fallback)
             const EcosCore::event::Event* baseEvent = static_cast<const EcosCore::event::Event*>(eventData);
@@ -35,4 +36,4 @@ namespace EcosCore::event::util::serialization {
 
 } // namespace EcosCore::event::util::serialization
 
-#endif // ECOSCORE_EVENT_UTIL_SERIALIZATION_SIMPLECONSOLESERIALIZER_H
+#endif // ECOSCORE_ECOSCORE_EVENT_SERIALIZATION_SIMPLECONSOLESERIALIZER_H

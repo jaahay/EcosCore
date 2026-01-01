@@ -1,6 +1,7 @@
+// File: ecoscore/language/textrepresentation/UTF16.h
 // /src/ecoscore/language/textrepresentation/UTF16.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
 
 #include "ecoscore/language/Encodings.h"
 #include <string_view>
@@ -13,8 +14,8 @@ namespace ecoscore::language::textrepresentation {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "UTF16";
-        }
+} // namespace ecoscore::language::textrepresentation
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H

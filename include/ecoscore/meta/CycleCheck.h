@@ -1,7 +1,7 @@
-// /src/ecoscore/meta/CycleCheck.ixx
+// File: ecoscore/meta/CycleCheck.h
 
-#ifndef __SRC_ECOSCORE_META_CYCLECHECK_IXX__
-#define __SRC_ECOSCORE_META_CYCLECHECK_IXX__
+#ifndef ECOSCORE_META_CYCLECHECK_H
+#define ECOSCORE_META_CYCLECHECK_H
 
 #include "ecoscore/meta/TypeList.h"
 
@@ -39,4 +39,4 @@ template <typename T, typename Visited = TypeList<>>
     };
 
 } // namespace ecoscore::meta
-#endif // __SRC_ECOSCORE_META_CYCLECHECK_IXX__
+#endif // ECOSCORE_ECOSCORE_META_CYCLECHECK_H

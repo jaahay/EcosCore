@@ -1,6 +1,7 @@
+// File: ecoscore/language/charset/Emoji.h
 // /src/ecoscore/language/charset/Emoji.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_CHARSET_EMOJI_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_CHARSET_EMOJI_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
 
 #include "std.h"
 
@@ -14,8 +15,8 @@ namespace ecoscore::language::charset {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "Emoji";
-        }
+} // namespace ecoscore::language::charset
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_CHARSET_EMOJI_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_CHARSET_EMOJI_H

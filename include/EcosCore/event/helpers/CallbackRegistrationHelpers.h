@@ -1,6 +1,7 @@
+// File: ecoscore/event/helpers/CallbackRegistrationHelpers.h
 // EcosCore/event/helpers/CallbackRegistrationHelpers.h
-#ifndef ECOSCORE_EVENT_HELPERS_CALLBACK_REGISTRATION_HELPERS_H
-#define ECOSCORE_EVENT_HELPERS_CALLBACK_REGISTRATION_HELPERS_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_HELPERS_CALLBACKREGISTRATIONHELPERS_H
+#define ECOSCORE_ECOSCORE_EVENT_HELPERS_CALLBACKREGISTRATIONHELPERS_H
 
 #include "EcosCore/event/core/CallbackRegistration.h"
 #include "EcosCore/event/core/EventDispatcher.h"
@@ -18,8 +19,8 @@ namespace EcosCore::event::helpers {
             dispatcher, std::forward<F>(cb),
             EcosCore::tag::Before::instance(),
             EcosCore::tag::Medium::instance());
-    }
+} // namespace EcosCore::event::helpers
 
 } // namespace EcosCore::event::helpers
 
-#endif // ECOSCORE_EVENT_HELPERS_CALLBACK_REGISTRATION_HELPERS_H
+#endif // ECOSCORE_ECOSCORE_EVENT_HELPERS_CALLBACKREGISTRATIONHELPERS_H

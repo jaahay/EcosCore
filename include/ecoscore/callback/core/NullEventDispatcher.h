@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/NullEventDispatcher.h
 // EcosCore/event/core/NullEventDispatcher.h
-#ifndef ECOSCORE_EVENT_CORE_NULL_EVENT_DISPATCHER_H
-#define ECOSCORE_EVENT_CORE_NULL_EVENT_DISPATCHER_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_NULLEVENTDISPATCHER_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_NULLEVENTDISPATCHER_H
 
 #include "EcosCore/event/core/CallbackHandle.h"
 
@@ -16,7 +17,7 @@ namespace EcosCore::event::core {
         static NullEventDispatcher& instance() {
             static NullEventDispatcher inst;
             return inst;
-        }
+} // namespace EcosCore::event::core
 
         CallbackHandle AddCallback(...) {
             return CallbackHandle{};
@@ -35,4 +36,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_NULL_EVENT_DISPATCHER_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_NULLEVENTDISPATCHER_H

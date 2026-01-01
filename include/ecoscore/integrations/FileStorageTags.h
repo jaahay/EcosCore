@@ -1,6 +1,7 @@
+// File: ecoscore/integrations/FileStorageTags.h
 // include/ecoscore/integration/FileStorageTags.h
-#ifndef ECOSCORE_INTEGRATION_FILESTORAGE_TAGS_H
-#define ECOSCORE_INTEGRATION_FILESTORAGE_TAGS_H
+#ifndef ECOSCORE_ECOSCORE_INTEGRATIONS_FILESTORAGETAGS_H
+#define ECOSCORE_ECOSCORE_INTEGRATIONS_FILESTORAGETAGS_H
 
 /**
  * @file FileStorageTags.h
@@ -21,4 +22,4 @@ namespace ecoscore::integration {
 
 } // namespace ecoscore::integration
 
-#endif // ECOSCORE_INTEGRATION_FILESTORAGE_TAGS_H
+#endif // ECOSCORE_ECOSCORE_INTEGRATIONS_FILESTORAGETAGS_H

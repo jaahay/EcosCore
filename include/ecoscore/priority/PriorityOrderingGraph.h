@@ -1,3 +1,6 @@
+// File: ecoscore/priority/PriorityOrderingGraph.h
+#ifndef ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
+#define ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H
 // src/ecoscore/priority/PriorityOrderingGraph.ixx
 module ecoscore.priority.PriorityOrderingGraph;
 
@@ -19,7 +22,7 @@ namespace ecoscore::priority {
         void AddDependency(Node higher, Node lower) {
             if (higher == nullptr || lower == nullptr) {
                 throw std::invalid_argument("PriorityOrderingGraph: null node");
-            }
+} // namespace ecoscore::priority
             adjacency_[higher].insert(lower);
             adjacency_[lower];
 
@@ -115,3 +118,4 @@ namespace ecoscore::priority {
     }
 
 }
+#endif // ECOSCORE_ECOSCORE_PRIORITY_PRIORITYORDERINGGRAPH_H

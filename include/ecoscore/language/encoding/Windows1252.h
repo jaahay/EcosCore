@@ -1,6 +1,7 @@
+// File: ecoscore/language/encoding/Windows1252.h
 // /src/ecoscore/language/encoding/Windows1252.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
 
 #include "std.h"
 
@@ -14,8 +15,8 @@ namespace ecoscore::language::encoding {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "Windows1252";
-        }
+} // namespace ecoscore::language::encoding
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H

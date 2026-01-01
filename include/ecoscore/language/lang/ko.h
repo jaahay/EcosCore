@@ -1,6 +1,7 @@
+// File: ecoscore/language/lang/ko.h
 //// File: EcosCore/src/ecoscore/language/lang/ko.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANG_KO_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANG_KO_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_KO_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_KO_H
 
 #include "std.h"
 #include "std/string_view.h"
@@ -24,4 +25,4 @@ struct Ko final : Member<Ko, ecoscore::language::Language> {
 inline constexpr auto& ko = Ko::instance();
 
 } // namespace ecoscore::language::lang
-#endif // __SRC_ECOSCORE_LANGUAGE_LANG_KO_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_KO_H

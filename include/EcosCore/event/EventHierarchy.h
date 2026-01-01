@@ -1,6 +1,7 @@
+// File: ecoscore/event/EventHierarchy.h
 // EcosCore/event/EventHierarchy.h
-#ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_H
-#define ECOSCORE_EVENT_EVENT_HIERARCHY_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H
+#define ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H
 
 #include <vector>
 #include <typeindex>
@@ -18,7 +19,7 @@ namespace EcosCore::event {
         void AddBaseEvent(std::type_index derived, std::type_index base) {
             base_map_[derived].push_back(base);
             derived_map_[base].push_back(derived);
-        }
+} // namespace EcosCore::event
 
         const std::vector<std::type_index>& GetBaseEvents(std::type_index derived) const {
             static const std::vector<std::type_index> empty;
@@ -39,4 +40,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_EVENT_HIERARCHY_H
+#endif // ECOSCORE_ECOSCORE_EVENT_EVENTHIERARCHY_H

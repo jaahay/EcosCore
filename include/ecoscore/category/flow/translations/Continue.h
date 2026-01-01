@@ -1,6 +1,7 @@
+// File: ecoscore/category/flow/translations/Continue.h
 // /src/ecoscore/category/flow/translations/Continue.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_IXX__
-#define __SRC_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+#define ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
 
 #include "ecoscore/language/NameSet.h"
 #include "ecoscore/language/lang/En.h"
@@ -32,7 +33,7 @@ namespace ecoscore::category::flow::translations {
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
             return "ContinueTranslation";
-        }
+} // namespace ecoscore::category::flow::translations
 
         const std::unordered_map<const Languages::Language*, NameSet> translations{
             { &En, NameSet{ "Continue", "Go on", "Proceed" } },
@@ -59,4 +60,4 @@ namespace ecoscore::category::flow::translations {
 constexpr Continue ContinueInstance{};
 
 }
-#endif // __SRC_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H

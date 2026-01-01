@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/internal_fallback/InternalFallbackCallbacks.h
 // EcosCore/event/core/internal_fallbacks/InternalFallbackCallbacks.h
-#ifndef ECOSCORE_EVENT_CORE_INTERNAL_FALLBACK_CALLBACKS_H
-#define ECOSCORE_EVENT_CORE_INTERNAL_FALLBACK_CALLBACKS_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H
 
 #include "EcosCore/event/Event.h"
 #include "EcosCore/event/core/EventContext.h"
@@ -16,7 +17,7 @@ namespace EcosCore::event::core::internal_fallbacks {
     inline util::ConsoleMetricsReporter& metricsCollector() {
         static util::ConsoleMetricsReporter instance;
         return instance;
-    }
+} // namespace EcosCore::event::core::internal_fallbacks
 
     inline util::SimpleConsoleSerializer& serializer() {
         static util::SimpleConsoleSerializer instance;
@@ -57,4 +58,4 @@ namespace EcosCore::event::core::internal_fallbacks {
 
 } // namespace EcosCore::event::core::internal_fallbacks
 
-#endif // ECOSCORE_EVENT_CORE_INTERNAL_FALLBACK_CALLBACKS_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_INTERNAL_FALLBACK_INTERNALFALLBACKCALLBACKS_H

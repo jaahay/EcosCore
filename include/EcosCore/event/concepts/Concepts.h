@@ -1,6 +1,7 @@
+// File: ecoscore/event/concepts/Concepts.h
 // EcosCore/event/concepts/Concepts.h
-#ifndef ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
-#define ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
+#define ECOSCORE_ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
 
 #include <concepts>
 #include "EcosCore/event/Event.h"
@@ -36,4 +37,4 @@ namespace EcosCore::event::concepts {
 
 } // namespace EcosCore::event::concepts
 
-#endif // ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H
+#endif // ECOSCORE_ECOSCORE_EVENT_CONCEPTS_CONCEPTS_H

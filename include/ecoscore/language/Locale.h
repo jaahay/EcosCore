@@ -1,6 +1,7 @@
+// File: ecoscore/language/Locale.h
 // /src/ecoscore/language/Locale.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LOCALE_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LOCALE_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H
 
 #include "std.h"
 
@@ -25,7 +26,7 @@ struct Locale : ecoscore::category::Category<Locale> {
             std::string_view region = "",
             const charset_type& charset = UTF8::instance())
             : language(lang), region_code(region), charset(charset) {
-        }
+} // namespace ecoscore::language
 
         const language_type& language;
         std::string_view region_code;
@@ -47,4 +48,4 @@ struct Locale : ecoscore::category::Category<Locale> {
     static constexpr Locale fr_FR{ &ecoscore::language::Fr, "FR", &ecoscore::language::UTF8 };
 
 }  // namespace ecoscore::language
-#endif // __SRC_ECOSCORE_LANGUAGE_LOCALE_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LOCALE_H

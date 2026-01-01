@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/EventHierarchyCache.h
 // EcosCore/event/EventHierarchyCache.h
-#ifndef ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H
-#define ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H
 
 #include <mutex>
 #include <unordered_map>
@@ -20,7 +21,7 @@ namespace EcosCore::event {
         static EventHierarchyCache& instance() {
             static EventHierarchyCache inst;
             return inst;
-        }
+} // namespace EcosCore::event
 
         std::shared_ptr<EventHierarchy> GetOrCreate(std::type_index baseEvent) {
             std::lock_guard lock(mutex_);
@@ -45,4 +46,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_EVENT_HIERARCHY_CACHE_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTHIERARCHYCACHE_H

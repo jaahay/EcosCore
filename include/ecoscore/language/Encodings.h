@@ -1,6 +1,7 @@
+// File: ecoscore/language/Encodings.h
 // /src/ecoscore/language/Encodings.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_ENCODINGS_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_ENCODINGS_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H
 
 #include "std.h"
 
@@ -21,8 +22,8 @@ template <typename Derived>
         public:
             [[nodiscard]] static constexpr std::string_view static_name() noexcept {
                 return Derived::static_name();
-            }
+} // namespace ecoscore::language
     };
 
 }  // namespace ecoscore::language
-#endif // __SRC_ECOSCORE_LANGUAGE_ENCODINGS_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_ENCODINGS_H

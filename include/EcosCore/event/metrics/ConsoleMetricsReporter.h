@@ -1,6 +1,7 @@
+// File: ecoscore/event/metrics/ConsoleMetricsReporter.h
 // EcosCore/event/util/metrics/ConsoleMetricsReporter.h
-#ifndef ECOSCORE_EVENT_UTIL_METRICS_CONSOLEMETRICSREPORTER_H
-#define ECOSCORE_EVENT_UTIL_METRICS_CONSOLEMETRICSREPORTER_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
+#define ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H
 
 #include "VirtualMetricsCollector.h"
 #include <atomic>
@@ -19,7 +20,7 @@ namespace EcosCore::event::util::metrics {
         void IncrementEventCount(std::string_view eventTypeName) override {
             std::lock_guard lock(mutex_);
             ++event_counts_[std::string(eventTypeName)];
-        }
+} // namespace EcosCore::event::util::metrics
 
         void PrintMetrics() const {
             std::lock_guard lock(mutex_);
@@ -36,4 +37,4 @@ namespace EcosCore::event::util::metrics {
 
 } // namespace EcosCore::event::util::metrics
 
-#endif // ECOSCORE_EVENT_UTIL_METRICS_CONSOLEMETRICSREPORTER_H
+#endif // ECOSCORE_ECOSCORE_EVENT_METRICS_CONSOLEMETRICSREPORTER_H

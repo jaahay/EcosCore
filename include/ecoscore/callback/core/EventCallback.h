@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/EventCallback.h
 // EcosCore/event/core/EventCallback.h
-#ifndef ECOSCORE_EVENT_CORE_EVENT_CALLBACK_H
-#define ECOSCORE_EVENT_CORE_EVENT_CALLBACK_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCALLBACK_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCALLBACK_H
 
 #include <functional>
 #include "EcosCore/tag/PhaseTags.h"
@@ -22,7 +23,7 @@ namespace EcosCore::event::core {
 
         EventCallback(const PhaseTag& phase, const PriorityTag& priority, CallbackFunc cb)
             : phase_(phase), priority_(priority), callback_(std::move(cb)) {
-        }
+} // namespace EcosCore::event::core
 
         void operator()(const EventType& event) const {
             callback_(event);
@@ -39,4 +40,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_EVENT_CALLBACK_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_EVENTCALLBACK_H

@@ -1,6 +1,7 @@
+// File: ecoscore/language/Lang.h
 // /src/ecoscore/language/Lang.ixx
-#ifndef __SRC_ECOSCORE_LANGUAGE_LANG_IXX__
-#define __SRC_ECOSCORE_LANGUAGE_LANG_IXX__
+#ifndef ECOSCORE_ECOSCORE_LANGUAGE_LANG_H
+#define ECOSCORE_ECOSCORE_LANGUAGE_LANG_H
 
 #include "std.h"
 
@@ -22,8 +23,8 @@ namespace ecoscore::language::lang {
     struct LangDomain {
         [[nodiscard]] static constexpr std::string_view name() noexcept {
             return "ecoscore.language.lang";
-        }
+} // namespace ecoscore::language::lang
     };
 
 }
-#endif // __SRC_ECOSCORE_LANGUAGE_LANG_IXX__
+#endif // ECOSCORE_ECOSCORE_LANGUAGE_LANG_H

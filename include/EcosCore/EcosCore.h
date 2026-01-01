@@ -1,6 +1,7 @@
+// File: ecoscore/EcosCore.h
 // src/ecoscore/Ecoscore.ixx
-#ifndef __SRC_ECOSCORE_ECOSCORE_IXX__
-#define __SRC_ECOSCORE_ECOSCORE_IXX__
+#ifndef ECOSCORE_ECOSCORE_ECOSCORE_H
+#define ECOSCORE_ECOSCORE_ECOSCORE_H
 
 // Import submodules
 #include "ecoscore/meta.h"
@@ -11,5 +12,5 @@
 namespace ecoscore {
     using meta::TypeList;
     using type::TemplateType;
-}
-#endif // __SRC_ECOSCORE_ECOSCORE_IXX__
+} // namespace ecoscore
+#endif // ECOSCORE_ECOSCORE_ECOSCORE_H

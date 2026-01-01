@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/CallbackRegistration.h
 // EcosCore/event/core/CallbackRegistration.h
-#ifndef ECOSCORE_EVENT_CORE_CALLBACK_REGISTRATION_H
-#define ECOSCORE_EVENT_CORE_CALLBACK_REGISTRATION_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H
 
 #include "EcosCore/event/core/EventDispatcher.h"
 #include "EcosCore/tag/PhaseTags.h"
@@ -18,7 +19,7 @@ namespace EcosCore::event::core {
         const EcosCore::tag::Phase& phase = EcosCore::tag::Before::instance(),
         const EcosCore::tag::Priority& priority = EcosCore::tag::Medium::instance()) {
         return dispatcher.AddCallback<EventT>(std::forward<F>(cb), phase, priority);
-    }
+} // namespace EcosCore::event::core
 
     /**
      * Helper to register a member function callback with object pointer.
@@ -35,4 +36,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_CALLBACK_REGISTRATION_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_CALLBACKREGISTRATION_H

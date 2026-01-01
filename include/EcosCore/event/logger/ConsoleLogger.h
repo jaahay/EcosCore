@@ -1,6 +1,7 @@
+// File: ecoscore/event/logger/ConsoleLogger.h
 // EcosCore/event/util/ConsoleLogger.h
-#ifndef ECOSCORE_EVENT_UTIL_CONSOLELOGGER_H
-#define ECOSCORE_EVENT_UTIL_CONSOLELOGGER_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
+#define ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H
 
 #include <iostream>
 #include <string_view>
@@ -15,7 +16,7 @@ namespace EcosCore::event::util {
         static ConsoleLogger& instance() {
             static ConsoleLogger inst;
             return inst;
-        }
+} // namespace EcosCore::event::util
 
         void Log(std::string_view tag, std::string_view message) const {
             std::cout << "[" << tag << "] " << message << "\n";
@@ -29,4 +30,4 @@ namespace EcosCore::event::util {
 
 } // namespace EcosCore::event::util
 
-#endif // ECOSCORE_EVENT_UTIL_CONSOLELOGGER_H
+#endif // ECOSCORE_ECOSCORE_EVENT_LOGGER_CONSOLELOGGER_H

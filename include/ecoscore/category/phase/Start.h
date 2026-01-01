@@ -1,6 +1,7 @@
+// File: ecoscore/category/phase/Start.h
 //// File: EcosCore/src/ecoscore/category/phase/Start.ixx
-#ifndef __SRC_ECOSCORE_CATEGORY_PHASE_START_IXX__
-#define __SRC_ECOSCORE_CATEGORY_PHASE_START_IXX__
+#ifndef ECOSCORE_ECOSCORE_CATEGORY_PHASE_START_H
+#define ECOSCORE_ECOSCORE_CATEGORY_PHASE_START_H
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -19,4 +20,4 @@ struct Start final : Member<Start, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // __SRC_ECOSCORE_CATEGORY_PHASE_START_IXX__
+#endif // ECOSCORE_ECOSCORE_CATEGORY_PHASE_START_H

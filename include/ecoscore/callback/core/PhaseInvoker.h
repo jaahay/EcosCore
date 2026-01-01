@@ -1,6 +1,7 @@
+// File: ecoscore/callback/core/PhaseInvoker.h
 // EcosCore/event/core/PhaseInvoker.h
-#ifndef ECOSCORE_EVENT_CORE_PHASE_INVOKER_H
-#define ECOSCORE_EVENT_CORE_PHASE_INVOKER_H
+#ifndef ECOSCORE_ECOSCORE_CALLBACK_CORE_PHASEINVOKER_H
+#define ECOSCORE_ECOSCORE_CALLBACK_CORE_PHASEINVOKER_H
 
 #include <vector>
 #include "EcosCore/event/core/EventContext.h"
@@ -22,7 +23,7 @@ namespace EcosCore::event::core {
 
         explicit PhaseInvoker(std::vector<CallbackType> callbacks)
             : callbacks_(std::move(callbacks)) {
-        }
+} // namespace EcosCore::event::core
 
         void AddCallback(CallbackType callback) {
             callbacks_.push_back(std::move(callback));
@@ -41,4 +42,4 @@ namespace EcosCore::event::core {
 
 } // namespace EcosCore::event::core
 
-#endif // ECOSCORE_EVENT_CORE_PHASE_INVOKER_H
+#endif // ECOSCORE_ECOSCORE_CALLBACK_CORE_PHASEINVOKER_H

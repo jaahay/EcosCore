@@ -1,6 +1,7 @@
+// File: ecoscore/event/Event.h
 // EcosCore/event/VirtualEvent.h
-#ifndef ECOSCORE_EVENT_VIRTUAL_EVENT_H
-#define ECOSCORE_EVENT_VIRTUAL_EVENT_H
+#ifndef ECOSCORE_ECOSCORE_EVENT_EVENT_H
+#define ECOSCORE_ECOSCORE_EVENT_EVENT_H
 
 namespace EcosCore::event {
 
@@ -13,4 +14,4 @@ namespace EcosCore::event {
 
 } // namespace EcosCore::event
 
-#endif // ECOSCORE_EVENT_VIRTUAL_EVENT_H
+#endif // ECOSCORE_ECOSCORE_EVENT_EVENT_H
