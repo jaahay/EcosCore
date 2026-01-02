@@ -4,7 +4,9 @@
 #define ECOSCORE_CATEGORY_FLOW_STOP_H
 
 #include "ecoscore/category/Member.h"
-#include "ecoscore/category/Flow.h"
+#include "ecoscore/category/Flow.h" 
+
+#include <string_view>
 
 namespace ecoscore::category::flow {
 

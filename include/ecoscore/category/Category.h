@@ -1,9 +1,6 @@
-// File: ecoscore/category/Category.h
-//// File: EcosCore/src/ecoscore/category/Category.ixx
+// File: ecoscore/include/category/Category.h
 #ifndef ECOSCORE_CATEGORY_CATEGORY_H
 #define ECOSCORE_CATEGORY_CATEGORY_H
-
-#include "std.h"
 
 namespace ecoscore::category {
 

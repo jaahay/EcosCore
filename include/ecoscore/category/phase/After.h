@@ -6,6 +6,8 @@
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
 
+#include <string_view>
+
 namespace ecoscore::category::phase {
 
 struct After final : Member<After, ecoscore::category::Phase> {

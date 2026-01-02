@@ -3,8 +3,6 @@
 #ifndef ECOSCORE_CATEGORY_CATEGORIES_H
 #define ECOSCORE_CATEGORY_CATEGORIES_H
 
-#include "std.h"
-
 #include "ecoscore/category/Category.h"
 #include "ecoscore/category/Member.h"
 
@@ -31,16 +29,4 @@
 #include "ecoscore/category/outcome/Partial.h"
 #include "ecoscore/category/outcome/Pass.h"
 
-namespace ecoscore::category {
-
-    /**
-     * @brief Facade category domain struct for module identification.
-     */
-    struct categoryDomain {
-        [[nodiscard]] static constexpr std::string_view name() noexcept {
-            return "ecoscore.category";
-} // namespace ecoscore::category
-    };
-
-}
 #endif // ECOSCORE_CATEGORY_CATEGORIES_H

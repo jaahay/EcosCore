@@ -4,8 +4,12 @@ project(EcosCore LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add the meta domain header-only library
-add_subdirectory(src/meta)
+add_subdirectory(tools)
 
-# Add the executable app that uses the meta domain
+add_subdirectory(src/meta)
 add_subdirectory(apps/meta)
+add_smoke_test_for_headers(meta include/ecoscore/meta)
+
+add_subdirectory(src/category)
+add_subdirectory(apps/category)
+add_smoke_test_for_headers(category include/ecoscore/category)

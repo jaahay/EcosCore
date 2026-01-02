@@ -3,10 +3,10 @@
 #ifndef ECOSCORE_CATEGORY_FLOW_CONTINUE_H
 #define ECOSCORE_CATEGORY_FLOW_CONTINUE_H
 
-#include "std.h"
-
 #include "ecoscore/category/Flow.h"
 #include "ecoscore/category/Member.h"
+
+#include <string_view>
 
 namespace ecoscore::category::flow {
 

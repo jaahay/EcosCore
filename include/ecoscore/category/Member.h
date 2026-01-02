@@ -3,9 +3,9 @@
 #ifndef ECOSCORE_CATEGORY_MEMBER_H
 #define ECOSCORE_CATEGORY_MEMBER_H
 
-#include "ecoscore/category/Category.h"
+#include "ecoscore/category/Category.h"  
 
-#include "std.h"
+#include <string_view>
 
 namespace ecoscore::category {
 
