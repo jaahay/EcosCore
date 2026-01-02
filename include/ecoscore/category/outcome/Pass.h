@@ -1,14 +1,23 @@
 // File: ecoscore/category/outcome/Pass.h
-//// File: EcosCore/src/ecoscore/category/outcome/Pass.ixx
-#ifndef ECOSCORE_CATEGORY_OUTCOME_PASS_H
-#define ECOSCORE_CATEGORY_OUTCOME_PASS_H
+#ifndef ECOSCORE_CATEGORY_OUTCOME_PASS_H_
+#define ECOSCORE_CATEGORY_OUTCOME_PASS_H_
+
+/**
+ * @file Pass.h
+ * @brief Concrete member representing a passing outcome.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Outcome.h"
 
+#include <string_view>
+
 namespace ecoscore::category::outcome {
 
-struct Pass final : Member<Pass, ecoscore::category::Outcome> {
+    /**
+     * @brief Concrete member for Pass outcome.
+     */
+    struct Pass final : Member<Pass, ecoscore::category::Outcome> {
         friend Member<Pass, ecoscore::category::Outcome>;
 
     private:
@@ -20,4 +29,5 @@ struct Pass final : Member<Pass, ecoscore::category::Outcome> {
     };
 
 } // namespace ecoscore::category::outcome
-#endif // ECOSCORE_CATEGORY_OUTCOME_PASS_H
+
+#endif // ECOSCORE_CATEGORY_OUTCOME_PASS_H_

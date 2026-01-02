@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
 #define ECOSCORE_LANGUAGE_ENCODING_WINDOWS1252_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/Encodings.h"
 

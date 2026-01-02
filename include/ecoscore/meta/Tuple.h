@@ -1,8 +1,18 @@
-// File: ecoscore/meta/Tuple.h
-#ifndef ECOSCORE_META_TUPLE_H
-#define ECOSCORE_META_TUPLE_H
+// File: include/ecoscore/meta/Tuple.h
+#ifndef ECOSCORE_META_TUPLE_H_
+#define ECOSCORE_META_TUPLE_H_
+
+/**
+ * @file Tuple.h
+ * @brief Compile-time utilities for concatenating std::tuple types.
+ *
+ * @details
+ * Provides templates to concatenate two or more std::tuple types into a single tuple type.
+ * Useful for type-level tuple manipulations in metaprogramming contexts.
+ */
 
 #include <tuple>
+#include <type_traits>
 
 namespace ecoscore::meta {
 
@@ -12,8 +22,8 @@ namespace ecoscore::meta {
      * @tparam Tuple1 First tuple type.
      * @tparam Tuple2 Second tuple type.
      */
-template <typename Tuple1, typename Tuple2>
-        struct tuple_concat;
+    template <typename Tuple1, typename Tuple2>
+    struct tuple_concat;
 
     template <typename... Ts1, typename... Ts2>
     struct tuple_concat<std::tuple<Ts1...>, std::tuple<Ts2...>> {
@@ -23,16 +33,16 @@ template <typename Tuple1, typename Tuple2>
     /**
      * @brief Alias template for tuple_concat.
      */
-template <typename Tuple1, typename Tuple2>
-        using tuple_concat_t = typename tuple_concat<Tuple1, Tuple2>::type;
+    template <typename Tuple1, typename Tuple2>
+    using tuple_concat_t = typename tuple_concat<Tuple1, Tuple2>::type;
 
     /**
      * @brief Concatenates multiple std::tuple types into a single tuple type.
      *
      * @tparam Tuples Variadic list of tuple types.
      */
-template <typename... Tuples>
-        struct tuple_concat_many;
+    template <typename... Tuples>
+    struct tuple_concat_many;
 
     template <>
     struct tuple_concat_many<> {
@@ -62,8 +72,9 @@ template <typename... Tuples>
     /**
      * @brief Alias template for tuple_concat_many.
      */
-template <typename... Tuples>
-        using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
+    template <typename... Tuples>
+    using tuple_concat_many_t = typename tuple_concat_many<Tuples...>::type;
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_META_TUPLE_H
+
+#endif // ECOSCORE_META_TUPLE_H_

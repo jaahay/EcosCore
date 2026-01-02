@@ -1,16 +1,23 @@
 // File: ecoscore/category/flow/Stop.h
-//// File: EcosCore/src/ecoscore/category/flow/Stop.ixx
-#ifndef ECOSCORE_CATEGORY_FLOW_STOP_H
-#define ECOSCORE_CATEGORY_FLOW_STOP_H
+#ifndef ECOSCORE_CATEGORY_FLOW_STOP_H_
+#define ECOSCORE_CATEGORY_FLOW_STOP_H_
+
+/**
+ * @file Stop.h
+ * @brief Concrete member representing the 'Stop' flow.
+ */
 
 #include "ecoscore/category/Member.h"
-#include "ecoscore/category/Flow.h" 
+#include "ecoscore/category/Flow.h"
 
 #include <string_view>
 
 namespace ecoscore::category::flow {
 
-struct Stop final : Member<Stop, ecoscore::category::Flow> {
+    /**
+     * @brief Concrete member for Stop flow.
+     */
+    struct Stop final : Member<Stop, ecoscore::category::Flow> {
         friend Member<Stop, ecoscore::category::Flow>;
 
     private:
@@ -22,4 +29,5 @@ struct Stop final : Member<Stop, ecoscore::category::Flow> {
     };
 
 } // namespace ecoscore::category::flow
-#endif // ECOSCORE_CATEGORY_FLOW_STOP_H
+
+#endif // ECOSCORE_CATEGORY_FLOW_STOP_H_

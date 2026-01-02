@@ -1,5 +1,4 @@
 // File: ecoscore/language/domain_name/Obfuscated.h
-// language/domain_name/ExternalId.h
 #ifndef ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
 #define ECOSCORE_LANGUAGE_DOMAIN_NAME_OBFUSCATED_H
 
@@ -12,7 +11,7 @@ namespace ecoscore::language::domain_name {
      * Specialize per tag as needed.
      */
     template <typename Tag>
-    struct ExternalId {
+    struct Obfuscated {
         static constexpr std::string_view value = "";
     };
 

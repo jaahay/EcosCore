@@ -1,14 +1,23 @@
 // File: ecoscore/category/phase/Process.h
-//// File: EcosCore/src/ecoscore/category/phase/Process.ixx
-#ifndef ECOSCORE_CATEGORY_PHASE_PROCESS_H
-#define ECOSCORE_CATEGORY_PHASE_PROCESS_H
+#ifndef ECOSCORE_CATEGORY_PHASE_PROCESS_H_
+#define ECOSCORE_CATEGORY_PHASE_PROCESS_H_
+
+/**
+ * @file Process.h
+ * @brief Concrete member representing the 'Process' phase.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
 
+#include <string_view>
+
 namespace ecoscore::category::phase {
 
-struct Process final : Member<Process, ecoscore::category::Phase> {
+    /**
+     * @brief Concrete member for Process phase.
+     */
+    struct Process final : Member<Process, ecoscore::category::Phase> {
         friend Member<Process, ecoscore::category::Phase>;
 
     private:
@@ -20,4 +29,5 @@ struct Process final : Member<Process, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_CATEGORY_PHASE_PROCESS_H
+
+#endif // ECOSCORE_CATEGORY_PHASE_PROCESS_H_

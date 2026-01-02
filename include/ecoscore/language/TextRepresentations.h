@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_H
 #define ECOSCORE_LANGUAGE_TEXTREPRESENTATIONS_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/Charsets.h"
 #include "ecoscore/language/Encodings.h"

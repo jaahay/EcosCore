@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_TRANSLATION_H
 #define ECOSCORE_LANGUAGE_TRANSLATION_H
 
-#include "std.h"
+
 
 #include "ecoscore/category/Category.h"
 

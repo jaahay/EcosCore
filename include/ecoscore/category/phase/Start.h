@@ -1,14 +1,23 @@
 // File: ecoscore/category/phase/Start.h
-//// File: EcosCore/src/ecoscore/category/phase/Start.ixx
-#ifndef ECOSCORE_CATEGORY_PHASE_START_H
-#define ECOSCORE_CATEGORY_PHASE_START_H
+#ifndef ECOSCORE_CATEGORY_PHASE_START_H_
+#define ECOSCORE_CATEGORY_PHASE_START_H_
+
+/**
+ * @file Start.h
+ * @brief Concrete member representing the 'Start' phase.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
 
+#include <string_view>
+
 namespace ecoscore::category::phase {
 
-struct Start final : Member<Start, ecoscore::category::Phase> {
+    /**
+     * @brief Concrete member for Start phase.
+     */
+    struct Start final : Member<Start, ecoscore::category::Phase> {
         friend Member<Start, ecoscore::category::Phase>;
 
     private:
@@ -20,4 +29,5 @@ struct Start final : Member<Start, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_CATEGORY_PHASE_START_H
+
+#endif // ECOSCORE_CATEGORY_PHASE_START_H_

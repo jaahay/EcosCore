@@ -1,14 +1,23 @@
 // File: ecoscore/category/outcome/Fail.h
-//// File: EcosCore/src/ecoscore/category/outcome/Fail.ixx
-#ifndef ECOSCORE_CATEGORY_OUTCOME_FAIL_H
-#define ECOSCORE_CATEGORY_OUTCOME_FAIL_H
+#ifndef ECOSCORE_CATEGORY_OUTCOME_FAIL_H_
+#define ECOSCORE_CATEGORY_OUTCOME_FAIL_H_
+
+/**
+ * @file Fail.h
+ * @brief Concrete member representing a failing outcome.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Outcome.h"
 
+#include <string_view>
+
 namespace ecoscore::category::outcome {
 
-struct Fail final : Member<Fail, ecoscore::category::Outcome> {
+    /**
+     * @brief Concrete member for Fail outcome.
+     */
+    struct Fail final : Member<Fail, ecoscore::category::Outcome> {
         friend Member<Fail, ecoscore::category::Outcome>;
 
     private:
@@ -20,4 +29,5 @@ struct Fail final : Member<Fail, ecoscore::category::Outcome> {
     };
 
 } // namespace ecoscore::category::outcome
-#endif // ECOSCORE_CATEGORY_OUTCOME_FAIL_H
+
+#endif // ECOSCORE_CATEGORY_OUTCOME_FAIL_H_

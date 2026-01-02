@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_ENCODING_UTF32_H
 #define ECOSCORE_LANGUAGE_ENCODING_UTF32_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/Encodings.h"
 

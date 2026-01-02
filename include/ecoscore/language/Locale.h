@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_LOCALE_H
 #define ECOSCORE_LANGUAGE_LOCALE_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/Langs.h"
 #include "ecoscore/language/Languages.h"

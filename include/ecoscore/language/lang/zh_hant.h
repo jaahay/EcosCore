@@ -3,15 +3,15 @@
 #ifndef ECOSCORE_LANGUAGE_LANG_ZH_HANT_H
 #define ECOSCORE_LANGUAGE_LANG_ZH_HANT_H
 
-#include "std.h"
-#include "std/string_view.h"
+
+
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
 namespace ecoscore::language::lang {
 
-struct Zh_hant final : Member<Zh_hant, ecoscore::language::Language> {
-        friend Member<Zh_hant, ecoscore::language::Language>;
+struct Zh_hant final : ecoscore::category::Member<Zh_hant, ecoscore::language::Language> {
+        friend ecoscore::category::Member<Zh_hant, ecoscore::language::Language>;
 
     private:
         constexpr Zh_hant() noexcept = default;

@@ -3,8 +3,6 @@
 #ifndef ECOSCORE_LANGUAGE_CHARSETS_H
 #define ECOSCORE_LANGUAGE_CHARSETS_H
 
-#include "std.h"
-
 #include "ecoscore/language/TextRepresentations.h"
 
 namespace ecoscore::language {
@@ -22,7 +20,6 @@ template <typename Derived>
         public:
             [[nodiscard]] static constexpr std::string_view static_name() noexcept {
                 return Derived::static_name();
-} // namespace ecoscore::language
     };
 
 }  // namespace ecoscore::language

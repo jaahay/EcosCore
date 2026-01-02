@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
 #define ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/Charsets.h"
 

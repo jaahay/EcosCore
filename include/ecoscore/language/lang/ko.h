@@ -3,16 +3,16 @@
 #ifndef ECOSCORE_LANGUAGE_LANG_KO_H
 #define ECOSCORE_LANGUAGE_LANG_KO_H
 
-#include "std.h"
-#include "std/string_view.h"
+
+
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
 namespace ecoscore::language::lang {
 
-struct Ko final : Member<Ko, ecoscore::language::Language> {
-        friend Member<Ko, ecoscore::language::Language>;
+struct Ko final : ecoscore::category::Member<Ko, ecoscore::language::Language> {
+        friend ecoscore::category::Member<Ko, ecoscore::language::Language>;
 
     private:
         constexpr Ko() noexcept = default;

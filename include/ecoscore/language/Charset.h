@@ -3,8 +3,6 @@
 #ifndef ECOSCORE_LANGUAGE_CHARSET_H
 #define ECOSCORE_LANGUAGE_CHARSET_H
 
-#include "std.h"
-
 #include "ecoscore/language/lang/en.h"
 #include "ecoscore/language/lang/fr.h"
 #include "ecoscore/language/lang/de.h"

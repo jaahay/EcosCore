@@ -1,7 +1,16 @@
-// File: ecoscore/meta/CycleCheck.h
+// File: include/ecoscore/meta/CycleCheck.h
+#ifndef ECOSCORE_META_CYCLECHECK_H_
+#define ECOSCORE_META_CYCLECHECK_H_
 
-#ifndef ECOSCORE_META_CYCLECHECK_H
-#define ECOSCORE_META_CYCLECHECK_H
+/**
+ * @file CycleCheck.h
+ * @brief Compile-time utilities to detect cycles in type dependency graphs.
+ *
+ * @details
+ * This header provides the template `CheckNoCycle` that recursively inspects
+ * a type's dependency list to ensure no cyclic references exist, preventing
+ * infinite recursion or logical errors in type priority orderings.
+ */
 
 #include "ecoscore/meta/TypeList.h"
 #include <type_traits>
@@ -11,33 +20,37 @@ namespace ecoscore::meta {
     /**
      * @brief Compile-time check to detect cycles in a type dependency graph.
      *
-     * @tparam T Type to check.
-     * @tparam Visited List of visited types to detect cycles.
+     * @tparam T The type to check.
+     * @tparam Visited A TypeList of previously visited types to detect cycles.
+     *
+     * @note The type T is expected to have a nested alias `HigherThanList` of type `TypeList<>`
+     *       representing its dependencies.
      */
-template <typename T, typename Visited = TypeList<>>
-        struct CheckNoCycle {
+    template <typename T, typename Visited = TypeList<>>
+    struct CheckNoCycle {
         static_assert(!Contains<T, Visited>::value, "Cycle detected in priority ordering!");
 
-        using NewVisited = typename Append<Visited, T>::type;
+    private:
+        using NewVisited = Append_t<Visited, T>;
 
-        private:
-            template <typename List>
-            struct _CheckList;
+        template <typename List>
+        struct Impl;
 
-            template <>
-            struct _CheckList<TypeList<>> {
-                static constexpr bool value = true;
-            };
+        template <>
+        struct Impl<TypeList<>> {
+            static constexpr bool value = true;
+        };
 
-            template <typename Head, typename... Tail>
-            struct _CheckList<TypeList<Head, Tail...>> {
-                static constexpr bool value =
-                    CheckNoCycle<Head, NewVisited>::value&& _CheckList<TypeList<Tail...>>::value;
-            };
+        template <typename Head, typename... Tail>
+        struct Impl<TypeList<Head, Tail...>> {
+            static constexpr bool value =
+                CheckNoCycle<Head, NewVisited>::value&& Impl<TypeList<Tail...>>::value;
+        };
 
-        public:
-            static constexpr bool value = _CheckList<typename T::HigherThanList>::value;
+    public:
+        static constexpr bool value = Impl<typename T::HigherThanList>::value;
     };
 
 } // namespace ecoscore::meta
-#endif // ECOSCORE_META_CYCLECHECK_H
+
+#endif // ECOSCORE_META_CYCLECHECK_H_

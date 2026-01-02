@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
 #define ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
 
-#include "std.h"
+
 
 #include "ecoscore/language/NameSet.h"
 #include "ecoscore/language/lang/Lang.h"

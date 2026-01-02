@@ -3,8 +3,6 @@
 #ifndef ECOSCORE_LANGUAGE_NAMESET_H
 #define ECOSCORE_LANGUAGE_NAMESET_H
 
-#include "std.h"
-
 namespace ecoscore::language {
 
     /**

@@ -3,7 +3,7 @@
 #ifndef ECOSCORE_LANGUAGE_TRANSLATIONS_H
 #define ECOSCORE_LANGUAGE_TRANSLATIONS_H
 
-#include "std.h"
+
 
 // Export concrete translation modules
 #include "ecoscore/language/translations/en.h"

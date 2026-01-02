@@ -1,7 +1,11 @@
 // File: ecoscore/category/phase/After.h
-//// File: EcosCore/src/ecoscore/category/phase/After.ixx
-#ifndef ECOSCORE_CATEGORY_PHASE_AFTER_H
-#define ECOSCORE_CATEGORY_PHASE_AFTER_H
+#ifndef ECOSCORE_CATEGORY_PHASE_AFTER_H_
+#define ECOSCORE_CATEGORY_PHASE_AFTER_H_
+
+/**
+ * @file After.h
+ * @brief Concrete member representing the 'After' phase.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
@@ -10,7 +14,10 @@
 
 namespace ecoscore::category::phase {
 
-struct After final : Member<After, ecoscore::category::Phase> {
+    /**
+     * @brief Concrete member for After phase.
+     */
+    struct After final : Member<After, ecoscore::category::Phase> {
         friend Member<After, ecoscore::category::Phase>;
 
     private:
@@ -22,4 +29,5 @@ struct After final : Member<After, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_CATEGORY_PHASE_AFTER_H
+
+#endif // ECOSCORE_CATEGORY_PHASE_AFTER_H_

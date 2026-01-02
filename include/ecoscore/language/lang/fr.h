@@ -2,17 +2,13 @@
 //// File: EcosCore/src/ecoscore/language/lang/fr.ixx
 #ifndef ECOSCORE_LANGUAGE_LANG_FR_H
 #define ECOSCORE_LANGUAGE_LANG_FR_H
-
-#include "std.h"
-#include "std/string_view.h"
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
 namespace ecoscore::language::lang {
 
-struct Fr final : Member<Fr, ecoscore::language::Language> {
-        friend Member<Fr, ecoscore::language::Language>;
+struct Fr final : ecoscore::category::Member<Fr, ecoscore::language::Language> {
+        friend ecoscore::category::Member<Fr, ecoscore::language::Language>;
 
     private:
         constexpr Fr() noexcept = default;

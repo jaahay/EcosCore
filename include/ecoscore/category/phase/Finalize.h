@@ -1,14 +1,23 @@
 // File: ecoscore/category/phase/Finalize.h
-//// File: EcosCore/src/ecoscore/category/phase/Finalize.ixx
-#ifndef ECOSCORE_CATEGORY_PHASE_FINALIZE_H
-#define ECOSCORE_CATEGORY_PHASE_FINALIZE_H
+#ifndef ECOSCORE_CATEGORY_PHASE_FINALIZE_H_
+#define ECOSCORE_CATEGORY_PHASE_FINALIZE_H_
+
+/**
+ * @file Finalize.h
+ * @brief Concrete member representing the 'Finalize' phase.
+ */
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
 
+#include <string_view>
+
 namespace ecoscore::category::phase {
 
-struct Finalize final : Member<Finalize, ecoscore::category::Phase> {
+    /**
+     * @brief Concrete member for Finalize phase.
+     */
+    struct Finalize final : Member<Finalize, ecoscore::category::Phase> {
         friend Member<Finalize, ecoscore::category::Phase>;
 
     private:
@@ -20,4 +29,5 @@ struct Finalize final : Member<Finalize, ecoscore::category::Phase> {
     };
 
 } // namespace ecoscore::category::phase
-#endif // ECOSCORE_CATEGORY_PHASE_FINALIZE_H
+
+#endif // ECOSCORE_CATEGORY_PHASE_FINALIZE_H_
