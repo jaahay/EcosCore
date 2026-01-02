@@ -1,22 +1,32 @@
 // File: ecoscore/language/encoding/MacRoman.h
-// /src/ecoscore/language/encoding/MacRoman.ixx
-#ifndef ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
-#define ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+#ifndef ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H_
+#define ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H_
 
-
-
-#include "ecoscore/language/Encodings.h"
+#include "Encoding.h"
 
 namespace ecoscore::language::encoding {
 
-    struct MacRoman final : Encoding<MacRoman> {
-        constexpr MacRoman() noexcept = default;
-        constexpr ~MacRoman() noexcept = default;
+    /**
+     * @brief MacRoman encoding.
+     */
+    struct MacRoman final : ecoscore::category::Member<MacRoman, ecoscore::language::Encoding> {
+        friend ecoscore::category::Member<MacRoman, ecoscore::language::Encoding>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "MacRoman";
-} // namespace ecoscore::language::encoding
+    private:
+        constexpr MacRoman() noexcept = default;
+        ~MacRoman() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "MacRoman"; }
+
+        static constexpr const MacRoman& instance() noexcept {
+            static const MacRoman inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H
+    inline constexpr const MacRoman& macRoman = MacRoman::instance();
+
+} // namespace ecoscore::language::encoding
+
+#endif // ECOSCORE_LANGUAGE_ENCODING_MACROMAN_H_

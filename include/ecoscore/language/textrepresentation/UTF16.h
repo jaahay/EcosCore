@@ -1,21 +1,32 @@
-// File: ecoscore/language/textrepresentation/UTF16.h
-// /src/ecoscore/language/textrepresentation/UTF16.ixx
-#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
-#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+// File: ecoscore/language/textrepresentation/UTF8.h
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H_
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H_
 
-#include "ecoscore/language/Encodings.h"
-#include <string_view>
+#include "TextRepresentation.h"
 
 namespace ecoscore::language::textrepresentation {
 
-    struct UTF16 final : Encoding<UTF16> {
-        constexpr UTF16() noexcept = default;
-        constexpr ~UTF16() noexcept = default;
+    /**
+     * @brief UTF-8 text representation.
+     */
+    struct UTF8 final : ecoscore::category::Member<UTF8, ecoscore::language::TextRepresentation> {
+        friend ecoscore::category::Member<UTF8, ecoscore::language::TextRepresentation>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "UTF16";
-} // namespace ecoscore::language::textrepresentation
+    private:
+        constexpr UTF8() noexcept = default;
+        ~UTF8() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "UTF-8"; }
+
+        static constexpr const UTF8& instance() noexcept {
+            static const UTF8 inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF16_H
+    inline constexpr const UTF8& utf8 = UTF8::instance();
+
+} // namespace ecoscore::language::textrepresentation
+
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_UTF8_H_

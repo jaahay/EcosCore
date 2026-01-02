@@ -2,32 +2,23 @@
 #ifndef ECOSCORE_CATEGORY_FLOW_H_
 #define ECOSCORE_CATEGORY_FLOW_H_
 
-/**
- * @file Flow.h
- * @brief Marker base for flow categories.
- *
- * @details
- * This struct acts as a tag base for all flow-related categories.
- * Copy and move operations are deleted to ensure immutability and uniqueness.
- */
-
 #include "ecoscore/category/Category.h"
 
 namespace ecoscore::category {
 
     /**
-     * @brief Marker base for flow categories.
+     * @brief Flow category tag.
      */
     struct Flow : Category {
-        Flow() noexcept = default;
+    protected:
+        constexpr Flow() noexcept = default;
 
+    public:
         Flow(const Flow&) = delete;
         Flow& operator=(const Flow&) = delete;
-
-        Flow(Flow&&) = delete;
-        Flow& operator=(Flow&&) = delete;
-
         ~Flow() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "Flow"; }
     };
 
 } // namespace ecoscore::category

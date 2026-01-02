@@ -1,22 +1,32 @@
 // File: ecoscore/language/charset/Latin1.h
-// /src/ecoscore/language/charset/Latin1.ixx
-#ifndef ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
-#define ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_LATIN1_H_
+#define ECOSCORE_LANGUAGE_CHARSET_LATIN1_H_
 
-
-
-#include "ecoscore/language/Charsets.h"
+#include "Charset.h"
 
 namespace ecoscore::language::charset {
 
-    struct Latin1 final : Charset<Latin1> {
-        constexpr Latin1() noexcept = default;
-        constexpr ~Latin1() noexcept = default;
+    /**
+     * @brief Latin1 character set.
+     */
+    struct Latin1 final : ecoscore::category::Member<Latin1, ecoscore::language::Charset> {
+        friend ecoscore::category::Member<Latin1, ecoscore::language::Charset>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "Latin1";
-} // namespace ecoscore::language::charset
+    private:
+        constexpr Latin1() noexcept = default;
+        ~Latin1() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "Latin1"; }
+
+        static constexpr const Latin1& instance() noexcept {
+            static const Latin1 inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_CHARSET_LATIN1_H
+    inline constexpr const Latin1& latin1 = Latin1::instance();
+
+} // namespace ecoscore::language::charset
+
+#endif // ECOSCORE_LANGUAGE_CHARSET_LATIN1_H_

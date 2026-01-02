@@ -1,22 +1,32 @@
 // File: ecoscore/language/charset/Emoji.h
-// /src/ecoscore/language/charset/Emoji.ixx
-#ifndef ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
-#define ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_EMOJI_H_
+#define ECOSCORE_LANGUAGE_CHARSET_EMOJI_H_
 
-
-
-#include "ecoscore/language/Charsets.h"
+#include "Charset.h"
 
 namespace ecoscore::language::charset {
 
-    struct Emoji final : Charset<Emoji> {
-        constexpr Emoji() noexcept = default;
-        constexpr ~Emoji() noexcept = default;
+    /**
+     * @brief Emoji character set.
+     */
+    struct Emoji final : ecoscore::category::Member<Emoji, ecoscore::language::Charset> {
+        friend ecoscore::category::Member<Emoji, ecoscore::language::Charset>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "Emoji";
-} // namespace ecoscore::language::charset
+    private:
+        constexpr Emoji() noexcept = default;
+        ~Emoji() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "Emoji"; }
+
+        static constexpr const Emoji& instance() noexcept {
+            static const Emoji inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_CHARSET_EMOJI_H
+    inline constexpr const Emoji& emoji = Emoji::instance();
+
+} // namespace ecoscore::language::charset
+
+#endif // ECOSCORE_LANGUAGE_CHARSET_EMOJI_H_

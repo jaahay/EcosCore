@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_BEFORE_H_
 #define ECOSCORE_CATEGORY_PHASE_BEFORE_H_
 
-/**
- * @file Before.h
- * @brief Concrete member representing the 'Before' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Before phase.
+     * @brief Before phase member.
      */
-    struct Before final : Member<Before, ecoscore::category::Phase> {
-        friend Member<Before, ecoscore::category::Phase>;
+    struct Before final : Member<Before, Phase> {
+        friend Member<Before, Phase>;
 
     private:
         constexpr Before() noexcept = default;
         ~Before() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Before"; }
+        static constexpr std::string_view name() noexcept { return "Before"; }
+
+        static constexpr const Before& instance() noexcept {
+            static const Before inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Before& before = Before::instance();
 
 } // namespace ecoscore::category::phase
 

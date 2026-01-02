@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_PROCESS_H_
 #define ECOSCORE_CATEGORY_PHASE_PROCESS_H_
 
-/**
- * @file Process.h
- * @brief Concrete member representing the 'Process' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Process phase.
+     * @brief Process phase member.
      */
-    struct Process final : Member<Process, ecoscore::category::Phase> {
-        friend Member<Process, ecoscore::category::Phase>;
+    struct Process final : Member<Process, Phase> {
+        friend Member<Process, Phase>;
 
     private:
         constexpr Process() noexcept = default;
         ~Process() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Process"; }
+        static constexpr std::string_view name() noexcept { return "Process"; }
+
+        static constexpr const Process& instance() noexcept {
+            static const Process inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Process& process = Process::instance();
 
 } // namespace ecoscore::category::phase
 

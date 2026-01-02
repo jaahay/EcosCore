@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_ERROR_H_
 #define ECOSCORE_CATEGORY_PHASE_ERROR_H_
 
-/**
- * @file Error.h
- * @brief Concrete member representing the 'Error' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Error phase.
+     * @brief Error phase member.
      */
-    struct Error final : Member<Error, ecoscore::category::Phase> {
-        friend Member<Error, ecoscore::category::Phase>;
+    struct Error final : Member<Error, Phase> {
+        friend Member<Error, Phase>;
 
     private:
         constexpr Error() noexcept = default;
         ~Error() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Error"; }
+        static constexpr std::string_view name() noexcept { return "Error"; }
+
+        static constexpr const Error& instance() noexcept {
+            static const Error inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Error& error = Error::instance();
 
 } // namespace ecoscore::category::phase
 

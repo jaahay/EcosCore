@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_OUTCOME_PASS_H_
 #define ECOSCORE_CATEGORY_OUTCOME_PASS_H_
 
-/**
- * @file Pass.h
- * @brief Concrete member representing a passing outcome.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Outcome.h"
-
-#include <string_view>
 
 namespace ecoscore::category::outcome {
 
     /**
-     * @brief Concrete member for Pass outcome.
+     * @brief Pass outcome member.
      */
-    struct Pass final : Member<Pass, ecoscore::category::Outcome> {
-        friend Member<Pass, ecoscore::category::Outcome>;
+    struct Pass final : Member<Pass, Outcome> {
+        friend Member<Pass, Outcome>;
 
     private:
         constexpr Pass() noexcept = default;
         ~Pass() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Pass"; }
+        static constexpr std::string_view name() noexcept { return "Pass"; }
+
+        static constexpr const Pass& instance() noexcept {
+            static const Pass inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Pass& pass = Pass::instance();
 
 } // namespace ecoscore::category::outcome
 

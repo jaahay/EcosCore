@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_FLOW_STOP_H_
 #define ECOSCORE_CATEGORY_FLOW_STOP_H_
 
-/**
- * @file Stop.h
- * @brief Concrete member representing the 'Stop' flow.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Flow.h"
-
-#include <string_view>
 
 namespace ecoscore::category::flow {
 
     /**
-     * @brief Concrete member for Stop flow.
+     * @brief Stop flow member.
      */
-    struct Stop final : Member<Stop, ecoscore::category::Flow> {
-        friend Member<Stop, ecoscore::category::Flow>;
+    struct Stop final : Member<Stop, Flow> {
+        friend Member<Stop, Flow>;
 
     private:
         constexpr Stop() noexcept = default;
         ~Stop() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Stop"; }
+        static constexpr std::string_view name() noexcept { return "Stop"; }
+
+        static constexpr const Stop& instance() noexcept {
+            static const Stop inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Stop& stop = Stop::instance();
 
 } // namespace ecoscore::category::flow
 

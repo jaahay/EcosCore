@@ -1,7 +1,6 @@
 // File: ecoscore/language/Language.h
-//// File: EcosCore/src/ecoscore/language/Language.ixx
-#ifndef ECOSCORE_LANGUAGE_LANGUAGE_H
-#define ECOSCORE_LANGUAGE_LANGUAGE_H
+#ifndef ECOSCORE_LANGUAGE_LANGUAGE_H_
+#define ECOSCORE_LANGUAGE_LANGUAGE_H_
 
 #include "ecoscore/category/Category.h"
 
@@ -9,16 +8,21 @@ namespace ecoscore::language {
 
     /**
      * @brief Base category for all languages.
-     * Static-only design: no virtual functions.
+     *
+     * Abstract, non-instantiable tag.
      */
-struct Language : ecoscore::category::Category {
-        Language() noexcept = default;
+    struct Language : ecoscore::category::Category {
+    protected:
+        constexpr Language() noexcept = default;
+
+    public:
         Language(const Language&) = delete;
         Language& operator=(const Language&) = delete;
-        Language(Language&&) = delete;
-        Language& operator=(Language&&) = delete;
         ~Language() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "Language"; }
     };
 
 } // namespace ecoscore::language
-#endif // ECOSCORE_LANGUAGE_LANGUAGE_H
+
+#endif // ECOSCORE_LANGUAGE_LANGUAGE_H_

@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_MAIN_H_
 #define ECOSCORE_CATEGORY_PHASE_MAIN_H_
 
-/**
- * @file Main.h
- * @brief Concrete member representing the 'Main' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Main phase.
+     * @brief Main phase member.
      */
-    struct Main final : Member<Main, ecoscore::category::Phase> {
-        friend Member<Main, ecoscore::category::Phase>;
+    struct Main final : Member<Main, Phase> {
+        friend Member<Main, Phase>;
 
     private:
         constexpr Main() noexcept = default;
         ~Main() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Main"; }
+        static constexpr std::string_view name() noexcept { return "Main"; }
+
+        static constexpr const Main& instance() noexcept {
+            static const Main inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Main& main = Main::instance();
 
 } // namespace ecoscore::category::phase
 

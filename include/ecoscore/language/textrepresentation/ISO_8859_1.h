@@ -1,21 +1,32 @@
-// File: ecoscore/language/textrepresentation/ISO_8559_1.h
-// /src/ecoscore/language/textrepresentation/ISO_8859_1.ixx
-#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
-#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
+// File: ecoscore/language/textrepresentation/ISO_8859_1.h
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8859_1_H_
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8859_1_H_
 
-#include "ecoscore/language/Encodings.h"
-#include <string_view>
+#include "TextRepresentation.h"
 
 namespace ecoscore::language::textrepresentation {
 
-    struct ISO_8859_1 final : Encoding<ISO_8859_1> {
-        constexpr ISO_8859_1() noexcept = default;
-        constexpr ~ISO_8859_1() noexcept = default;
+    /**
+     * @brief ISO 8859-1 (Latin-1) text representation.
+     */
+    struct ISO_8859_1 final : ecoscore::category::Member<ISO_8859_1, ecoscore::language::TextRepresentation> {
+        friend ecoscore::category::Member<ISO_8859_1, ecoscore::language::TextRepresentation>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "ISO_8859_1";
-} // namespace ecoscore::language::textrepresentation
+    private:
+        constexpr ISO_8859_1() noexcept = default;
+        ~ISO_8859_1() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "ISO-8859-1"; }
+
+        static constexpr const ISO_8859_1& instance() noexcept {
+            static const ISO_8859_1 inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8559_1_H
+    inline constexpr const ISO_8859_1& iso_8859_1 = ISO_8859_1::instance();
+
+} // namespace ecoscore::language::textrepresentation
+
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ISO_8859_1_H_

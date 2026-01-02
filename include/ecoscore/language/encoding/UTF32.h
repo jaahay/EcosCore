@@ -1,22 +1,32 @@
 // File: ecoscore/language/encoding/UTF32.h
-// /src/ecoscore/language/encoding/UTF32.ixx
-#ifndef ECOSCORE_LANGUAGE_ENCODING_UTF32_H
-#define ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+#ifndef ECOSCORE_LANGUAGE_ENCODING_UTF32_H_
+#define ECOSCORE_LANGUAGE_ENCODING_UTF32_H_
 
-
-
-#include "ecoscore/language/Encodings.h"
+#include "Encoding.h"
 
 namespace ecoscore::language::encoding {
 
-    struct UTF32 final : Encoding<UTF32> {
-        constexpr UTF32() noexcept = default;
-        constexpr ~UTF32() noexcept = default;
+    /**
+     * @brief UTF-32 encoding.
+     */
+    struct UTF32 final : ecoscore::category::Member<UTF32, ecoscore::language::Encoding> {
+        friend ecoscore::category::Member<UTF32, ecoscore::language::Encoding>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "UTF32";
-} // namespace ecoscore::language::encoding
+    private:
+        constexpr UTF32() noexcept = default;
+        ~UTF32() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "UTF32"; }
+
+        static constexpr const UTF32& instance() noexcept {
+            static const UTF32 inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_ENCODING_UTF32_H
+    inline constexpr const UTF32& utf32 = UTF32::instance();
+
+} // namespace ecoscore::language::encoding
+
+#endif // ECOSCORE_LANGUAGE_ENCODING_UTF32_H_

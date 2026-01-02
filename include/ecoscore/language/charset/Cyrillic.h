@@ -1,22 +1,32 @@
 // File: ecoscore/language/charset/Cyrillic.h
-// /src/ecoscore/language/charset/Cyrillic.ixx
-#ifndef ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
-#define ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H_
+#define ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H_
 
-
-
-#include "ecoscore/language/Charsets.h"
+#include "Charset.h"
 
 namespace ecoscore::language::charset {
 
-    struct Cyrillic final : Charset<Cyrillic> {
-        constexpr Cyrillic() noexcept = default;
-        constexpr ~Cyrillic() noexcept = default;
+    /**
+     * @brief Cyrillic character set.
+     */
+    struct Cyrillic final : ecoscore::category::Member<Cyrillic, ecoscore::language::Charset> {
+        friend ecoscore::category::Member<Cyrillic, ecoscore::language::Charset>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "Cyrillic";
-} // namespace ecoscore::language::charset
+    private:
+        constexpr Cyrillic() noexcept = default;
+        ~Cyrillic() noexcept = default;
+
+    public:
+        static constexpr std::string_view name() noexcept { return "Cyrillic"; }
+
+        static constexpr const Cyrillic& instance() noexcept {
+            static const Cyrillic inst{};
+            return inst;
+        }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H
+    inline constexpr const Cyrillic& cyrillic = Cyrillic::instance();
+
+} // namespace ecoscore::language::charset
+
+#endif // ECOSCORE_LANGUAGE_CHARSET_CYRILLIC_H_

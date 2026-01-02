@@ -1,28 +1,26 @@
 // File: ecoscore/language/Charset.h
-// /src/ecoscore/language/Charset.ixx
-#ifndef ECOSCORE_LANGUAGE_CHARSET_H
-#define ECOSCORE_LANGUAGE_CHARSET_H
+#ifndef ECOSCORE_LANGUAGE_CHARSET_H_
+#define ECOSCORE_LANGUAGE_CHARSET_H_
 
-#include "ecoscore/language/lang/en.h"
-#include "ecoscore/language/lang/fr.h"
-#include "ecoscore/language/lang/de.h"
-#include "ecoscore/language/lang/es.h"
-#include "ecoscore/language/lang/zh_hans.h"
-#include "ecoscore/language/lang/zh_hant.h"
-#include "ecoscore/language/lang/ja.h"
-#include "ecoscore/language/lang/ko.h"
-#include "ecoscore/language/lang/ar.h"
+#include "TextRepresentation.h"
 
-namespace ecoscore::language::lang {
+namespace ecoscore::language {
 
     /**
-     * @brief Facade module exporting all language tags.
+     * @brief Category representing character sets.
      */
-    struct LangDomain {
-        [[nodiscard]] static constexpr std::string_view name() noexcept {
-            return "ecoscore.language.lang";
-} // namespace ecoscore::language::lang
+    struct Charset : TextRepresentation {
+    protected:
+        constexpr Charset() noexcept = default;
+
+    public:
+        Charset(const Charset&) = delete;
+        Charset& operator=(const Charset&) = delete;
+        ~Charset() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "Charset"; }
     };
 
-}
-#endif // ECOSCORE_LANGUAGE_CHARSET_H
+} // namespace ecoscore::language
+
+#endif // ECOSCORE_LANGUAGE_CHARSET_H_

@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_START_H_
 #define ECOSCORE_CATEGORY_PHASE_START_H_
 
-/**
- * @file Start.h
- * @brief Concrete member representing the 'Start' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Start phase.
+     * @brief Start phase member.
      */
-    struct Start final : Member<Start, ecoscore::category::Phase> {
-        friend Member<Start, ecoscore::category::Phase>;
+    struct Start final : Member<Start, Phase> {
+        friend Member<Start, Phase>;
 
     private:
         constexpr Start() noexcept = default;
         ~Start() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Start"; }
+        static constexpr std::string_view name() noexcept { return "Start"; }
+
+        static constexpr const Start& instance() noexcept {
+            static const Start inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Start& start = Start::instance();
 
 } // namespace ecoscore::category::phase
 

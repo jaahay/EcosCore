@@ -1,34 +1,45 @@
-// File: ecoscore/include/category/Category.h
+// File: ecoscore/category/Category.h
 #ifndef ECOSCORE_CATEGORY_CATEGORY_H_
 #define ECOSCORE_CATEGORY_CATEGORY_H_
 
-/**
- * @file Category.h
- * @brief Marker base struct for all category tags.
- *
- * @details
- * This struct serves as a tag base for category types.
- * It contains no virtual functions and enforces a static constexpr interface.
- * Copy and move operations are explicitly deleted to prevent misuse.
- */
+#include <string_view>
 
 namespace ecoscore::category {
 
     /**
-     * @brief Marker base for all category tags.
+     * @brief Abstract base tag for all categories.
      *
-     * @note No virtual functions; all interface is static constexpr.
+     * Non-instantiable and immutable.
      */
     struct Category {
-        Category() noexcept = default;
+    protected:
+        constexpr Category() noexcept
+            : wrapper_(Wrapper::instance())
+        {
+        }
 
-        // Deleted copy constructor and copy assignment operator
+    public:
         Category(const Category&) = delete;
         Category& operator=(const Category&) = delete;
+        ~Category() noexcept = default;
 
-        // Deleted move constructor and move assignment operator
-        Category(Category&&) = delete;
-        Category& operator=(Category&&) = delete;
+        std::string_view name() const noexcept {
+            return wrapper_.name();
+        }
+
+    private:
+        struct Wrapper final {
+            static const Wrapper& instance() {
+                static const Wrapper inst{};
+                return inst;
+            }
+
+            std::string_view name() const noexcept {
+                return Category::name();
+            }
+        };
+
+        const Wrapper& wrapper_;
     };
 
 } // namespace ecoscore::category

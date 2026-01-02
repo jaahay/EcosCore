@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_AFTER_H_
 #define ECOSCORE_CATEGORY_PHASE_AFTER_H_
 
-/**
- * @file After.h
- * @brief Concrete member representing the 'After' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for After phase.
+     * @brief After phase member.
      */
-    struct After final : Member<After, ecoscore::category::Phase> {
-        friend Member<After, ecoscore::category::Phase>;
+    struct After final : Member<After, Phase> {
+        friend Member<After, Phase>;
 
     private:
         constexpr After() noexcept = default;
         ~After() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "After"; }
+        static constexpr std::string_view name() noexcept { return "After"; }
+
+        static constexpr const After& instance() noexcept {
+            static const After inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const After& after = After::instance();
 
 } // namespace ecoscore::category::phase
 

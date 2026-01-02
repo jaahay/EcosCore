@@ -1,63 +1,64 @@
 // File: ecoscore/category/flow/translations/Continue.h
-// /src/ecoscore/category/flow/translations/Continue.ixx
-#ifndef ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
-#define ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+#ifndef ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H_
+#define ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H_
 
+#include "ecoscore/category/Member.h"
+#include "ecoscore/category/Flow.h"
 #include "ecoscore/language/NameSet.h"
 #include "ecoscore/language/lang/En.h"
-#include "ecoscore/language/lang/Fr.h"
+#include "ecoscore/language/lang/Ar.h"
 #include "ecoscore/language/lang/De.h"
 #include "ecoscore/language/lang/Es.h"
+#include "ecoscore/language/lang/Fr.h"
 #include "ecoscore/language/lang/ZhHans.h"
 #include "ecoscore/language/lang/ZhHant.h"
 #include "ecoscore/language/lang/Ja.h"
 #include "ecoscore/language/lang/Ko.h"
-#include "ecoscore/language/lang/Ar.h"
+#include "ecoscore/language/Translation.h"
 
-#include "ecoscore/language/translation/Translation.h"
-#include "ecoscore/category/flow/Continue.h"
-
-#include <unordered_map>
 #include <string_view>
+#include <unordered_map>
 
 namespace ecoscore::category::flow::translations {
 
-    using namespace ecoscore::language;
-    using namespace ecoscore::language::lang;
-    using namespace ecoscore::language::translation;
-    using namespace ecoscore::category::flow;
+    /**
+     * @brief Continue flow translation member.
+     */
+    struct Continue final : ecoscore::category::Member<Continue, ecoscore::category::Flow>,
+        ecoscore::language::translation::Translation<Continue> {
+        friend ecoscore::category::Member<Continue, ecoscore::category::Flow>;
+        friend ecoscore::language::translation::Translation<Continue>;
 
-    struct Continue final : Translation<Continue> {
+    private:
         constexpr Continue() noexcept = default;
-        constexpr ~Continue() noexcept = default;
+        ~Continue() noexcept = default;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "ContinueTranslation";
-} // namespace ecoscore::category::flow::translations
+    public:
+        static constexpr std::string_view name() noexcept { return "ContinueTranslation"; }
 
-        const std::unordered_map<const Languages::Language*, NameSet> translations{
-            { &En, NameSet{ "Continue", "Go on", "Proceed" } },
-            { &Fr, NameSet{ "Continuer", "Poursuivre" } },
-            { &De, NameSet{ "Fortsetzen", "Weiter" } },
-            { &Es, NameSet{ "Continuar", "Seguir" } },
-            { &ZhHans, NameSet{ "继续", "持续" } },
-            { &ZhHant, NameSet{ "繼續", "持續" } },
-            { &Ja, NameSet{ "続ける", "継続" } },
-            { &Ko, NameSet{ "계속", "이어가다" } },
-            { &Ar, NameSet{ "استمر", "واصل" } }
-        };
+        [[nodiscard]] const std::unordered_map<const ecoscore::language::Language*, ecoscore::language::NameSet>& NameSets() const noexcept override {
+            static const std::unordered_map<const ecoscore::language::Language*, ecoscore::language::NameSet> translations{
+                { &ecoscore::language::lang::en,        ecoscore::language::NameSet{"Continue", "Go On", "Proceed"} },
+                { &ecoscore::language::lang::ar,        ecoscore::language::NameSet{"استمر", "تابع"} },
+                { &ecoscore::language::lang::de,        ecoscore::language::NameSet{"Fortsetzen", "Weiter"} },
+                { &ecoscore::language::lang::es,        ecoscore::language::NameSet{"Continuar", "Seguir"} },
+                { &ecoscore::language::lang::fr,        ecoscore::language::NameSet{"Continuer", "Poursuivre"} },
+                { &ecoscore::language::lang::zh_hans,   ecoscore::language::NameSet{"继续", "前进"} },
+                { &ecoscore::language::lang::zh_hant,   ecoscore::language::NameSet{"繼續", "前進"} },
+                { &ecoscore::language::lang::ja,        ecoscore::language::NameSet{"続ける", "進める"} },
+                { &ecoscore::language::lang::ko,        ecoscore::language::NameSet{"계속", "진행"} }
+            };
+            return translations;
+        }
 
-        [[nodiscard]] const NameSet& get(const Languages::Language& lang) const noexcept {
-            auto it = translations.find(&lang);
-            if (it != translations.end()) {
-                return it->second;
-            }
-            static constexpr NameSet fallback{ "Continue (translation unavailable)" };
-            return fallback;
+        static constexpr const Continue& instance() noexcept {
+            static const Continue inst{};
+            return inst;
         }
     };
 
-constexpr Continue ContinueInstance{};
+    inline constexpr const Continue& cont = Continue::instance();
 
-}
-#endif // ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H
+} // namespace ecoscore::category::flow::translations
+
+#endif // ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H_

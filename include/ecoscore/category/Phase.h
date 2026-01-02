@@ -2,32 +2,23 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_H_
 #define ECOSCORE_CATEGORY_PHASE_H_
 
-/**
- * @file Phase.h
- * @brief Marker base for phase categories.
- *
- * @details
- * This struct acts as a tag base for all phase-related categories.
- * Copy and move operations are deleted to ensure immutability and uniqueness.
- */
-
 #include "ecoscore/category/Category.h"
 
 namespace ecoscore::category {
 
     /**
-     * @brief Marker base for phase categories.
+     * @brief Phase category tag.
      */
     struct Phase : Category {
-        Phase() noexcept = default;
+    protected:
+        constexpr Phase() noexcept = default;
 
+    public:
         Phase(const Phase&) = delete;
         Phase& operator=(const Phase&) = delete;
-
-        Phase(Phase&&) = delete;
-        Phase& operator=(Phase&&) = delete;
-
         ~Phase() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "Phase"; }
     };
 
 } // namespace ecoscore::category

@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_FINALIZE_H_
 #define ECOSCORE_CATEGORY_PHASE_FINALIZE_H_
 
-/**
- * @file Finalize.h
- * @brief Concrete member representing the 'Finalize' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for Finalize phase.
+     * @brief Finalize phase member.
      */
-    struct Finalize final : Member<Finalize, ecoscore::category::Phase> {
-        friend Member<Finalize, ecoscore::category::Phase>;
+    struct Finalize final : Member<Finalize, Phase> {
+        friend Member<Finalize, Phase>;
 
     private:
         constexpr Finalize() noexcept = default;
         ~Finalize() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Finalize"; }
+        static constexpr std::string_view name() noexcept { return "Finalize"; }
+
+        static constexpr const Finalize& instance() noexcept {
+            static const Finalize inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Finalize& finalize = Finalize::instance();
 
 } // namespace ecoscore::category::phase
 

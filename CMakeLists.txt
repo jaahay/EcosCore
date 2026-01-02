@@ -15,5 +15,6 @@ add_subdirectory(src/category)
 add_smoke_test_for_headers(category)
 
 add_subdirectory(src/language)
+target_link_libraries(language INTERFACE category)
 #add_subdirectory(apps/language)
 add_smoke_test_for_headers(language)

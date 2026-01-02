@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_PHASE_END_H_
 #define ECOSCORE_CATEGORY_PHASE_END_H_
 
-/**
- * @file End.h
- * @brief Concrete member representing the 'End' phase.
- */
-
 #include "ecoscore/category/Member.h"
 #include "ecoscore/category/Phase.h"
-
-#include <string_view>
 
 namespace ecoscore::category::phase {
 
     /**
-     * @brief Concrete member for End phase.
+     * @brief End phase member.
      */
-    struct End final : Member<End, ecoscore::category::Phase> {
-        friend Member<End, ecoscore::category::Phase>;
+    struct End final : Member<End, Phase> {
+        friend Member<End, Phase>;
 
     private:
         constexpr End() noexcept = default;
         ~End() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "End"; }
+        static constexpr std::string_view name() noexcept { return "End"; }
+
+        static constexpr const End& instance() noexcept {
+            static const End inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const End& end = End::instance();
 
 } // namespace ecoscore::category::phase
 

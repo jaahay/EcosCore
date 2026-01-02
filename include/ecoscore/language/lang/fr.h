@@ -1,13 +1,15 @@
-// File: ecoscore/language/lang/fr.h
-//// File: EcosCore/src/ecoscore/language/lang/fr.ixx
-#ifndef ECOSCORE_LANGUAGE_LANG_FR_H
-#define ECOSCORE_LANGUAGE_LANG_FR_H
+// File: ecoscore/language/lang/Fr.h
+#ifndef ECOSCORE_LANGUAGE_LANG_FR_H_
+#define ECOSCORE_LANGUAGE_LANG_FR_H_
+
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
+#include <string_view>
+
 namespace ecoscore::language::lang {
 
-struct Fr final : ecoscore::category::Member<Fr, ecoscore::language::Language> {
+    struct Fr final : ecoscore::category::Member<Fr, ecoscore::language::Language> {
         friend ecoscore::category::Member<Fr, ecoscore::language::Language>;
 
     private:
@@ -15,10 +17,16 @@ struct Fr final : ecoscore::category::Member<Fr, ecoscore::language::Language> {
         ~Fr() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "fr"; }
+        static constexpr std::string_view name() noexcept { return "fr"; }
+
+        static constexpr const Fr& instance() noexcept {
+            static const Fr inst{};
+            return inst;
+        }
     };
 
-inline constexpr auto& fr = Fr::instance();
+    inline constexpr const Fr& fr = Fr::instance();
 
 } // namespace ecoscore::language::lang
-#endif // ECOSCORE_LANGUAGE_LANG_FR_H
+
+#endif // ECOSCORE_LANGUAGE_LANG_FR_H_

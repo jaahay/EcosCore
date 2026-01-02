@@ -1,29 +1,26 @@
 // File: ecoscore/language/TextRepresentation.h
-// /src/ecoscore/language/TextRepresentation.ixx
-#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
-#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
-
-
+#ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H_
+#define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H_
 
 #include "ecoscore/category/Category.h"
 
 namespace ecoscore::language {
 
     /**
-     * @brief Base CRTP template for all text representations.
-     *
-     * Represents any form of text encoding or character set.
+     * @brief Base category for all text representations.
      */
-template <typename Derived>
-        struct TextRepresentation : ecoscore::category::Category<Derived> {
-        protected:
-            constexpr TextRepresentation() noexcept = default;
+    struct TextRepresentation : ecoscore::category::Category {
+    protected:
+        constexpr TextRepresentation() noexcept = default;
 
-        public:
-            [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-                return Derived::static_name();
-} // namespace ecoscore::language
+    public:
+        TextRepresentation(const TextRepresentation&) = delete;
+        TextRepresentation& operator=(const TextRepresentation&) = delete;
+        ~TextRepresentation() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "TextRepresentation"; }
     };
 
-}  // namespace ecoscore::language
-#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H
+} // namespace ecoscore::language
+
+#endif // ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H_

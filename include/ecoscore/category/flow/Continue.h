@@ -2,31 +2,31 @@
 #ifndef ECOSCORE_CATEGORY_FLOW_CONTINUE_H_
 #define ECOSCORE_CATEGORY_FLOW_CONTINUE_H_
 
-/**
- * @file Continue.h
- * @brief Concrete member representing the 'Continue' flow.
- */
-
-#include "ecoscore/category/Flow.h"
 #include "ecoscore/category/Member.h"
-
-#include <string_view>
+#include "ecoscore/category/Flow.h"
 
 namespace ecoscore::category::flow {
 
     /**
-     * @brief Concrete member for Continue flow.
+     * @brief Continue flow member.
      */
-    struct Continue final : Member<Continue, ecoscore::category::Flow> {
-        friend Member<Continue, ecoscore::category::Flow>;
+    struct Continue final : Member<Continue, Flow> {
+        friend Member<Continue, Flow>;
 
     private:
         constexpr Continue() noexcept = default;
         ~Continue() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "Continue"; }
+        static constexpr std::string_view name() noexcept { return "Continue"; }
+
+        static constexpr const Continue& instance() noexcept {
+            static const Continue inst{};
+            return inst;
+        }
     };
+
+    inline constexpr const Continue& cont = Continue::instance();
 
 } // namespace ecoscore::category::flow
 

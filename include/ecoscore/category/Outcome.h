@@ -2,32 +2,23 @@
 #ifndef ECOSCORE_CATEGORY_OUTCOME_H_
 #define ECOSCORE_CATEGORY_OUTCOME_H_
 
-/**
- * @file Outcome.h
- * @brief Marker base for outcome categories.
- *
- * @details
- * This struct acts as a tag base for all outcome-related categories.
- * Copy and move operations are deleted to ensure immutability and uniqueness.
- */
-
 #include "ecoscore/category/Category.h"
 
 namespace ecoscore::category {
 
     /**
-     * @brief Marker base for outcome categories.
+     * @brief Outcome category tag.
      */
     struct Outcome : Category {
-        Outcome() noexcept = default;
+    protected:
+        constexpr Outcome() noexcept = default;
 
+    public:
         Outcome(const Outcome&) = delete;
         Outcome& operator=(const Outcome&) = delete;
-
-        Outcome(Outcome&&) = delete;
-        Outcome& operator=(Outcome&&) = delete;
-
         ~Outcome() noexcept = default;
+
+        static constexpr std::string_view name() noexcept { return "Outcome"; }
     };
 
 } // namespace ecoscore::category

@@ -1,15 +1,13 @@
 // File: ecoscore/language/Locale.h
-// /src/ecoscore/language/Locale.ixx
-#ifndef ECOSCORE_LANGUAGE_LOCALE_H
-#define ECOSCORE_LANGUAGE_LOCALE_H
-
-
+#ifndef ECOSCORE_LANGUAGE_LOCALE_H_
+#define ECOSCORE_LANGUAGE_LOCALE_H_
 
 #include "ecoscore/language/Langs.h"
 #include "ecoscore/language/Languages.h"
 #include "ecoscore/language/TextRepresentations.h"
-
 #include "ecoscore/category/Category.h"
+
+#include <string_view>
 
 namespace ecoscore::language {
 
@@ -18,7 +16,7 @@ namespace ecoscore::language {
      *
      * Now includes charset as a TextRepresentation reference.
      */
-struct Locale : ecoscore::category::Category<Locale> {
+    struct Locale : ecoscore::category::Category {
         using language_type = Language<Locale>; // or your Languages::Language if defined differently
         using charset_type = ecoscore::language::TextRepresentation;
 
@@ -26,7 +24,7 @@ struct Locale : ecoscore::category::Category<Locale> {
             std::string_view region = "",
             const charset_type& charset = UTF8::instance())
             : language(lang), region_code(region), charset(charset) {
-} // namespace ecoscore::language
+        }
 
         const language_type& language;
         std::string_view region_code;
@@ -44,8 +42,9 @@ struct Locale : ecoscore::category::Category<Locale> {
     };
 
     // Common locale instances for convenience
-    static constexpr Locale en_US{ &ecoscore::language::En, "US", &ecoscore::language::UTF8 };
-    static constexpr Locale fr_FR{ &ecoscore::language::Fr, "FR", &ecoscore::language::UTF8 };
+    static constexpr Locale en_US{ ecoscore::language::En::Instance, "US", ecoscore::language::UTF8::Instance };
+    static constexpr Locale fr_FR{ ecoscore::language::Fr::Instance, "FR", ecoscore::language::UTF8::Instance };
 
 }  // namespace ecoscore::language
-#endif // ECOSCORE_LANGUAGE_LOCALE_H
+
+#endif // ECOSCORE_LANGUAGE_LOCALE_H_

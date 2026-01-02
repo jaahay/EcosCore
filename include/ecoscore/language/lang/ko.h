@@ -1,17 +1,15 @@
-// File: ecoscore/language/lang/ko.h
-//// File: EcosCore/src/ecoscore/language/lang/ko.ixx
-#ifndef ECOSCORE_LANGUAGE_LANG_KO_H
-#define ECOSCORE_LANGUAGE_LANG_KO_H
-
-
-
+// File: ecoscore/language/lang/Ko.h
+#ifndef ECOSCORE_LANGUAGE_LANG_KO_H_
+#define ECOSCORE_LANGUAGE_LANG_KO_H_
 
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
+#include <string_view>
+
 namespace ecoscore::language::lang {
 
-struct Ko final : ecoscore::category::Member<Ko, ecoscore::language::Language> {
+    struct Ko final : ecoscore::category::Member<Ko, ecoscore::language::Language> {
         friend ecoscore::category::Member<Ko, ecoscore::language::Language>;
 
     private:
@@ -19,10 +17,16 @@ struct Ko final : ecoscore::category::Member<Ko, ecoscore::language::Language> {
         ~Ko() noexcept = default;
 
     public:
-        [[nodiscard]] static constexpr std::string_view name() noexcept { return "ko"; }
+        static constexpr std::string_view name() noexcept { return "ko"; }
+
+        static constexpr const Ko& instance() noexcept {
+            static const Ko inst{};
+            return inst;
+        }
     };
 
-inline constexpr auto& ko = Ko::instance();
+    inline constexpr const Ko& ko = Ko::instance();
 
 } // namespace ecoscore::language::lang
-#endif // ECOSCORE_LANGUAGE_LANG_KO_H
+
+#endif // ECOSCORE_LANGUAGE_LANG_KO_H_

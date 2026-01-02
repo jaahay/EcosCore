@@ -1,54 +1,56 @@
-// File: ecoscore/language/lang/translations/en.h
-// /src/ecoscore/language/translations/en.ixx
-#ifndef ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
-#define ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
-
-
+// File: ecoscore/language/translations/En.h
+#ifndef ECOSCORE_LANGUAGE_TRANSLATIONS_EN_H_
+#define ECOSCORE_LANGUAGE_TRANSLATIONS_EN_H_
 
 #include "ecoscore/language/NameSet.h"
-#include "ecoscore/language/lang/Lang.h"
+#include "ecoscore/language/lang/En.h"
+#include "ecoscore/language/lang/Ar.h"
+#include "ecoscore/language/lang/De.h"
+#include "ecoscore/language/lang/Es.h"
+#include "ecoscore/language/lang/Fr.h"
+#include "ecoscore/language/lang/ZhHans.h"
+#include "ecoscore/language/lang/ZhHant.h"
+#include "ecoscore/language/lang/Ja.h"
+#include "ecoscore/language/lang/Ko.h"
 #include "ecoscore/language/translation/Translation.h"
+
+#include <string_view>
+#include <unordered_map>
 
 namespace ecoscore::language::translations::en {
 
-    using namespace ecoscore::language;
-    using namespace ecoscore::language::lang;
-    using namespace ecoscore::language::translation;
-
     /**
-     * @brief English language identity translations into multiple languages.
+     * @brief English language translation container.
      */
-    struct EnglishTranslation final : Translation<EnglishTranslation> {
-        constexpr EnglishTranslation() noexcept = default;
-        constexpr ~EnglishTranslation() noexcept = default;
+    struct En final : translation::Translation<En> {
+        friend translation::Translation<En>;
 
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
+    private:
+        constexpr En() noexcept = default;
+        ~En() noexcept = default;
+
+    public:
+        static constexpr std::string_view static_name() noexcept {
             return "EnglishTranslation";
-} // namespace ecoscore::language::translations::en
-
-        const std::unordered_map<const Languages::Language*, NameSet> translations{
-            { &En,    NameSet{ "English", "EN", "Eng" } },
-            { &Ar,    NameSet{ "الإنجليزية", "إنجليزي", "اللغة الإنجليزية" } },
-            { &De,    NameSet{ "Englisch", "EN" } },
-            { &Es,    NameSet{ "Inglés", "Idioma inglés" } },
-            { &Fr,    NameSet{ "Anglais", "Langue anglaise" } },
-            { &ZhHans,NameSet{ "英语", "英文" } },
-            { &ZhHant,NameSet{ "英語", "英文" } },
-            { &Ja,    NameSet{ "英語", "英語の言語" } },
-            { &Ko,    NameSet{ "영어", "영국 영어" } }
-        };
-
-        [[nodiscard]] const NameSet& get(const Languages::Language& lang) const noexcept {
-            auto it = translations.find(&lang);
-            if (it != translations.end()) {
-                return it->second;
-            }
-            static constexpr NameSet fallback{ "English (translation unavailable)" };
-            return fallback;
         }
+
+        static const std::unordered_map<const ecoscore::language::Language*, NameSet> members;
     };
 
-constexpr EnglishTranslation EnglishTranslationInstance{};
+    inline const std::unordered_map<const ecoscore::language::Language*, NameSet> En::members{
+        { &lang::En::Instance,     NameSet{ "English", "EN", "Eng" } },
+        { &lang::Ar::Instance,     NameSet{ "الإنجليزية", "إنجليزي", "اللغة الإنجليزية" } },
+        { &lang::De::Instance,     NameSet{ "Englisch", "EN" } },
+        { &lang::Es::Instance,     NameSet{ "Inglés", "Idioma inglés" } },
+        { &lang::Fr::Instance,     NameSet{ "Anglais", "Langue anglaise" } },
+        { &lang::ZhHans::Instance, NameSet{ "英语", "英文" } },
+        { &lang::ZhHant::Instance, NameSet{ "英語", "英文" } },
+        { &lang::Ja::Instance,     NameSet{ "英語", "英語の言語" } },
+        { &lang::Ko::Instance,     NameSet{ "영어", "영국 영어" } }
+    };
 
-}
-#endif // ECOSCORE_LANGUAGE_LANG_TRANSLATIONS_EN_H
+    inline constexpr En en{};
+
+} // namespace ecoscore::language::translations::en
+
+#endif // ECOSCORE_LANGUAGE_TRANSLATIONS_EN_H_
