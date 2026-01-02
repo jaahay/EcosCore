@@ -7,26 +7,23 @@
 
 namespace ecoscore::category::outcome {
 
-    /**
-     * @brief Pass outcome member.
-     */
-    struct Pass final : Member<Pass, Outcome> {
-        friend Member<Pass, Outcome>;
+    struct Pass final : ecoscore::category::Member<Pass, ecoscore::category::Outcome> {
+        // Grant base class access to private constructor
+        friend struct ecoscore::category::Member<Pass, ecoscore::category::Outcome>;
 
     private:
         constexpr Pass() noexcept = default;
         ~Pass() noexcept = default;
 
+        static constexpr Pass create() { return Pass{}; }
     public:
-        static constexpr std::string_view name() noexcept { return "Pass"; }
-
-        static constexpr const Pass& instance() noexcept {
-            static const Pass inst{};
-            return inst;
+        static constexpr std::string_view name() noexcept {
+            return "Pass";
         }
     };
 
-    inline constexpr const Pass& pass = Pass::instance();
+    // Optional convenient alias
+    inline constexpr const Pass& pass = Pass::instance;
 
 } // namespace ecoscore::category::outcome
 

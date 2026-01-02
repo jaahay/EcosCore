@@ -1,26 +1,32 @@
 // File: ecoscore/category/Phase.h
-#ifndef ECOSCORE_CATEGORY_PHASE_H_
-#define ECOSCORE_CATEGORY_PHASE_H_
+#ifndef ECOSCORE_CATEGORY_OUTCOME_PASS_H_
+#define ECOSCORE_CATEGORY_OUTCOME_PASS_H_
 
-#include "ecoscore/category/Category.h"
+#include "ecoscore/category/Outcome.h"
 
-namespace ecoscore::category {
+namespace ecoscore::category::outcome {
+    struct Pass;  // Forward declaration
+}
 
-    /**
-     * @brief Phase category tag.
-     */
-    struct Phase : Category {
-    protected:
-        constexpr Phase() noexcept = default;
+#include "ecoscore/category/Member.h"
+#include <string_view>
+
+namespace ecoscore::category::outcome {
+
+    struct Pass final : ecoscore::category::Member<Pass, ecoscore::category::Outcome> {
+        friend struct ecoscore::category::Member<Pass, ecoscore::category::Outcome>;
+
+    private:
+        constexpr Pass() noexcept = default;
+        ~Pass() noexcept = default;
 
     public:
-        Phase(const Phase&) = delete;
-        Phase& operator=(const Phase&) = delete;
-        ~Phase() noexcept = default;
-
-        static constexpr std::string_view name() noexcept { return "Phase"; }
+        static constexpr std::string_view name() noexcept { return "Pass"; }
+        static constexpr Pass create() { return Pass{}; }
     };
 
-} // namespace ecoscore::category
+    inline constexpr const Pass& pass = Pass::instance;
 
-#endif // ECOSCORE_CATEGORY_PHASE_H_
+} // namespace ecoscore::category::outcome
+
+#endif // ECOSCORE_CATEGORY_OUTCOME_PASS_H_

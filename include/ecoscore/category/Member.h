@@ -3,48 +3,26 @@
 #define ECOSCORE_CATEGORY_MEMBER_H_
 
 #include "ecoscore/category/Category.h"
+#include <string_view>
 
 namespace ecoscore::category {
 
-    /**
-     * @brief CRTP base class for singleton members of a category.
-     *
-     * @tparam Derived The concrete derived member type.
-     * @tparam Base The category base type (defaults to Category).
-     */
     template <typename Derived, typename Base = Category>
     struct Member : Base {
-    protected:
-        constexpr Member() noexcept
-            : Base()
-            , wrapper_(Wrapper::instance())
-        {
+    private:
+        static constexpr Derived createInstance() {
+            return Derived::create();
         }
 
     public:
-        Member(const Member&) = delete;
-        Member& operator=(const Member&) = delete;
-        ~Member() noexcept = default;
+        static inline constexpr Derived instance = createInstance();
 
-        std::string_view name() const noexcept {
-            return wrapper_.name();
+        static constexpr std::string_view name() noexcept {
+            return Derived::name();
         }
 
-        static constexpr const Derived& Instance = Derived::instance();
-
-    private:
-        struct Wrapper final : Category::Wrapper {
-            static const Wrapper& instance() {
-                static const Wrapper inst{};
-                return inst;
-            }
-
-            std::string_view name() const noexcept {
-                return Derived::name();
-            }
-        };
-
-        const Wrapper& wrapper_;
+    protected:
+        constexpr Member() noexcept = default;
     };
 
 } // namespace ecoscore::category

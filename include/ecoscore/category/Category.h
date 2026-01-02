@@ -6,40 +6,18 @@
 
 namespace ecoscore::category {
 
-    /**
-     * @brief Abstract base tag for all categories.
-     *
-     * Non-instantiable and immutable.
-     */
     struct Category {
     protected:
-        constexpr Category() noexcept
-            : wrapper_(Wrapper::instance())
-        {
-        }
+        constexpr Category() noexcept = default;
 
     public:
         Category(const Category&) = delete;
         Category& operator=(const Category&) = delete;
         ~Category() noexcept = default;
 
-        std::string_view name() const noexcept {
-            return wrapper_.name();
+        static constexpr std::string_view name() noexcept {
+            return "Category";
         }
-
-    private:
-        struct Wrapper final {
-            static const Wrapper& instance() {
-                static const Wrapper inst{};
-                return inst;
-            }
-
-            std::string_view name() const noexcept {
-                return Category::name();
-            }
-        };
-
-        const Wrapper& wrapper_;
     };
 
 } // namespace ecoscore::category
