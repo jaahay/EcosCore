@@ -8,8 +8,8 @@ add_subdirectory(tools)
 
 add_subdirectory(src/meta)
 add_subdirectory(apps/meta)
-add_smoke_test_for_headers(meta include/ecoscore/meta)
+add_smoke_test_for_headers(meta)
 
 add_subdirectory(src/category)
 add_subdirectory(apps/category)
-add_smoke_test_for_headers(category include/ecoscore/category)
+add_smoke_test_for_headers(category)
