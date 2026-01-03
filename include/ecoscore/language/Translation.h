@@ -1,4 +1,4 @@
-// File: ecoscore/language/translation/Translation.h
+// File: ecoscore/language/Translation.h
 #ifndef ECOSCORE_LANGUAGE_TRANSLATION_H_
 #define ECOSCORE_LANGUAGE_TRANSLATION_H_
 
@@ -9,7 +9,7 @@
 #include <string_view>
 #include <unordered_map>
 
-namespace ecoscore::language::translation {
+namespace ecoscore::language {
 
     /**
      * @brief Base CRTP tag for translation containers.
@@ -19,7 +19,6 @@ namespace ecoscore::language::translation {
      *
      * @tparam Derived Concrete translation container.
      */
-    template <typename Derived>
     struct Translation : ecoscore::category::Category {
     protected:
         constexpr Translation() noexcept = default;
@@ -38,13 +37,14 @@ namespace ecoscore::language::translation {
          * @param lang Language to get translation for.
          * @return const reference to NameSet.
          */
-        [[nodiscard]] const NameSet& get(const ecoscore::language::Language& lang) const noexcept final {
-            const auto& map = static_cast<const Derived&>(*this).NameSets();
+        [[nodiscard]] const NameSet& get(const Language& lang) const noexcept {
+            const auto& map = NameSets();
             auto it = map.find(&lang);
             if (it != map.end()) {
                 return it->second;
             }
-            static constexpr NameSet fallback{ Derived::static_name() + " (translation unavailable)" };
+            //static constexpr NameSet fallback{ ( static_name() + " (translation unavailable)" ) };
+            static constexpr NameSet fallback{};
             return fallback;
         }
 
@@ -56,16 +56,16 @@ namespace ecoscore::language::translation {
          *
          * @return const reference to translation map.
          */
-        [[nodiscard]] virtual const std::unordered_map<const ecoscore::language::Language*, NameSet>& NameSets() const noexcept {
-            static const std::unordered_map<const ecoscore::language::Language*, NameSet> fallback{ };
+        [[nodiscard]] virtual const std::unordered_map<const Language*, NameSet>& NameSets() const noexcept {
+            static const std::unordered_map<const Language*, NameSet> fallback{ };
             return fallback;
         }
 
         [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return Derived::static_name();
+            return "Translation";
         }
     };
 
-} // namespace ecoscore::language::translation
+} // namespace ecoscore::language
 
 #endif // ECOSCORE_LANGUAGE_TRANSLATION_H_

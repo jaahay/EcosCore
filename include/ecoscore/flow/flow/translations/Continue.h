@@ -1,9 +1,9 @@
-// File: ecoscore/category/flow/translations/Continue.h
+// File: ecoscore/flow/flow/translations/Continue.h
 #ifndef ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H_
 #define ECOSCORE_CATEGORY_FLOW_TRANSLATIONS_CONTINUE_H_
 
 #include "ecoscore/category/Member.h"
-#include "ecoscore/category/Flow.h"
+#include "ecoscore/flow/Flow.h"
 #include "ecoscore/language/NameSet.h"
 #include "ecoscore/language/lang/En.h"
 #include "ecoscore/language/lang/Ar.h"
@@ -24,9 +24,9 @@ namespace ecoscore::category::flow::translations {
     /**
      * @brief Continue flow translation member.
      */
-    struct Continue final : ecoscore::category::Member<Continue, ecoscore::category::Flow>,
+    struct Continue final : ecoscore::category::Member<Continue, Flow>,
         ecoscore::language::translation::Translation<Continue> {
-        friend ecoscore::category::Member<Continue, ecoscore::category::Flow>;
+        friend ecoscore::category::Member<Continue, Flow>;
         friend ecoscore::language::translation::Translation<Continue>;
 
     private:
