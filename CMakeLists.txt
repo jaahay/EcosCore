@@ -7,16 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(tools)
 
 add_subdirectory(src/meta)
-#add_subdirectory(apps/meta)
 add_smoke_test_for_headers(meta)
 
 add_subdirectory(src/category)
-#add_subdirectory(apps/category)
 add_smoke_test_for_headers(category)
 
 add_subdirectory(src/language)
 target_link_libraries(language INTERFACE category)
-#add_subdirectory(apps/language)
 add_smoke_test_for_headers(language)
 
 add_subdirectory(src/flow)
