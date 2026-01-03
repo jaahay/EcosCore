@@ -5,27 +5,25 @@
 #include "ecoscore/category/Member.h"
 #include "ecoscore/language/Language.h"
 
-#include <string_view>
-
 namespace ecoscore::language::lang {
 
-    struct Fr final : ecoscore::category::Member<Fr, ecoscore::language::Language> {
-        friend ecoscore::category::Member<Fr, ecoscore::language::Language>;
+    /**
+     * @brief Fr language.
+     */
+    struct Fr final : ecoscore::category::Member<Fr, Language> {
+        friend ecoscore::category::Member<Fr, Language>;
 
     private:
         constexpr Fr() noexcept = default;
         ~Fr() noexcept = default;
 
+        static constexpr Fr create() { return Fr{}; }
     public:
-        static constexpr std::string_view name() noexcept { return "fr"; }
+        static constexpr std::string_view name() noexcept { return "Fr"; }
 
-        static constexpr const Fr& instance() noexcept {
-            static const Fr inst{};
-            return inst;
-        }
     };
 
-    inline constexpr const Fr& fr = Fr::instance();
+    inline constexpr const Fr& fr = Fr::instance;
 
 } // namespace ecoscore::language::lang
 

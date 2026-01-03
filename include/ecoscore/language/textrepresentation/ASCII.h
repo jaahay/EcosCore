@@ -2,30 +2,28 @@
 #ifndef ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H_
 #define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_ASCII_H_
 
-#include "TextRepresentation.h"
+#include "ecoscore/category/Member.h"
+#include "ecoscore/language/TextRepresentation.h"
 
 namespace ecoscore::language::textrepresentation {
 
     /**
-     * @brief ASCII text representation.
+     * @brief ASCII character set.
      */
-    struct ASCII final : ecoscore::category::Member<ASCII, ecoscore::language::TextRepresentation> {
-        friend ecoscore::category::Member<ASCII, ecoscore::language::TextRepresentation>;
+    struct ASCII final : ecoscore::category::Member<ASCII, TextRepresentation> {
+        friend ecoscore::category::Member<ASCII, TextRepresentation>;
 
     private:
         constexpr ASCII() noexcept = default;
         ~ASCII() noexcept = default;
 
+        static constexpr ASCII create() { return ASCII{}; }
     public:
         static constexpr std::string_view name() noexcept { return "ASCII"; }
 
-        static constexpr const ASCII& instance() noexcept {
-            static const ASCII inst{};
-            return inst;
-        }
     };
 
-    inline constexpr const ASCII& ascii = ASCII::instance();
+    inline constexpr const ASCII& ascii = ASCII::instance;
 
 } // namespace ecoscore::language::textrepresentation
 

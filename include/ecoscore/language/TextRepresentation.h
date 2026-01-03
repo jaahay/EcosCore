@@ -3,12 +3,10 @@
 #define ECOSCORE_LANGUAGE_TEXTREPRESENTATION_H_
 
 #include "ecoscore/category/Category.h"
+#include <string_view>
 
 namespace ecoscore::language {
 
-    /**
-     * @brief Base category for all text representations.
-     */
     struct TextRepresentation : ecoscore::category::Category {
     protected:
         constexpr TextRepresentation() noexcept = default;
@@ -18,7 +16,9 @@ namespace ecoscore::language {
         TextRepresentation& operator=(const TextRepresentation&) = delete;
         ~TextRepresentation() noexcept = default;
 
-        static constexpr std::string_view name() noexcept { return "TextRepresentation"; }
+        static constexpr std::string_view name() noexcept {
+            return "TextRepresentation";
+        }
     };
 
 } // namespace ecoscore::language

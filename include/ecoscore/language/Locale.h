@@ -2,9 +2,9 @@
 #ifndef ECOSCORE_LANGUAGE_LOCALE_H_
 #define ECOSCORE_LANGUAGE_LOCALE_H_
 
-#include "ecoscore/language/Langs.h"
-#include "ecoscore/language/Languages.h"
-#include "ecoscore/language/TextRepresentations.h"
+#include "ecoscore/language/Lang.h"
+#include "ecoscore/language/Language.h"
+#include "ecoscore/language/TextRepresentation.h"
 #include "ecoscore/category/Category.h"
 
 #include <string_view>
@@ -17,8 +17,8 @@ namespace ecoscore::language {
      * Now includes charset as a TextRepresentation reference.
      */
     struct Locale : ecoscore::category::Category {
-        using language_type = Language<Locale>; // or your Languages::Language if defined differently
-        using charset_type = ecoscore::language::TextRepresentation;
+        using language_type = Language; // or your Languages::Language if defined differently
+        using charset_type = TextRepresentation;
 
         constexpr Locale(const language_type& lang,
             std::string_view region = "",

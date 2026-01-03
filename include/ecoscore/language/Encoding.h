@@ -2,7 +2,7 @@
 #ifndef ECOSCORE_LANGUAGE_ENCODING_H_
 #define ECOSCORE_LANGUAGE_ENCODING_H_
 
-#include "TextRepresentation.h"
+#include "ecoscore/language/TextRepresentation.h"
 
 namespace ecoscore::language {
 

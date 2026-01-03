@@ -22,11 +22,15 @@ namespace ecoscore::language {
     struct Translation : ecoscore::category::Category {
     protected:
         constexpr Translation() noexcept = default;
-        constexpr ~Translation() noexcept = default;
 
     public:
         Translation(const Translation&) = delete;
         Translation& operator=(const Translation&) = delete;
+        ~Translation() noexcept = default;
+
+        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
+            return "Translation";
+        }
 
         /**
          * @brief Retrieve the NameSet for a given language.
@@ -59,10 +63,6 @@ namespace ecoscore::language {
         [[nodiscard]] virtual const std::unordered_map<const Language*, NameSet>& NameSets() const noexcept {
             static const std::unordered_map<const Language*, NameSet> fallback{ };
             return fallback;
-        }
-
-        [[nodiscard]] static constexpr std::string_view static_name() noexcept {
-            return "Translation";
         }
     };
 
