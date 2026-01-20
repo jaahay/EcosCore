@@ -1,4 +1,3 @@
-```markdown
 # EcosCore Language Domain
 
 ## Overview
@@ -44,4 +43,3 @@ Add new languages or translations by defining new singleton members inheriting f
 ## License
 
 MIT License
-```
